@@ -39,6 +39,12 @@ CUES = [
 POSES = [(0,1.6,"L"),(1.6,2.7,"R"),(2.7,3.9,"T"),(3.9,7.7,"L"),(7.7,12.9,"R"),(12.9,14.1,"L"),(14.1,15.4,"R"),(15.4,16.6,"T"),
  (16.6,20.9,"L"),(20.9,24.7,"R"),(24.7,26.2,"L"),(26.2,28.2,"R"),(28.2,29.4,"T"),(29.4,34.4,"L"),(34.4,41.8,"R"),
  (41.8,43.0,"L"),(43.0,45.1,"R"),(45.1,46.2,"T"),(46.2,55.5,"L"),(55.5,CTA,"R")]
+# Voice sped from 1.2x to 1.5x of natural speed: every time scales by 1.2/1.5
+K = 0.8
+TOOLS = [(a,b,c,d,round(e*K,3),round(f*K,3),g,(round(m*K,3) if m else None)) for (a,b,c,d,e,f,g,m) in TOOLS]
+CUES = [(round(a*K,3),round(b*K,3),t) for (a,b,t) in CUES]
+POSES = [(round(a*K,3),round(b*K,3),p) for (a,b,p) in POSES]
+CTA = round(CTA*K,3); DUR = 52.4
 POSEFILE = {"L":"pose_pointL.png","R":"pose_pointR.png","T":"pose_think.png"}
 
 h=[]; js=[]
