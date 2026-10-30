@@ -42,10 +42,9 @@ sfx=np.zeros(N); scenes=[1,2,3,4]
 for s in scenes:
     i1,i2,a,b=[clips[f"s{s}-{k}"] for k in("i1","i2","a","b")]
     t0 = 0.0 if s==1 else i1["start"]-0.12
-    add(sfx,boom(),t0,0.55); add(sfx,whoosh(),t0,0.5)
     add(sfx,click(),t0+0.05 if s==1 else i1["start"]-0.03,0.8); add(sfx,click(),i2["start"]-0.03,0.8)
-    add(sfx,whoosh(),a["start"]-0.25,0.55); add(sfx,click(),b["start"]-0.03,0.8); add(sfx,whoosh(),b["start"]-0.3,0.45)
-add(sfx,pop(),CARD,1.0); add(sfx,whoosh(),CARD-0.2,0.35)   # follow card: pop only, no dialogue
+    add(sfx,click(),b["start"]-0.03,0.8)
+add(sfx,click(),CARD,1.0)   # follow card: uploaded click only
 mix=v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
 mix=mix[:int(DUR*SR)]
 pcm=(mix*32767).astype(np.int16); wv=wave.open(str(A/"mix.wav"),"wb"); wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes(pcm.tobytes()); wv.close()

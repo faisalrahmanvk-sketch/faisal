@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "0c551721-b1a6-494f-8af8-2ac02546a16e",
-  "currentRevision": "f6e63176-bb55-4468-8c26-170f09d681e5",
+  "currentRevision": "1d29e59d-2808-4d5b-add9-5f1a5564adab",
   "pendingChanges": false,
   "files": {
     "STATUS.md": {
@@ -245,16 +245,16 @@
       "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/ec/ec30a2e2118b3180a678d3b6d5c10f6a1f0590caf04832af2379bf6be6f24044"
     },
     "tools/sound.py": {
-      "hash": "4f526a0b4087a97693592a6c81fd80c4aab6b1ecac9f897292b1fb08d39de38d",
-      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/4f/4f526a0b4087a97693592a6c81fd80c4aab6b1ecac9f897292b1fb08d39de38d"
+      "hash": "bb085ad822b6937551f565202f7d062ddb6ae380d2c89f5c8254ae9b3a90d64d",
+      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/bb/bb085ad822b6937551f565202f7d062ddb6ae380d2c89f5c8254ae9b3a90d64d"
     },
     "audio/mix.mp3": {
-      "hash": "3d9f20f0f405d256e3e6a501e7e6ccb2f118df49a1d2acd35bcd29bd4f9d4d7a",
-      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/3d/3d9f20f0f405d256e3e6a501e7e6ccb2f118df49a1d2acd35bcd29bd4f9d4d7a"
+      "hash": "1ba0b1b34bf677fa4f414cc729315e1ac7e3b5fb8edcde3ae50107ceded44cf3",
+      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/1b/1ba0b1b34bf677fa4f414cc729315e1ac7e3b5fb8edcde3ae50107ceded44cf3"
     },
     "audio/mix.wav": {
-      "hash": "a572d37e07cdcae080dfaf15f2bbbfbc940484956e055cbbb159874c2ce09cdc",
-      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/a5/a572d37e07cdcae080dfaf15f2bbbfbc940484956e055cbbb159874c2ce09cdc"
+      "hash": "c24c7126b932007aff89760a73c57b4b33bdadb3db9132f76f4e8fc0d4bd49a2",
+      "content": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/c2/c24c7126b932007aff89760a73c57b4b33bdadb3db9132f76f4e8fc0d4bd49a2"
     },
     "audio/voice_all.wav": {
       "hash": "87f0d14d2d53e03be86116290c8599b178cef635d25717f5aa5a2fd98c7fa8ce",
@@ -383,6 +383,29 @@
         "tools/sound.py": {
           "before": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/79/795c88644b6e510f72aba0d100419b90ba094d23d373163ebc2566e1264f3ac1",
           "after": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/4f/4f526a0b4087a97693592a6c81fd80c4aab6b1ecac9f897292b1fb08d39de38d"
+        }
+      }
+    },
+    "1d29e59d-2808-4d5b-add9-5f1a5564adab": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793392046009,
+      "endedAt": 1793392046031,
+      "files": {
+        "audio/mix.mp3": {
+          "before": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/3d/3d9f20f0f405d256e3e6a501e7e6ccb2f118df49a1d2acd35bcd29bd4f9d4d7a",
+          "after": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/1b/1ba0b1b34bf677fa4f414cc729315e1ac7e3b5fb8edcde3ae50107ceded44cf3"
+        },
+        "audio/mix.wav": {
+          "before": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/a5/a572d37e07cdcae080dfaf15f2bbbfbc940484956e055cbbb159874c2ce09cdc",
+          "after": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/c2/c24c7126b932007aff89760a73c57b4b33bdadb3db9132f76f4e8fc0d4bd49a2"
+        },
+        "tools/sound.py": {
+          "before": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/4f/4f526a0b4087a97693592a6c81fd80c4aab6b1ecac9f897292b1fb08d39de38d",
+          "after": "/root/.cache/hyperframes/history/0c551721-b1a6-494f-8af8-2ac02546a16e/blobs/bb/bb085ad822b6937551f565202f7d062ddb6ae380d2c89f5c8254ae9b3a90d64d"
         }
       }
     }
@@ -603,8 +626,8 @@
   },
   "renders": {
     "latest": {
-      "id": "057bdec1-f93e-4179-92ef-af6d8a20fd44",
-      "completedAt": 1793391880733,
+      "id": "c55e04a5-cd36-4c26-b22c-530cca574f0e",
+      "completedAt": 1793392154104,
       "output": "/home/user/faisal/reel2/out/reel2.mp4",
       "status": "completed",
       "revision": null
