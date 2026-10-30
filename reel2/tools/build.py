@@ -1,7 +1,7 @@
 """Generates index.html for reel 2 from audio/timeline.json (ElevenLabs line durations at 1.25x)."""
 import html, json, pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
-tl = json.load(open(R/"audio"/"timeline.json"))["clips"]; DUR = json.load(open(R/"tools"/"dur.json"))["dur"]
+tl = json.load(open(R/"audio"/"timeline.json"))["clips"]; _d = json.load(open(R/"tools"/"dur.json")); DUR = _d["dur"]; CARD = _d["card"]
 L, RT = -262, 262
 SCENES = [
  ("Microsoft Copilot","copilot.png","ChatGPT","chatgpt.png",
@@ -35,7 +35,7 @@ for si,(xl,xi,yl,yi,atx,btx) in enumerate(SCENES):
     i1,i2,q,a,b = tl[5*si:5*si+5]
     nxt = tl[5*si+5]["start"] if si < nscenes-1 else DUR
     s0 = 0.0 if si==0 else i1["start"]-0.1
-    end = nxt-0.1 if si < nscenes-1 else DUR
+    end = nxt-0.1 if si < nscenes-1 else CARD
     tool(f"x{si}", xl, xi, s0, b["start"]+0.05, L, mv=a["start"]-0.1, pop_at=(0.0 if si==0 else i1["start"]-0.03))
     tool(f"ya{si}", yl, yi, i2["start"]-0.03, a["start"]+0.1, RT)
     tool(f"yb{si}", yl, yi, b["start"]-0.03, end, 0)
@@ -49,9 +49,11 @@ PF = {"L":"pose_pointL.png","R":"pose_pointR.png","T":"pose_think.png"}
 for i,(s,e,p) in enumerate(poses):
     clip(f"p{i}", s, e, f'<img id="p{i}-in" class="pose{" think" if p=="T" else ""}" src="assets/{PF[p]}" alt="character">', z=2)
     js.append(f'tl.fromTo("#p{i}-in",{{y:0}},{{y:-9,duration:{(e-s)/2:.3f},ease:"sine.inOut",yoyo:true,repeat:1}},{s:.3f});')
-clip("wm", 0, DUR, '<div class="wm">@fyze.ai</div>', z=4)
+clip("endcard", CARD, DUR, '<img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai">', z=6)
+js.append(f'tl.fromTo("#endcard-in",{{opacity:0,scale:1.05}},{{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"}},{CARD});')
+clip("wm", 0, CARD, '<div class="wm">@fyze.ai</div>', z=4)
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
-CSS = CSS.replace(".endimg{", ".endimg_unused{")
+CSS = CSS
 doc = f"""<!doctype html>
 <html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
 <script src="assets/gsap.min.js"></script>

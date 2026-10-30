@@ -3,7 +3,7 @@ import json, wave, pathlib, numpy as np, subprocess
 R = pathlib.Path(__file__).resolve().parent.parent; A = R/"audio"; SR = 44100
 tl = json.load(open(A/"timeline.json")); clips = {}
 for c in tl["clips"]: clips.setdefault(c["clip"], c)   # first occurrence
-DUR = float(json.load(open(R/"tools"/"dur.json"))["dur"])
+_d = json.load(open(R/"tools"/"dur.json")); DUR = float(_d["dur"]); CARD = float(_d["card"])
 rng = np.random.default_rng(7)
 N = int(DUR*SR)+SR; t_ = lambda d: np.arange(int(d*SR))/SR
 def add(buf, x, at, g=1.0):
@@ -43,8 +43,8 @@ for s in scenes:
     add(sfx,boom(),t0,0.55); add(sfx,whoosh(),t0,0.5)
     add(sfx,pop(),t0+0.05 if s==1 else i1["start"]-0.03,0.8); add(sfx,pop(),i2["start"]-0.03,0.8)
     add(sfx,whoosh(),a["start"]-0.25,0.55); add(sfx,pop(),b["start"]-0.03,0.8); add(sfx,whoosh(),b["start"]-0.3,0.45)
-add(sfx,boom(),v.size and (tl["clips"][-1]["end"]+0.05),0.4)
-mix=v+bgm+sfx*0.55; mix=np.tanh(mix*1.1)*0.92
+add(sfx,pop(),CARD,1.0); add(sfx,whoosh(),CARD-0.2,0.35)   # follow card: pop only, no dialogue
+mix=v+sfx*0.55   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
 mix=mix[:int(DUR*SR)]
 pcm=(mix*32767).astype(np.int16); wv=wave.open(str(A/"mix.wav"),"wb"); wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes(pcm.tobytes()); wv.close()
 subprocess.run(["ffmpeg","-v","error","-y","-i",str(A/"mix.wav"),"-b:a","192k",str(A/"mix.mp3")],check=True)
