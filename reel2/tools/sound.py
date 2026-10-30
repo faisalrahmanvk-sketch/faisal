@@ -9,6 +9,8 @@ N = int(DUR*SR)+SR; t_ = lambda d: np.arange(int(d*SR))/SR
 def add(buf, x, at, g=1.0):
     i = int(at*SR); x = x[:max(0,len(buf)-i)]
     if i < len(buf): buf[i:i+len(x)] += x*g
+def click():
+    w=wave.open(str(A/'click.wav')); x=np.frombuffer(w.readframes(w.getnframes()),dtype=np.int16).astype(float)/32768; return x
 def pop(): t=t_(0.16); return np.sin(2*np.pi*(380+1500*t)*t)*np.exp(-t*34)
 def boom():
     t=t_(0.9); k=np.sin(2*np.pi*(95*np.exp(-t*3.2)+38)*t)*np.exp(-t*4.2); n=rng.standard_normal(len(t))*np.exp(-t*30)*0.25
@@ -41,10 +43,10 @@ for s in scenes:
     i1,i2,a,b=[clips[f"s{s}-{k}"] for k in("i1","i2","a","b")]
     t0 = 0.0 if s==1 else i1["start"]-0.12
     add(sfx,boom(),t0,0.55); add(sfx,whoosh(),t0,0.5)
-    add(sfx,pop(),t0+0.05 if s==1 else i1["start"]-0.03,0.8); add(sfx,pop(),i2["start"]-0.03,0.8)
-    add(sfx,whoosh(),a["start"]-0.25,0.55); add(sfx,pop(),b["start"]-0.03,0.8); add(sfx,whoosh(),b["start"]-0.3,0.45)
+    add(sfx,click(),t0+0.05 if s==1 else i1["start"]-0.03,0.8); add(sfx,click(),i2["start"]-0.03,0.8)
+    add(sfx,whoosh(),a["start"]-0.25,0.55); add(sfx,click(),b["start"]-0.03,0.8); add(sfx,whoosh(),b["start"]-0.3,0.45)
 add(sfx,pop(),CARD,1.0); add(sfx,whoosh(),CARD-0.2,0.35)   # follow card: pop only, no dialogue
-mix=v+sfx*0.55   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
+mix=v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
 mix=mix[:int(DUR*SR)]
 pcm=(mix*32767).astype(np.int16); wv=wave.open(str(A/"mix.wav"),"wb"); wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes(pcm.tobytes()); wv.close()
 subprocess.run(["ffmpeg","-v","error","-y","-i",str(A/"mix.wav"),"-b:a","192k",str(A/"mix.mp3")],check=True)
