@@ -88,7 +88,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
 .logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
 .ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
 .cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
-.cap span{display:block;font-weight:800;font-size:64px;line-height:1.28;letter-spacing:-0.5px}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
 .pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
 .pose.think{margin-left:-123px}
 .endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
