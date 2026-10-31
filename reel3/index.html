@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="49.5" data-width="1080" data-height="1920">
+<div id="t-x0" class="clip " data-start="0.000" data-duration="8.924" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x0-in" class="toolin"><div class="lbl">Instagram Reels</div><div class="logo"><img src="assets/reels.png" alt="Instagram Reels logo"></div></div></div></div>
+<div id="t-ya0" class="clip " data-start="1.790" data-duration="2.612" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya0-in" class="toolin"><div class="lbl">YouTube Shorts</div><div class="logo"><img src="assets/shorts.png" alt="YouTube Shorts logo"></div></div></div></div>
+<div id="t-yb0" class="clip " data-start="8.844" data-duration="4.111" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb0-in" class="toolin"><div class="lbl">YouTube Shorts</div><div class="logo"><img src="assets/shorts.png" alt="YouTube Shorts logo"></div></div></div></div>
+<div id="t-x1" class="clip " data-start="12.955" data-duration="7.834" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x1-in" class="toolin"><div class="lbl">Instagram Followers</div><div class="logo"><img src="assets/igperson.png" alt="Instagram Followers logo"></div></div></div></div>
+<div id="t-ya1" class="clip " data-start="14.577" data-duration="2.819" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya1-in" class="toolin"><div class="lbl">YouTube Subscribers</div><div class="logo"><img src="assets/subscribe.png" alt="YouTube Subscribers logo"></div></div></div></div>
+<div id="t-yb1" class="clip " data-start="20.709" data-duration="4.772" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb1-in" class="toolin"><div class="lbl">YouTube Subscribers</div><div class="logo"><img src="assets/subscribe.png" alt="YouTube Subscribers logo"></div></div></div></div>
+<div id="t-x2" class="clip " data-start="25.481" data-duration="6.542" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x2-in" class="toolin"><div class="lbl">Views</div><div class="logo"><img src="assets/views.png" alt="Views logo"></div></div></div></div>
+<div id="t-ya2" class="clip " data-start="26.664" data-duration="2.341" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya2-in" class="toolin"><div class="lbl">Reach</div><div class="logo"><img src="assets/reach.png" alt="Reach logo"></div></div></div></div>
+<div id="t-yb2" class="clip " data-start="31.943" data-duration="3.811" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb2-in" class="toolin"><div class="lbl">Reach</div><div class="logo"><img src="assets/reach.png" alt="Reach logo"></div></div></div></div>
+<div id="t-x3" class="clip " data-start="35.754" data-duration="7.559" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x3-in" class="toolin"><div class="lbl">Likes</div><div class="logo"><img src="assets/likes.png" alt="Likes logo"></div></div></div></div>
+<div id="t-ya3" class="clip " data-start="36.899" data-duration="2.366" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya3-in" class="toolin"><div class="lbl">Shares</div><div class="logo"><img src="assets/shares.png" alt="Shares logo"></div></div></div></div>
+<div id="t-yb3" class="clip " data-start="43.233" data-duration="3.767" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb3-in" class="toolin"><div class="lbl">Shares</div><div class="logo"><img src="assets/shares.png" alt="Shares logo"></div></div></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="1.820" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇത് Instagram Reels</span></div></div>
+<div id="c1" class="clip " data-start="1.820" data-duration="1.397" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇത് YouTube Shorts</span></div></div>
+<div id="c2" class="clip " data-start="3.217" data-duration="1.085" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c3" class="clip " data-start="4.302" data-duration="1.362" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">Instagram Reels ആളുകളിലേക്ക്</span></div></div>
+<div id="c4" class="clip " data-start="5.664" data-duration="0.973" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">content എത്തിക്കാനും</span></div></div>
+<div id="c5" class="clip " data-start="6.637" data-duration="1.265" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">Instagram-ൽ audience build</span></div></div>
+<div id="c6" class="clip " data-start="7.901" data-duration="0.973" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">ചെയ്യാനും സഹായിക്കും</span></div></div>
+<div id="c7" class="clip " data-start="8.874" data-duration="1.033" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">YouTube Shorts പുതിയ</span></div></div>
+<div id="c8" class="clip " data-start="9.907" data-duration="1.188" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">viewers-ലേക്ക് എത്താനും</span></div></div>
+<div id="c9" class="clip " data-start="11.095" data-duration="0.775" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">YouTube channel</span></div></div>
+<div id="c10" class="clip " data-start="11.870" data-duration="1.085" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">വളർത്താനും സഹായിക്കും</span></div></div>
+<div id="c11" class="clip " data-start="12.955" data-duration="1.652" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">ഇത് Instagram Followers</span></div></div>
+<div id="c12" class="clip " data-start="14.607" data-duration="1.611" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">ഇത് YouTube Subscribers</span></div></div>
+<div id="c13" class="clip " data-start="16.218" data-duration="1.078" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c14" class="clip " data-start="17.296" data-duration="1.279" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">Instagram followers നിന്റെ</span></div></div>
+<div id="c15" class="clip " data-start="18.575" data-duration="1.131" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">Instagram content കാണാൻ</span></div></div>
+<div id="c16" class="clip " data-start="19.706" data-duration="1.033" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">follow ചെയ്യുന്നവരാണ്</span></div></div>
+<div id="c17" class="clip " data-start="20.739" data-duration="1.245" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">YouTube subscribers നിന്റെ</span></div></div>
+<div id="c18" class="clip " data-start="21.984" data-duration="1.150" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">channel subscribe ചെയ്ത്</span></div></div>
+<div id="c19" class="clip " data-start="23.134" data-duration="0.862" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">പുതിയ videos കാണാൻ</span></div></div>
+<div id="c20" class="clip " data-start="23.996" data-duration="1.485" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">താൽപര്യം പ്രകടിപ്പിക്കുന്നവരാണ്</span></div></div>
+<div id="c21" class="clip " data-start="25.481" data-duration="1.213" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">ഇത് Views</span></div></div>
+<div id="c22" class="clip " data-start="26.694" data-duration="1.127" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">ഇത് Reach</span></div></div>
+<div id="c23" class="clip " data-start="27.821" data-duration="1.084" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c24" class="clip " data-start="28.905" data-duration="1.691" data-track-index="5" style="z-index:5"><div class="cap"><span id="c24-in">Views എന്നത് നിന്റെ content</span></div></div>
+<div id="c25" class="clip " data-start="30.596" data-duration="0.877" data-track-index="5" style="z-index:5"><div class="cap"><span id="c25-in">എത്ര തവണ കണ്ടു</span></div></div>
+<div id="c26" class="clip " data-start="31.472" data-duration="0.501" data-track-index="5" style="z-index:5"><div class="cap"><span id="c26-in">എന്നതാണ്</span></div></div>
+<div id="c27" class="clip " data-start="31.973" data-duration="1.595" data-track-index="5" style="z-index:5"><div class="cap"><span id="c27-in">Reach എന്നത് നിന്റെ content</span></div></div>
+<div id="c28" class="clip " data-start="33.568" data-duration="1.359" data-track-index="5" style="z-index:5"><div class="cap"><span id="c28-in">കണ്ട വ്യത്യസ്ത accounts</span></div></div>
+<div id="c29" class="clip " data-start="34.927" data-duration="0.827" data-track-index="5" style="z-index:5"><div class="cap"><span id="c29-in">എത്രയാണെന്നാണ്</span></div></div>
+<div id="c30" class="clip " data-start="35.754" data-duration="1.175" data-track-index="5" style="z-index:5"><div class="cap"><span id="c30-in">ഇത് Likes</span></div></div>
+<div id="c31" class="clip " data-start="36.929" data-duration="1.159" data-track-index="5" style="z-index:5"><div class="cap"><span id="c31-in">ഇത് Shares</span></div></div>
+<div id="c32" class="clip " data-start="38.088" data-duration="1.077" data-track-index="5" style="z-index:5"><div class="cap"><span id="c32-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c33" class="clip " data-start="39.165" data-duration="1.252" data-track-index="5" style="z-index:5"><div class="cap"><span id="c33-in">Likes എന്നത് ആളുകൾക്ക്</span></div></div>
+<div id="c34" class="clip " data-start="40.417" data-duration="1.537" data-track-index="5" style="z-index:5"><div class="cap"><span id="c34-in">നിന്റെ content ഇഷ്ടപ്പെട്ടു</span></div></div>
+<div id="c35" class="clip " data-start="41.954" data-duration="1.309" data-track-index="5" style="z-index:5"><div class="cap"><span id="c35-in">എന്നതിന്റെ ഒരു സൂചനയാണ്</span></div></div>
+<div id="c36" class="clip " data-start="43.263" data-duration="1.008" data-track-index="5" style="z-index:5"><div class="cap"><span id="c36-in">Shares എന്നത് അവർ</span></div></div>
+<div id="c37" class="clip " data-start="44.271" data-duration="1.661" data-track-index="5" style="z-index:5"><div class="cap"><span id="c37-in">ആ content മറ്റുള്ളവരിലേക്കും</span></div></div>
+<div id="c38" class="clip " data-start="45.932" data-duration="1.068" data-track-index="5" style="z-index:5"><div class="cap"><span id="c38-in">അയക്കുന്നു എന്നാണ്</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.820" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p1" class="clip " data-start="1.820" data-duration="1.397" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p2" class="clip " data-start="3.217" data-duration="1.085" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p3" class="clip " data-start="4.302" data-duration="4.572" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p4" class="clip " data-start="8.874" data-duration="4.081" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p5" class="clip " data-start="12.955" data-duration="1.652" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p6" class="clip " data-start="14.607" data-duration="1.611" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p7" class="clip " data-start="16.218" data-duration="1.078" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p8" class="clip " data-start="17.296" data-duration="3.443" data-track-index="2" style="z-index:2"><img id="p8-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p9" class="clip " data-start="20.739" data-duration="4.742" data-track-index="2" style="z-index:2"><img id="p9-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p10" class="clip " data-start="25.481" data-duration="1.213" data-track-index="2" style="z-index:2"><img id="p10-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p11" class="clip " data-start="26.694" data-duration="1.127" data-track-index="2" style="z-index:2"><img id="p11-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p12" class="clip " data-start="27.821" data-duration="1.084" data-track-index="2" style="z-index:2"><img id="p12-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p13" class="clip " data-start="28.905" data-duration="3.068" data-track-index="2" style="z-index:2"><img id="p13-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p14" class="clip " data-start="31.973" data-duration="3.781" data-track-index="2" style="z-index:2"><img id="p14-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p15" class="clip " data-start="35.754" data-duration="1.175" data-track-index="2" style="z-index:2"><img id="p15-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p16" class="clip " data-start="36.929" data-duration="1.159" data-track-index="2" style="z-index:2"><img id="p16-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p17" class="clip " data-start="38.088" data-duration="1.077" data-track-index="2" style="z-index:2"><img id="p17-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p18" class="clip " data-start="39.165" data-duration="4.098" data-track-index="2" style="z-index:2"><img id="p18-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p19" class="clip " data-start="43.263" data-duration="3.737" data-track-index="2" style="z-index:2"><img id="p19-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="47.000" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="47.000" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="49.5" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#t-x0-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},0.000);
+tl.to("#t-x0-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},4.202);
+tl.to("#t-x0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},8.704);
+tl.fromTo("#t-ya0-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},1.790);
+tl.to("#t-ya0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},4.182);
+tl.fromTo("#t-yb0-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},8.844);
+tl.to("#t-yb0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},12.735);
+tl.fromTo("#t-x1-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},13.025);
+tl.to("#t-x1-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},17.196);
+tl.to("#t-x1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},20.569);
+tl.fromTo("#t-ya1-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},14.577);
+tl.to("#t-ya1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},17.176);
+tl.fromTo("#t-yb1-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},20.709);
+tl.to("#t-yb1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},25.261);
+tl.fromTo("#t-x2-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},25.551);
+tl.to("#t-x2-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},28.805);
+tl.to("#t-x2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},31.803);
+tl.fromTo("#t-ya2-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},26.664);
+tl.to("#t-ya2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},28.785);
+tl.fromTo("#t-yb2-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},31.943);
+tl.to("#t-yb2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},35.534);
+tl.fromTo("#t-x3-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},35.824);
+tl.to("#t-x3-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},39.065);
+tl.to("#t-x3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},43.093);
+tl.fromTo("#t-ya3-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},36.899);
+tl.to("#t-ya3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},39.045);
+tl.fromTo("#t-yb3-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},43.233);
+tl.to("#t-yb3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},46.780);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.820);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.217);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.302);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.664);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.637);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.901);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.874);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.907);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.095);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.870);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.955);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.607);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.218);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},17.296);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.575);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.706);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},20.739);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.984);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.134);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.996);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},25.481);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.694);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},27.821);
+tl.fromTo("#c24-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},28.905);
+tl.fromTo("#c25-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},30.596);
+tl.fromTo("#c26-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},31.472);
+tl.fromTo("#c27-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},31.973);
+tl.fromTo("#c28-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},33.568);
+tl.fromTo("#c29-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},34.927);
+tl.fromTo("#c30-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},35.754);
+tl.fromTo("#c31-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},36.929);
+tl.fromTo("#c32-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},38.088);
+tl.fromTo("#c33-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},39.165);
+tl.fromTo("#c34-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},40.417);
+tl.fromTo("#c35-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},41.954);
+tl.fromTo("#c36-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},43.263);
+tl.fromTo("#c37-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},44.271);
+tl.fromTo("#c38-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},45.932);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.910,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.699,ease:"sine.inOut",yoyo:true,repeat:1},1.820);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.542,ease:"sine.inOut",yoyo:true,repeat:1},3.217);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:2.286,ease:"sine.inOut",yoyo:true,repeat:1},4.302);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:2.040,ease:"sine.inOut",yoyo:true,repeat:1},8.874);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:0.826,ease:"sine.inOut",yoyo:true,repeat:1},12.955);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:0.806,ease:"sine.inOut",yoyo:true,repeat:1},14.607);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:0.539,ease:"sine.inOut",yoyo:true,repeat:1},16.218);
+tl.fromTo("#p8-in",{y:0},{y:-9,duration:1.722,ease:"sine.inOut",yoyo:true,repeat:1},17.296);
+tl.fromTo("#p9-in",{y:0},{y:-9,duration:2.371,ease:"sine.inOut",yoyo:true,repeat:1},20.739);
+tl.fromTo("#p10-in",{y:0},{y:-9,duration:0.607,ease:"sine.inOut",yoyo:true,repeat:1},25.481);
+tl.fromTo("#p11-in",{y:0},{y:-9,duration:0.564,ease:"sine.inOut",yoyo:true,repeat:1},26.694);
+tl.fromTo("#p12-in",{y:0},{y:-9,duration:0.542,ease:"sine.inOut",yoyo:true,repeat:1},27.821);
+tl.fromTo("#p13-in",{y:0},{y:-9,duration:1.534,ease:"sine.inOut",yoyo:true,repeat:1},28.905);
+tl.fromTo("#p14-in",{y:0},{y:-9,duration:1.890,ease:"sine.inOut",yoyo:true,repeat:1},31.973);
+tl.fromTo("#p15-in",{y:0},{y:-9,duration:0.588,ease:"sine.inOut",yoyo:true,repeat:1},35.754);
+tl.fromTo("#p16-in",{y:0},{y:-9,duration:0.579,ease:"sine.inOut",yoyo:true,repeat:1},36.929);
+tl.fromTo("#p17-in",{y:0},{y:-9,duration:0.538,ease:"sine.inOut",yoyo:true,repeat:1},38.088);
+tl.fromTo("#p18-in",{y:0},{y:-9,duration:2.049,ease:"sine.inOut",yoyo:true,repeat:1},39.165);
+tl.fromTo("#p19-in",{y:0},{y:-9,duration:1.869,ease:"sine.inOut",yoyo:true,repeat:1},43.263);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},47.0);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
