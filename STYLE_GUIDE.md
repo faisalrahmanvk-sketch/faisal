@@ -19,3 +19,9 @@ Apply to every new video unless the user says otherwise.
 **Logos:** only the user's supplied logo files (never redrawn); crop to the icon, white margin ~6-10%; flatten transparent images onto white before cropping (black corners otherwise).
 
 **Delivery:** send the MP4 to the user; push to GitHub when access is available (currently 403 until the Claude GitHub App is installed).
+
+## Update (reel 5 request): "increase a little more speed and volume"
+From reel 5 on: `REEL_SPEED=1.45` and `REEL_VOICE_GAIN=1.75` (was 1.35 / 1.45). Photo-based reels use 340x250 rounded photo tiles (`.logo.photo`) instead of 300px icon tiles.
+
+## ElevenLabs free tier (important)
+The free plan has 10,000 credits; by the end of reel 5 only 28 were left and the account then reported "Free Tier access disabled". Many "busy" refusals and later silent failures were this. Check `creative_get_flow_run_status` for `failed` generations (error_message) before assuming a line exists. Further voice needs a paid plan or a user-supplied voiceover.
