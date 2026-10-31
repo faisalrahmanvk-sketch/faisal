@@ -8,7 +8,9 @@ Apply to every new video unless the user says otherwise.
 
 **Scene pattern per pair:** point-left pose "ഇത് X" (logo X pops left) -> point-right "ഇത് Y" (Y pops right) -> thinking pose "എന്താണ് വ്യത്യാസം?" -> X slides to centre while explained -> Y pops centre while explained.
 
-**Voice:** ElevenLabs "Abhilash S - Fun, Encouraging Friend" (voice_id TyWXr0PTH6rgkJ5wKSZe), model eleven_v4, one clip per phrase, trimmed, **1.25x speed**, gaps 0.14/0.14/0.26/0.22/0.55 s. Free tier rate-limits (~10/min): send in small batches, wait 40-60 s.
+**Voice:** ElevenLabs "Abhilash S - Fun, Encouraging Friend" (voice_id TyWXr0PTH6rgkJ5wKSZe), model eleven_v4, one clip per phrase, trimmed, **speed 1.25x for reel2 (kept as is). From the next video use 1.35x** (`REEL_SPEED=1.35`; user wants between 1.25 and 1.5), gaps 0.14/0.14/0.26/0.22/0.55 s. Free tier rate-limits (~10/min): send in small batches, wait 40-60 s.
+
+**Volume:** voice was too quiet on phones. From the next video raise it ~+3 dB (`REEL_VOICE_GAIN=1.45`, soft-limited; peak must stay below 0 dBFS). Not much louder than that. reel2 itself stays unchanged.
 
 **Sound:** voice + the user's uploaded mouse click only (`reel2/audio/click.wav`) on every app-name/logo appearance and when the end card appears. **No BGM, no booms/whooshes/pops.**
 

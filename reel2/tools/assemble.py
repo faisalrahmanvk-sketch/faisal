@@ -1,7 +1,7 @@
 """Trim each ElevenLabs line, speed to 1.25x, concatenate with gaps; write timeline.json."""
-import subprocess, json, pathlib
+import subprocess, json, pathlib, os
 A = pathlib.Path(__file__).resolve().parent.parent / "audio"
-SPEED = 1.25
+SPEED = float(os.environ.get("REEL_SPEED","1.25"))   # new videos: REEL_SPEED=1.35
 def dur(p): return float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",str(p)]).strip())
 def prep(name):
     out = A/"proc"/f"{name}.wav"; out.parent.mkdir(exist_ok=True)

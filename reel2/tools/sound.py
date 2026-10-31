@@ -1,5 +1,5 @@
 """Synthesize upbeat BGM + SFX (pop/boom/whoosh) and mix with the voice. All times from timeline.json."""
-import json, wave, pathlib, numpy as np, subprocess
+import json, wave, pathlib, os, numpy as np, subprocess
 R = pathlib.Path(__file__).resolve().parent.parent; A = R/"audio"; SR = 44100
 tl = json.load(open(A/"timeline.json")); clips = {}
 for c in tl["clips"]: clips.setdefault(c["clip"], c)   # first occurrence
@@ -45,7 +45,8 @@ for s in scenes:
     add(sfx,click(),t0+0.05 if s==1 else i1["start"]-0.03,0.8); add(sfx,click(),i2["start"]-0.03,0.8)
     add(sfx,click(),b["start"]-0.03,0.8)
 add(sfx,click(),CARD,1.0)   # follow card: uploaded click only
-mix=v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
+VG=float(os.environ.get('REEL_VOICE_GAIN','1.0'))   # new videos: REEL_VOICE_GAIN=1.45 (~+3 dB)
+mix=np.tanh((v*VG+sfx*0.6)*1.0) if VG!=1.0 else v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
 mix=mix[:int(DUR*SR)]
 pcm=(mix*32767).astype(np.int16); wv=wave.open(str(A/"mix.wav"),"wb"); wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes(pcm.tobytes()); wv.close()
 subprocess.run(["ffmpeg","-v","error","-y","-i",str(A/"mix.wav"),"-b:a","192k",str(A/"mix.mp3")],check=True)
