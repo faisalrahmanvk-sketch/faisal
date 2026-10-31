@@ -4,18 +4,18 @@ R = pathlib.Path(__file__).resolve().parent.parent
 tl = json.load(open(R/"audio"/"timeline.json"))["clips"]; _d = json.load(open(R/"tools"/"dur.json")); DUR = _d["dur"]; CARD = _d["card"]
 L, RT = -262, 262
 SCENES = [
- ("Instagram Reels","reels.png","YouTube Shorts","shorts.png",
-  ["Instagram Reels ആളുകളിലേക്ക്","content എത്തിക്കാനും","Instagram-ൽ audience build","ചെയ്യാനും സഹായിക്കും"],
-  ["YouTube Shorts പുതിയ","viewers-ലേക്ക് എത്താനും","YouTube channel","വളർത്താനും സഹായിക്കും"]),
- ("Instagram Followers","igperson.png","YouTube Subscribers","subscribe.png",
-  ["Instagram followers നിന്റെ","Instagram content കാണാൻ","follow ചെയ്യുന്നവരാണ്"],
-  ["YouTube subscribers നിന്റെ","channel subscribe ചെയ്ത്","പുതിയ videos കാണാൻ","താൽപര്യം പ്രകടിപ്പിക്കുന്നവരാണ്"]),
- ("Views","views.png","Reach","reach.png",
-  ["Views എന്നത് നിന്റെ content","എത്ര തവണ കണ്ടു","എന്നതാണ്"],
-  ["Reach എന്നത് നിന്റെ content","കണ്ട വ്യത്യസ്ത accounts","എത്രയാണെന്നാണ്"]),
- ("Likes","likes.png","Shares","shares.png",
-  ["Likes എന്നത് ആളുകൾക്ക്","നിന്റെ content ഇഷ്ടപ്പെട്ടു","എന്നതിന്റെ ഒരു സൂചനയാണ്"],
-  ["Shares എന്നത് അവർ","ആ content മറ്റുള്ളവരിലേക്കും","അയക്കുന്നു എന്നാണ്"]),
+ ("Boost Post","boost.png","Meta Ads","meta.png",
+  ["Boost Post ഉപയോഗിച്ച്","നിന്റെ Instagram അല്ലെങ്കിൽ","Facebook post കൂടുതൽ","ആളുകളിലേക്ക് എത്തിക്കാം"],
+  ["Meta Ads ഉപയോഗിച്ച്","കൂടുതൽ control-ഓടെ","വ്യത്യസ്ത തരത്തിലുള്ള","advertisements run ചെയ്യാം"]),
+ ("Likes","likes.png","Leads","lead.png",
+  ["Likes എന്നത് ആളുകൾക്ക്","നിന്റെ post ഇഷ്ടപ്പെട്ടു","എന്നതിന്റെ ഒരു സൂചനയാണ്"],
+  ["Leads എന്നത് നിന്റെ product","അല്ലെങ്കിൽ service-ൽ","താൽപര്യം കാണിച്ച്","contact details നൽകുന്ന","potential customers ആണ്"]),
+ ("Target Audience","target.png","Custom Audience","database.png",
+  ["Target Audience ഉപയോഗിച്ച്","പ്രായം, സ്ഥലം,","താൽപര്യങ്ങൾ തുടങ്ങിയവ","അടിസ്ഥാനമാക്കി","ആളുകളെ തിരഞ്ഞെടുക്കാം"],
+  ["Custom Audience എന്നത്","നിന്റെ existing customers,","website visitors, അല്ലെങ്കിൽ","Instagram engagement ചെയ്ത","ആളുകളിൽ നിന്ന് ഉണ്ടാക്കുന്ന","audience ആണ്"]),
+ ("Reach","reach.png","Conversions","conversion.png",
+  ["Reach എന്നത് നിന്റെ ad","കണ്ട വ്യത്യസ്ത","ആളുകളുടെ എണ്ണമാണ്"],
+  ["Conversions എന്നത് നീ","ആഗ്രഹിച്ച action,","ഉദാഹരണത്തിന് purchase","അല്ലെങ്കിൽ registration,","ആളുകൾ പൂർത്തിയാക്കുന്നതാണ്"]),
 ]
 h=[]; js=[]; cap=[]; poses=[]
 def clip(id_, s, e, body, cls="", z=1):
