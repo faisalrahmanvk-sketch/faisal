@@ -18,7 +18,7 @@ def split_intro(name):
     outs=[]
     for k,(a,b) in enumerate([(0,mid),(mid,total)]):
         o=A/"proc"/f"{name}_{k+1}.wav"
-        run(["-i",str(raw),"-ss",str(a),"-t",str(b-a),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(o)]); outs.append(o)
+        run(["-i",str(raw),"-af",f"atrim=start={a}:end={b},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(o)]); outs.append(o)
     return outs
 t=0.35; tl=[]; parts=[]
 def place(label,p,gap):

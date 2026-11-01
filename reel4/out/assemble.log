@@ -1,0 +1,25 @@
+s1-intro split at 1.59 of 3.23
+s2-intro split at 1.5 of 2.98
+s3-intro split at 1.77 of 3.54
+s4-intro split at 1.36 of 2.97
+total 56.18 card 56.08
+{'clip': 's1-i1', 'start': 0.35, 'end': 1.367}
+{'clip': 's1-i2', 'start': 1.507, 'end': 2.567}
+{'clip': 'q', 'start': 2.707, 'end': 3.532}
+{'clip': 's1-a', 'start': 3.792, 'end': 8.075}
+{'clip': 's1-b', 'start': 8.295, 'end': 12.589}
+{'clip': 's2-i1', 'start': 13.139, 'end': 14.073}
+{'clip': 's2-i2', 'start': 14.213, 'end': 15.13}
+{'clip': 'q', 'start': 15.27, 'end': 16.087}
+{'clip': 's2-a', 'start': 16.347, 'end': 20.141}
+{'clip': 's2-b', 'start': 20.361, 'end': 25.815}
+{'clip': 's3-i1', 'start': 26.365, 'end': 27.516}
+{'clip': 's3-i2', 'start': 27.656, 'end': 28.815}
+{'clip': 'q', 'start': 28.955, 'end': 29.78}
+{'clip': 's3-a', 'start': 30.04, 'end': 35.234}
+{'clip': 's3-b', 'start': 35.454, 'end': 42.18}
+{'clip': 's4-i1', 'start': 42.73, 'end': 43.592}
+{'clip': 's4-i2', 'start': 43.732, 'end': 44.796}
+{'clip': 'q', 'start': 44.936, 'end': 45.754}
+{'clip': 's4-a', 'start': 46.014, 'end': 49.051}
+{'clip': 's4-b', 'start': 49.271, 'end': 55.631}

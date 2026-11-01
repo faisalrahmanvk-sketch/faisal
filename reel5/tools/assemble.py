@@ -15,7 +15,7 @@ def prep(name, cut_prefix=False):
     st=[float(x) for x in re.findall(r"silence_start: ([\d.]+)",r)]; du=[float(x) for x in re.findall(r"silence_duration: ([\d.]+)",r)]
     c=[(a+d) for a,d in zip(st,du) if d>=0.4 and a<1.5]
     assert c, f"no prefix pause in {name}"; cut=c[0]-0.03; print(name,"prefix cut at",round(cut,2))
-    run(["-i",str(raw),"-ss",str(cut),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)]); return out
+    run(["-i",str(raw),"-af",f"atrim=start={cut},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)]); return out
 def split_intro(name):
     raw=A/"proc"/f"{name}_raw.wav"; run(["-i",str(A/f"{name}.mp3"),"-af",TRIM,"-ar","44100","-ac","1",str(raw)])
     r=subprocess.run(["ffmpeg","-i",str(raw),"-af","silencedetect=n=-38dB:d=0.07","-f","null","-"],capture_output=True,text=True).stderr
@@ -26,7 +26,7 @@ def split_intro(name):
     outs=[]
     for k,(a,b) in enumerate([(0,mid),(mid,total)]):
         o=A/"proc"/f"{name}_{k+1}.wav"
-        run(["-i",str(raw),"-ss",str(a),"-t",str(b-a),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(o)]); outs.append(o)
+        run(["-i",str(raw),"-af",f"atrim=start={a}:end={b},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(o)]); outs.append(o)
     return outs
 t=0.35; tl=[]; parts=[]
 def place(label,p,gap):

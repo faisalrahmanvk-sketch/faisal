@@ -28,3 +28,6 @@ The free plan has 10,000 credits; by the end of reel 5 only 28 were left and the
 
 ## Clarification
 Removing the repeated "Debit Card:/Credit Card:" prefixes and hiding photo labels applied ONLY to reel 5. For other reels keep the names in the scripted dialogue and show the labels, unless the user says otherwise per video.
+
+## Audio-cut bug (fixed Nov 1)
+Never use ffmpeg output `-ss/-t` together with `atempo`: they apply AFTER the tempo change and cut the wrong audio. Trim inside the filter graph first (`atrim=start=A:end=B,asetpts=PTS-STARTPTS,...,atempo=S`). Fixed in reel4-7 `tools/assemble.py`; reels 4, 5, 6 were re-rendered.
