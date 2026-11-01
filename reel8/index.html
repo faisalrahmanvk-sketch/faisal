@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.gwrap{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.grp{width:520px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.grp.big{margin-top:30px}
+.glbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.glogo{height:270px;width:auto;object-fit:contain;border-radius:36px}
+.fin{position:absolute;left:0;top:200px;width:1080px;text-align:center}
+.finlogos{display:flex;justify-content:center;gap:150px}
+.flogo{height:125px;width:auto;border-radius:26px}
+.cols{display:flex;justify-content:center;gap:30px;margin-top:20px}
+.col{width:480px}
+.col h3{font-weight:800;font-size:44px;margin-bottom:4px}
+.col p{font-weight:700;font-size:38px;color:#222;margin:4px 0}
+.note{margin-top:10px;font-weight:700;font-size:25px;color:#777}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="31.15" data-width="1080" data-height="1920">
+<div id="g-1l" class="clip " data-start="0.000" data-duration="3.457" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-1l-in" class="grp big"><div class="glbl">Claude</div><img class="glogo" src="assets/claude.png" alt="Claude logo"></div></div></div>
+<div id="g-1r" class="clip " data-start="1.106" data-duration="2.351" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-1r-in" class="grp big"><div class="glbl">ChatGPT</div><img class="glogo" src="assets/chatgpt.png" alt="ChatGPT logo"></div></div></div>
+<div id="g-2" class="clip " data-start="3.527" data-duration="4.738" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-2-in" class="grp big"><div class="glbl">ChatGPT</div><img class="glogo" src="assets/chatgpt.png" alt="ChatGPT logo"></div></div></div>
+<div id="g-3" class="clip " data-start="8.335" data-duration="4.672" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-3-in" class="grp big"><div class="glbl">Claude</div><img class="glogo" src="assets/claude.png" alt="Claude logo"></div></div></div>
+<div id="g-4" class="clip " data-start="13.077" data-duration="5.024" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-4-in" class="grp big"><div class="glbl">ChatGPT</div><img class="glogo" src="assets/chatgpt.png" alt="ChatGPT logo"></div></div></div>
+<div id="g-5" class="clip " data-start="18.171" data-duration="5.619" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-5-in" class="grp big"><div class="glbl">Claude</div><img class="glogo" src="assets/claude.png" alt="Claude logo"></div></div></div>
+<div id="fin" class="clip " data-start="23.790" data-duration="4.860" data-track-index="3" style="z-index:3"><div class="fin"><div id="fin-logos" class="finlogos"><img class="flogo" src="assets/claude.png" alt="Claude"><img class="flogo" src="assets/chatgpt.png" alt="ChatGPT"></div>
+<div id="fin-cols" class="cols"><div class="col"><h3>CLAUDE</h3><p>Writing</p><p>Long documents</p><p>Coding &amp; Analysis</p></div><div class="col"><h3>CHATGPT</h3><p>Image Creation</p><p>Voice</p><p>Web Search</p></div></div>
+<div class="note">ഇവ രണ്ടിനും പല കഴിവുകളും ഒരുപോലെയുണ്ട്. Features plan അനുസരിച്ച് മാറാം.</div></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="1.136" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇത് Claude</span></div></div>
+<div id="c1" class="clip " data-start="1.136" data-duration="1.121" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇത് ChatGPT</span></div></div>
+<div id="c2" class="clip " data-start="2.257" data-duration="1.200" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c3" class="clip " data-start="3.457" data-duration="0.941" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">ChatGPT ഉപയോഗിച്ച്</span></div></div>
+<div id="c4" class="clip " data-start="4.398" data-duration="1.202" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">image create ചെയ്യാനും,</span></div></div>
+<div id="c5" class="clip " data-start="5.600" data-duration="1.254" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">voice വഴി സംസാരിക്കാനും,</span></div></div>
+<div id="c6" class="clip " data-start="6.854" data-duration="1.411" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">web search ചെയ്യാനും പറ്റും</span></div></div>
+<div id="c7" class="clip " data-start="8.265" data-duration="0.757" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">Claude ആണെങ്കിൽ</span></div></div>
+<div id="c8" class="clip " data-start="9.022" data-duration="1.362" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">long documents വായിക്കാനും,</span></div></div>
+<div id="c9" class="clip " data-start="10.384" data-duration="1.362" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">detailed writing ചെയ്യാനും,</span></div></div>
+<div id="c10" class="clip " data-start="11.746" data-duration="1.261" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">coding ചെയ്യാനും നല്ലതാണ്</span></div></div>
+<div id="c11" class="clip " data-start="13.007" data-duration="1.999" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">ChatGPT-യുടെ മറ്റൊരു പ്രത്യേകത,</span></div></div>
+<div id="c12" class="clip " data-start="15.006" data-duration="0.903" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">പലതരം AI tools</span></div></div>
+<div id="c13" class="clip " data-start="15.909" data-duration="0.903" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">ഒരേ platform-ൽ</span></div></div>
+<div id="c14" class="clip " data-start="16.811" data-duration="1.290" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">ഉപയോഗിക്കാം എന്നതാണ്</span></div></div>
+<div id="c15" class="clip " data-start="18.101" data-duration="1.309" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">Claude-ന്റെ ഒരു പ്രത്യേകത,</span></div></div>
+<div id="c16" class="clip " data-start="19.410" data-duration="1.611" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">വലിയ documents analyze ചെയ്യാനും</span></div></div>
+<div id="c17" class="clip " data-start="21.021" data-duration="0.957" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">complex information</span></div></div>
+<div id="c18" class="clip " data-start="21.978" data-duration="1.812" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">മനസ്സിലാക്കാൻ സഹായിക്കുന്നു എന്നതാണ്</span></div></div>
+<div id="c19" class="clip " data-start="23.790" data-duration="0.893" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">ഇനി Claude-ന്റെയും</span></div></div>
+<div id="c20" class="clip " data-start="24.683" data-duration="1.240" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">ChatGPT-യുടെയും വ്യത്യാസം</span></div></div>
+<div id="c21" class="clip " data-start="25.922" data-duration="0.446" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">മറക്കണ്ട.</span></div></div>
+<div id="c22" class="clip " data-start="26.369" data-duration="0.942" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">Future reference-ന്</span></div></div>
+<div id="c23" class="clip " data-start="27.311" data-duration="1.339" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">ഈ വീഡിയോ save ചെയ്തുവെച്ചോ!</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.136" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p1" class="clip " data-start="1.136" data-duration="1.121" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p2" class="clip " data-start="2.257" data-duration="1.200" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p3" class="clip " data-start="3.457" data-duration="4.808" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p4" class="clip " data-start="8.265" data-duration="4.742" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p5" class="clip " data-start="13.007" data-duration="5.094" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p6" class="clip " data-start="18.101" data-duration="5.689" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p7" class="clip " data-start="23.790" data-duration="4.860" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="28.650" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="28.650" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="31.15" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#g-1l-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},0.000);
+tl.to("#g-1l-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},3.237);
+tl.fromTo("#g-1r-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},1.106);
+tl.to("#g-1r-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},3.237);
+tl.fromTo("#g-2-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},3.527);
+tl.to("#g-2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},8.045);
+tl.fromTo("#g-3-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},8.335);
+tl.to("#g-3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},12.787);
+tl.fromTo("#g-4-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},13.077);
+tl.to("#g-4-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},17.881);
+tl.fromTo("#g-5-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},18.171);
+tl.to("#g-5-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},23.570);
+tl.fromTo("#fin-logos",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},23.860);
+tl.fromTo("#fin-cols",{y:30,opacity:0},{y:0,opacity:1,duration:0.45,ease:"power2.out"},24.210);
+tl.to("#fin-cols",{opacity:0,duration:0.2},28.430); tl.to("#fin-logos",{opacity:0,duration:0.2},28.430);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.136);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.257);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.457);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.398);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.600);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.854);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.265);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.022);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.384);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.746);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},13.007);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.006);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.909);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.811);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.101);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.410);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.021);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.978);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.790);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.683);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},25.922);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.369);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},27.311);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.568,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.561,ease:"sine.inOut",yoyo:true,repeat:1},1.136);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.600,ease:"sine.inOut",yoyo:true,repeat:1},2.257);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:2.404,ease:"sine.inOut",yoyo:true,repeat:1},3.457);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:2.371,ease:"sine.inOut",yoyo:true,repeat:1},8.265);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:2.547,ease:"sine.inOut",yoyo:true,repeat:1},13.007);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:2.845,ease:"sine.inOut",yoyo:true,repeat:1},18.101);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:2.430,ease:"sine.inOut",yoyo:true,repeat:1},23.790);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},28.65);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
