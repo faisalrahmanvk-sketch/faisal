@@ -54,6 +54,11 @@ js.append(f'tl.fromTo("#endcard-in",{{opacity:0,scale:1.05}},{{opacity:1,scale:1
 clip("wm", 0, CARD, '<div class="wm">@fyze.ai</div>', z=4)
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
 CSS = CSS
+CSS += """
+.toolin{width:480px;gap:30px}
+.logo.photo{width:440px;height:324px}
+.logo.photo img{width:440px;height:324px;object-fit:cover;border-radius:30px;box-shadow:0 6px 22px rgba(0,0,0,.18)}
+"""
 doc = f"""<!doctype html>
 <html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
 <script src="assets/gsap.min.js"></script>
