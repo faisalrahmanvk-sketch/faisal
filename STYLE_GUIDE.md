@@ -25,3 +25,6 @@ From reel 5 on: `REEL_SPEED=1.45` and `REEL_VOICE_GAIN=1.75` (was 1.35 / 1.45). 
 
 ## ElevenLabs free tier (important)
 The free plan has 10,000 credits; by the end of reel 5 only 28 were left and the account then reported "Free Tier access disabled". Many "busy" refusals and later silent failures were this. Check `creative_get_flow_run_status` for `failed` generations (error_message) before assuming a line exists. Further voice needs a paid plan or a user-supplied voiceover.
+
+## Clarification
+Removing the repeated "Debit Card:/Credit Card:" prefixes and hiding photo labels applied ONLY to reel 5. For other reels keep the names in the scripted dialogue and show the labels, unless the user says otherwise per video.

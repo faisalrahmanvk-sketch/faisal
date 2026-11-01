@@ -8,14 +8,14 @@ SCENES = [
   ["ChatGPT:","നമ്മുടെ ചോദ്യങ്ങൾക്ക്","മനസ്സിലാകുന്ന രീതിയിൽ","ഉത്തരം നൽകും"],
   ["Google Search:","നമുക്ക് വേണ്ട വിവരങ്ങളുള്ള","websites","കണ്ടെത്തിത്തരും"]),
  ("Direct Answer","answer.png","Website Links","links.png",
-  ["വിവരങ്ങൾ ചുരുക്കി","ഒരു answer ആയി","തരാൻ സഹായിക്കും"],
-  ["വ്യത്യസ്ത websites തുറന്ന്","വിവരങ്ങൾ പരിശോധിക്കാം"]),
+  ["ChatGPT:","വിവരങ്ങൾ ചുരുക്കി","ഒരു answer ആയി","തരാൻ സഹായിക്കും"],
+  ["Google Search:","വ്യത്യസ്ത websites തുറന്ന്","വിവരങ്ങൾ പരിശോധിക്കാം"]),
  ("Content Creation","create.png","Information Search","search.png",
-  ["captions, emails, ideas","എന്നിവ തയ്യാറാക്കാൻ","സഹായിക്കും"],
-  ["websites, news, images,","local information എന്നിവ","കണ്ടെത്താൻ സഹായിക്കും"]),
+  ["ChatGPT:","captions, emails, ideas","എന്നിവ തയ്യാറാക്കാൻ","സഹായിക്കും"],
+  ["Google Search:","websites, news, images,","local information എന്നിവ","കണ്ടെത്താൻ സഹായിക്കും"]),
  ("AI Answer","robot.png","Original Source","source.png",
-  ["വേഗത്തിൽ കാര്യങ്ങൾ","മനസ്സിലാക്കാനും","explain ചെയ്യാനും സഹായിക്കും"],
-  ["വിവരങ്ങൾ വന്ന website","തുറന്ന് നേരിട്ട്","verify ചെയ്യാം"]),
+  ["ChatGPT:","വേഗത്തിൽ കാര്യങ്ങൾ","മനസ്സിലാക്കാനും","explain ചെയ്യാനും സഹായിക്കും"],
+  ["Google Search:","വിവരങ്ങൾ വന്ന website","തുറന്ന് നേരിട്ട്","verify ചെയ്യാം"]),
 ]
 h=[]; js=[]; cap=[]; poses=[]
 def clip(id_, s, e, body, cls="", z=1):

@@ -11,3 +11,11 @@ s3-a BVmZAuEs196t0untQrw0
 s3-b 7GF8y6oPbC0xXm6nDTo2
 intro4 UTIdiHMNkf8IfpoRILj1
 s4-a FepTF2ToeBP7Mem8P5v7
+
+## v2 (names kept at the start of every explanation, per user correction) - old no-prefix clips saved as *_noprefix.mp3
+Need to regenerate with prefix: s2-a, s2-b, s3-a, s3-b, s4-a, s4-b
+v2 s2-a PvbSqloRWgZlPaPvi0tx
+v2 s2-b BDudcBb21BIYVTUDIrYx
+v2 s3-a Pno2bvMPkvHm30nK3CrY
+v2 s3-b wAHjAYayVbHqvJkwo3ex
+v2 s4-a iv2Ezis41tpOptjTUvzf
