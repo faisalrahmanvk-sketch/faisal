@@ -6,8 +6,16 @@ def dur(p): return float(subprocess.check_output(["ffprobe","-v","error","-show_
 TRIM = "silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.05,areverse,silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.05,areverse"
 def run(args): subprocess.run(["ffmpeg","-v","error","-y",*args],check=True)
 (A/"proc").mkdir(exist_ok=True)
-def prep(name):
-    out=A/"proc"/f"{name}.wav"; run(["-i",str(A/f"{name}.mp3"),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)]); return out
+def prep(name, cut_prefix=False):
+    out=A/"proc"/f"{name}.wav"
+    if not cut_prefix:
+        run(["-i",str(A/f"{name}.mp3"),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)]); return out
+    raw=A/"proc"/f"{name}_raw.wav"; run(["-i",str(A/f"{name}.mp3"),"-af",TRIM,"-ar","44100","-ac","1",str(raw)])
+    r=subprocess.run(["ffmpeg","-i",str(raw),"-af","silencedetect=n=-38dB:d=0.06","-f","null","-"],capture_output=True,text=True).stderr
+    st=[float(x) for x in re.findall(r"silence_start: ([\d.]+)",r)]; du=[float(x) for x in re.findall(r"silence_duration: ([\d.]+)",r)]
+    c=[(a+d) for a,d in zip(st,du) if d>=0.4 and a<1.5]
+    assert c, f"no prefix pause in {name}"; cut=c[0]-0.03; print(name,"prefix cut at",round(cut,2))
+    run(["-i",str(raw),"-ss",str(cut),"-af",f"{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)]); return out
 def split_intro(name):
     raw=A/"proc"/f"{name}_raw.wav"; run(["-i",str(A/f"{name}.mp3"),"-af",TRIM,"-ar","44100","-ac","1",str(raw)])
     r=subprocess.run(["ffmpeg","-i",str(raw),"-af","silencedetect=n=-38dB:d=0.07","-f","null","-"],capture_output=True,text=True).stderr
@@ -28,7 +36,7 @@ for s in (1,2,3,4):
     i1,i2=split_intro(f"s{s}-intro")
     place(f"s{s}-i1",i1,0.14); place(f"s{s}-i2",i2,0.14)
     place("q",prep({1:"s1-q",2:"s2-q",3:"s1-q",4:"q4"}[s]),0.26)
-    place(f"s{s}-a",prep(f"s{s}-a"),0.22); place(f"s{s}-b",prep(f"s{s}-b"),0.55)
+    place(f"s{s}-a",prep(f"s{s}-a",s>1),0.22); place(f"s{s}-b",prep(f"s{s}-b",s>1),0.55)
 total=round(t,2); ins=[]; fl=[]
 for i,(p,st) in enumerate(parts):
     ins+=["-i",str(p)]; fl.append(f"[{i}:a]adelay={int(st*1000)}|{int(st*1000)}[a{i}]")
