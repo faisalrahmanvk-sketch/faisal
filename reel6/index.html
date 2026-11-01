@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.toolin{width:500px;gap:28px}
+.logo{width:470px;height:340px}
+.logo img{width:470px;height:340px;object-fit:contain;border-radius:20px}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="42.44" data-width="1080" data-height="1920">
+<div id="t-x0" class="clip " data-start="0.000" data-duration="7.305" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x0-in" class="toolin"><div class="lbl">ChatGPT</div><div class="logo"><img src="assets/chatgpt.png" alt="ChatGPT logo"></div></div></div></div>
+<div id="t-ya0" class="clip " data-start="2.106" data-duration="1.905" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya0-in" class="toolin"><div class="lbl">Google Search</div><div class="logo"><img src="assets/google.png" alt="Google Search logo"></div></div></div></div>
+<div id="t-yb0" class="clip " data-start="7.225" data-duration="3.475" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb0-in" class="toolin"><div class="lbl">Google Search</div><div class="logo"><img src="assets/google.png" alt="Google Search logo"></div></div></div></div>
+<div id="t-x1" class="clip " data-start="10.700" data-duration="6.230" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x1-in" class="toolin"><div class="lbl">Direct Answer</div><div class="logo"><img src="assets/answer.png" alt="Direct Answer logo"></div></div></div></div>
+<div id="t-ya1" class="clip " data-start="12.575" data-duration="1.980" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya1-in" class="toolin"><div class="lbl">Website Links</div><div class="logo"><img src="assets/links.png" alt="Website Links logo"></div></div></div></div>
+<div id="t-yb1" class="clip " data-start="16.850" data-duration="2.575" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb1-in" class="toolin"><div class="lbl">Website Links</div><div class="logo"><img src="assets/links.png" alt="Website Links logo"></div></div></div></div>
+<div id="t-x2" class="clip " data-start="19.425" data-duration="7.109" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x2-in" class="toolin"><div class="lbl">Content Creation</div><div class="logo"><img src="assets/create.png" alt="Content Creation logo"></div></div></div></div>
+<div id="t-ya2" class="clip " data-start="21.475" data-duration="1.999" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya2-in" class="toolin"><div class="lbl">Information Search</div><div class="logo"><img src="assets/search.png" alt="Information Search logo"></div></div></div></div>
+<div id="t-yb2" class="clip " data-start="26.454" data-duration="4.155" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb2-in" class="toolin"><div class="lbl">Information Search</div><div class="logo"><img src="assets/search.png" alt="Information Search logo"></div></div></div></div>
+<div id="t-x3" class="clip " data-start="30.609" data-duration="6.718" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-x3-in" class="toolin"><div class="lbl">AI Answer</div><div class="logo"><img src="assets/robot.png" alt="AI Answer logo"></div></div></div></div>
+<div id="t-ya3" class="clip " data-start="32.682" data-duration="1.911" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-ya3-in" class="toolin"><div class="lbl">Original Source</div><div class="logo"><img src="assets/source.png" alt="Original Source logo"></div></div></div></div>
+<div id="t-yb3" class="clip " data-start="37.247" data-duration="2.693" data-track-index="3" style="z-index:3"><div class="tool"><div id="t-yb3-in" class="toolin"><div class="lbl">Original Source</div><div class="logo"><img src="assets/source.png" alt="Original Source logo"></div></div></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="2.136" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇത് ChatGPT</span></div></div>
+<div id="c1" class="clip " data-start="2.136" data-duration="0.765" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇത് Google Search</span></div></div>
+<div id="c2" class="clip " data-start="2.901" data-duration="1.010" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c3" class="clip " data-start="3.911" data-duration="0.431" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">ChatGPT:</span></div></div>
+<div id="c4" class="clip " data-start="4.342" data-duration="1.133" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">നമ്മുടെ ചോദ്യങ്ങൾക്ക്</span></div></div>
+<div id="c5" class="clip " data-start="5.475" data-duration="1.133" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">മനസ്സിലാകുന്ന രീതിയിൽ</span></div></div>
+<div id="c6" class="clip " data-start="6.608" data-duration="0.647" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">ഉത്തരം നൽകും</span></div></div>
+<div id="c7" class="clip " data-start="7.255" data-duration="0.766" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">Google Search:</span></div></div>
+<div id="c8" class="clip " data-start="8.021" data-duration="1.422" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">നമുക്ക് വേണ്ട വിവരങ്ങളുള്ള</span></div></div>
+<div id="c9" class="clip " data-start="9.442" data-duration="0.437" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">websites</span></div></div>
+<div id="c10" class="clip " data-start="9.880" data-duration="0.820" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">കണ്ടെത്തിത്തരും</span></div></div>
+<div id="c11" class="clip " data-start="10.700" data-duration="1.905" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">ഇത് Direct Answer</span></div></div>
+<div id="c12" class="clip " data-start="12.605" data-duration="0.816" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">ഇത് Website Links</span></div></div>
+<div id="c13" class="clip " data-start="13.421" data-duration="1.034" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c14" class="clip " data-start="14.455" data-duration="0.896" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">വിവരങ്ങൾ ചുരുക്കി</span></div></div>
+<div id="c15" class="clip " data-start="15.351" data-duration="0.738" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">ഒരു answer ആയി</span></div></div>
+<div id="c16" class="clip " data-start="16.089" data-duration="0.791" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">തരാൻ സഹായിക്കും</span></div></div>
+<div id="c17" class="clip " data-start="16.880" data-duration="1.408" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">വ്യത്യസ്ത websites തുറന്ന്</span></div></div>
+<div id="c18" class="clip " data-start="18.288" data-duration="1.137" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">വിവരങ്ങൾ പരിശോധിക്കാം</span></div></div>
+<div id="c19" class="clip " data-start="19.425" data-duration="2.080" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">ഇത് Content Creation</span></div></div>
+<div id="c20" class="clip " data-start="21.505" data-duration="0.859" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">ഇത് Information Search</span></div></div>
+<div id="c21" class="clip " data-start="22.364" data-duration="1.010" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c22" class="clip " data-start="23.374" data-duration="1.376" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">captions, emails, ideas</span></div></div>
+<div id="c23" class="clip " data-start="24.750" data-duration="1.136" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">എന്നിവ തയ്യാറാക്കാൻ</span></div></div>
+<div id="c24" class="clip " data-start="25.886" data-duration="0.598" data-track-index="5" style="z-index:5"><div class="cap"><span id="c24-in">സഹായിക്കും</span></div></div>
+<div id="c25" class="clip " data-start="26.484" data-duration="1.395" data-track-index="5" style="z-index:5"><div class="cap"><span id="c25-in">websites, news, images,</span></div></div>
+<div id="c26" class="clip " data-start="27.879" data-duration="1.456" data-track-index="5" style="z-index:5"><div class="cap"><span id="c26-in">local information എന്നിവ</span></div></div>
+<div id="c27" class="clip " data-start="29.335" data-duration="1.274" data-track-index="5" style="z-index:5"><div class="cap"><span id="c27-in">കണ്ടെത്താൻ സഹായിക്കും</span></div></div>
+<div id="c28" class="clip " data-start="30.609" data-duration="2.103" data-track-index="5" style="z-index:5"><div class="cap"><span id="c28-in">ഇത് AI Answer</span></div></div>
+<div id="c29" class="clip " data-start="32.712" data-duration="0.748" data-track-index="5" style="z-index:5"><div class="cap"><span id="c29-in">ഇത് Original Source</span></div></div>
+<div id="c30" class="clip " data-start="33.460" data-duration="1.033" data-track-index="5" style="z-index:5"><div class="cap"><span id="c30-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c31" class="clip " data-start="34.493" data-duration="0.822" data-track-index="5" style="z-index:5"><div class="cap"><span id="c31-in">വേഗത്തിൽ കാര്യങ്ങൾ</span></div></div>
+<div id="c32" class="clip " data-start="35.315" data-duration="0.685" data-track-index="5" style="z-index:5"><div class="cap"><span id="c32-in">മനസ്സിലാക്കാനും</span></div></div>
+<div id="c33" class="clip " data-start="35.999" data-duration="1.278" data-track-index="5" style="z-index:5"><div class="cap"><span id="c33-in">explain ചെയ്യാനും സഹായിക്കും</span></div></div>
+<div id="c34" class="clip " data-start="37.277" data-duration="1.097" data-track-index="5" style="z-index:5"><div class="cap"><span id="c34-in">വിവരങ്ങൾ വന്ന website</span></div></div>
+<div id="c35" class="clip " data-start="38.374" data-duration="0.835" data-track-index="5" style="z-index:5"><div class="cap"><span id="c35-in">തുറന്ന് നേരിട്ട്</span></div></div>
+<div id="c36" class="clip " data-start="39.209" data-duration="0.731" data-track-index="5" style="z-index:5"><div class="cap"><span id="c36-in">verify ചെയ്യാം</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="2.136" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p1" class="clip " data-start="2.136" data-duration="0.765" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p2" class="clip " data-start="2.901" data-duration="1.010" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p3" class="clip " data-start="3.911" data-duration="3.344" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p4" class="clip " data-start="7.255" data-duration="3.445" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p5" class="clip " data-start="10.700" data-duration="1.905" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p6" class="clip " data-start="12.605" data-duration="0.816" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p7" class="clip " data-start="13.421" data-duration="1.034" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p8" class="clip " data-start="14.455" data-duration="2.425" data-track-index="2" style="z-index:2"><img id="p8-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p9" class="clip " data-start="16.880" data-duration="2.545" data-track-index="2" style="z-index:2"><img id="p9-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p10" class="clip " data-start="19.425" data-duration="2.080" data-track-index="2" style="z-index:2"><img id="p10-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p11" class="clip " data-start="21.505" data-duration="0.859" data-track-index="2" style="z-index:2"><img id="p11-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p12" class="clip " data-start="22.364" data-duration="1.010" data-track-index="2" style="z-index:2"><img id="p12-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p13" class="clip " data-start="23.374" data-duration="3.110" data-track-index="2" style="z-index:2"><img id="p13-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p14" class="clip " data-start="26.484" data-duration="4.125" data-track-index="2" style="z-index:2"><img id="p14-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p15" class="clip " data-start="30.609" data-duration="2.103" data-track-index="2" style="z-index:2"><img id="p15-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p16" class="clip " data-start="32.712" data-duration="0.748" data-track-index="2" style="z-index:2"><img id="p16-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p17" class="clip " data-start="33.460" data-duration="1.033" data-track-index="2" style="z-index:2"><img id="p17-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p18" class="clip " data-start="34.493" data-duration="2.784" data-track-index="2" style="z-index:2"><img id="p18-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p19" class="clip " data-start="37.277" data-duration="2.663" data-track-index="2" style="z-index:2"><img id="p19-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="39.940" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="39.940" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="42.44" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#t-x0-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},0.000);
+tl.to("#t-x0-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},3.811);
+tl.to("#t-x0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},7.085);
+tl.fromTo("#t-ya0-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},2.106);
+tl.to("#t-ya0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},3.791);
+tl.fromTo("#t-yb0-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},7.225);
+tl.to("#t-yb0-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},10.480);
+tl.fromTo("#t-x1-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},10.770);
+tl.to("#t-x1-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},14.355);
+tl.to("#t-x1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},16.710);
+tl.fromTo("#t-ya1-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},12.575);
+tl.to("#t-ya1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},14.335);
+tl.fromTo("#t-yb1-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},16.850);
+tl.to("#t-yb1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},19.205);
+tl.fromTo("#t-x2-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},19.495);
+tl.to("#t-x2-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},23.274);
+tl.to("#t-x2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},26.314);
+tl.fromTo("#t-ya2-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},21.475);
+tl.to("#t-ya2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},23.254);
+tl.fromTo("#t-yb2-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},26.454);
+tl.to("#t-yb2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},30.389);
+tl.fromTo("#t-x3-in",{x:-262,scale:0.35,opacity:0},{x:-262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},30.679);
+tl.to("#t-x3-in",{x:0,scale:1.18,duration:0.45,ease:"power2.inOut"},34.393);
+tl.to("#t-x3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},37.107);
+tl.fromTo("#t-ya3-in",{x:262,scale:0.35,opacity:0},{x:262,scale:0.92,opacity:1,duration:0.4,ease:"back.out(1.8)"},32.682);
+tl.to("#t-ya3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},34.373);
+tl.fromTo("#t-yb3-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1.18,opacity:1,duration:0.4,ease:"back.out(1.8)"},37.247);
+tl.to("#t-yb3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},39.720);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.136);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.901);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.911);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.342);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.475);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.608);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.255);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.021);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.442);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.880);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.700);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.605);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},13.421);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.455);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.351);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.089);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.880);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.288);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.425);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.505);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},22.364);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.374);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.750);
+tl.fromTo("#c24-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},25.886);
+tl.fromTo("#c25-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.484);
+tl.fromTo("#c26-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},27.879);
+tl.fromTo("#c27-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},29.335);
+tl.fromTo("#c28-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},30.609);
+tl.fromTo("#c29-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},32.712);
+tl.fromTo("#c30-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},33.460);
+tl.fromTo("#c31-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},34.493);
+tl.fromTo("#c32-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},35.315);
+tl.fromTo("#c33-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},35.999);
+tl.fromTo("#c34-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},37.277);
+tl.fromTo("#c35-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},38.374);
+tl.fromTo("#c36-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},39.209);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:1.068,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.382,ease:"sine.inOut",yoyo:true,repeat:1},2.136);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.505,ease:"sine.inOut",yoyo:true,repeat:1},2.901);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:1.672,ease:"sine.inOut",yoyo:true,repeat:1},3.911);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:1.723,ease:"sine.inOut",yoyo:true,repeat:1},7.255);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:0.952,ease:"sine.inOut",yoyo:true,repeat:1},10.700);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:0.408,ease:"sine.inOut",yoyo:true,repeat:1},12.605);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:0.517,ease:"sine.inOut",yoyo:true,repeat:1},13.421);
+tl.fromTo("#p8-in",{y:0},{y:-9,duration:1.212,ease:"sine.inOut",yoyo:true,repeat:1},14.455);
+tl.fromTo("#p9-in",{y:0},{y:-9,duration:1.272,ease:"sine.inOut",yoyo:true,repeat:1},16.880);
+tl.fromTo("#p10-in",{y:0},{y:-9,duration:1.040,ease:"sine.inOut",yoyo:true,repeat:1},19.425);
+tl.fromTo("#p11-in",{y:0},{y:-9,duration:0.430,ease:"sine.inOut",yoyo:true,repeat:1},21.505);
+tl.fromTo("#p12-in",{y:0},{y:-9,duration:0.505,ease:"sine.inOut",yoyo:true,repeat:1},22.364);
+tl.fromTo("#p13-in",{y:0},{y:-9,duration:1.555,ease:"sine.inOut",yoyo:true,repeat:1},23.374);
+tl.fromTo("#p14-in",{y:0},{y:-9,duration:2.062,ease:"sine.inOut",yoyo:true,repeat:1},26.484);
+tl.fromTo("#p15-in",{y:0},{y:-9,duration:1.052,ease:"sine.inOut",yoyo:true,repeat:1},30.609);
+tl.fromTo("#p16-in",{y:0},{y:-9,duration:0.374,ease:"sine.inOut",yoyo:true,repeat:1},32.712);
+tl.fromTo("#p17-in",{y:0},{y:-9,duration:0.517,ease:"sine.inOut",yoyo:true,repeat:1},33.460);
+tl.fromTo("#p18-in",{y:0},{y:-9,duration:1.392,ease:"sine.inOut",yoyo:true,repeat:1},34.493);
+tl.fromTo("#p19-in",{y:0},{y:-9,duration:1.331,ease:"sine.inOut",yoyo:true,repeat:1},37.277);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},39.94);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
