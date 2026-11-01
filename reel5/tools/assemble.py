@@ -27,7 +27,7 @@ def place(label,p,gap):
 for s in (1,2,3,4):
     i1,i2=split_intro(f"s{s}-intro")
     place(f"s{s}-i1",i1,0.14); place(f"s{s}-i2",i2,0.14)
-    place("q",prep("s1-q" if s%2 else "s2-q"),0.26)
+    place("q",prep({1:"s1-q",2:"s2-q",3:"s1-q",4:"q4"}[s]),0.26)
     place(f"s{s}-a",prep(f"s{s}-a"),0.22); place(f"s{s}-b",prep(f"s{s}-b"),0.55)
 total=round(t,2); ins=[]; fl=[]
 for i,(p,st) in enumerate(parts):

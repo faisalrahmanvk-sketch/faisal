@@ -17,3 +17,16 @@ s4-a bTPrt69k5z1MMKMSd1JX
 Only 4 of 12 lines actually completed (intro1, s1-a, s1-b, intro2). The other 8 FAILED asynchronously: quota exceeded (28 of 10000 credits left), then "Free Tier access disabled".
 Missing: s2-a, s2-b, intro3, s3-a, s3-b, q4, s4-a, s4-b. Needs ElevenLabs upgrade/reset or a user voiceover.
 Assets ready: assets/*.png (8 photo tiles), tools/build.py (SCENES for this reel), click.wav.
+
+## NEW ACCOUNT (flow CRR9YzRo1Za0q8AUgMNw) - old sessions above are on the old account and unusable
+intro1 Ubl50TIR1gY52oq6vXaV
+s1-a iIoSsnsMGMWaI8Qx7p45
+s1-b 8uxJhvlezY7FmE44qd5W
+intro2 qakwuNgEa8eaRwZfbCdB
+s2-a qJRhLwEl4M5MzYjNHO9z
+s2-b B0pPAxTOszHkLaOmdjb5
+intro3 duv4jiKezNeHoZpGqgu4
+s3-a ZmiIs3z6xhbffDHmxCMe
+s3-b 1Ckek5gDCMmZH5Gr0J2M
+q4 sMuejklJjBTfBrDjZYZp
+s4-a 1TI1TWSwF8OzBZA1wmCg
