@@ -97,5 +97,24 @@ window.render=function(t){
     el._ch.style.transform=`translateY(${(1-pc)*220}px)`;
   });
 };
+window.setTiming=function(tj){
+  tj.scenes.forEach((t,i)=>{
+    const sc=S[i],old=sc.e-sc.s,nw=t.e-t.s,f=Math.min(1.6,Math.max(.45,nw/old));
+    els[i]._items.forEach(it=>{if(it.d0===undefined)it.d0=it.d;it.d=it.d0*f});
+    sc.s=t.s;sc.e=t.e;
+  });
+};
+window.getEvents=function(){
+  const ev=[];let last=-1;
+  S.forEach((sc,i)=>{
+    ev.push({t:sc.s,type:'whoosh',scene:i});
+    els[i]._items.forEach(({n,d})=>{
+      if(n.closest('.h')||n.classList.contains('tag')||d<.25)return;
+      const t=sc.s+d; if(t-last<.18||t>sc.e-.2)return; last=t;
+      ev.push({t,type:n.querySelector('.btn')||n.classList.contains('btn')?'click':'pop',scene:i});
+    });
+  });
+  return ev;
+};
 render(0);
 </script></body></html>
