@@ -1,0 +1,101 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+:root{--blue:#2a5bd7;--ink:#111;--grey:#8a8f98}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:720px;height:1280px;overflow:hidden;background:#fff}
+body{font-family:'Inter','Inter Display',sans-serif;color:var(--ink);position:relative;
+ background-image:radial-gradient(#e9ecf2 1.2px,transparent 1.3px);background-size:36px 36px;background-color:#fff}
+.scene{position:absolute;inset:0;opacity:0}
+.tag{position:absolute;left:60px;right:60px;top:96px;height:56px;border-bottom:2px solid #e3e5ea;display:flex;align-items:flex-start;gap:12px;font-size:20px;letter-spacing:.5px;font-weight:500}
+.tag b{display:inline-flex;width:34px;height:34px;border-radius:8px;background:var(--ink);color:#fff;align-items:center;justify-content:center;font-size:18px}
+.tag span{line-height:34px}
+.h{position:absolute;left:0;right:0;text-align:center;font-weight:700;letter-spacing:-1px}
+.h1{font-size:66px;top:200px;line-height:1.05}
+.acc{font-family:'Liberation Serif','FreeSerif',serif;font-style:italic;font-weight:400;color:var(--blue);letter-spacing:-1px}
+.h .acc{display:block;font-size:84px;margin-top:6px}
+.abs{position:absolute}
+.c{left:0;right:0;text-align:center}
+.lbl{font-weight:600;font-size:28px}
+.small{font-size:19px;color:#555}
+.ch{position:absolute;bottom:0;height:470px;overflow:hidden;width:360px}
+.ch img{position:absolute;top:0;height:860px}
+.card{background:#fff;border:2px solid #dfe3ea;border-radius:16px;box-shadow:0 10px 30px rgba(30,50,110,.08)}
+.btn{background:var(--blue);color:#fff;border-radius:12px;padding:12px 28px;font-weight:600;font-size:22px;display:inline-block}
+.btn.o{background:#fff;color:#222;border:2px solid #dfe3ea}
+svg{overflow:visible}
+</style></head>
+<body>
+<div id="stage"></div>
+<script>
+const FOLDER=(w=170,c='#2a5bd7',inner='')=>`<svg width="${w}" viewBox="0 0 170 130"><path d="M6 20a8 8 0 0 1 8-8h50l16 18h76a8 8 0 0 1 8 8v82a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z" fill="${c}"/><path d="M6 44h158" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>${inner}</svg>`;
+const PLAY=`<path d="M62 60l34 20-34 20z" fill="#fff"/>`;
+const DASH=`<path d="M62 84h46" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`;
+const UP=`<path d="M85 110V72M70 86l15-16 15 16" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+const ICON=(p)=>`<div style="margin:0 auto;width:62px;height:62px;border-radius:50%;border:2px solid #cfd8f3;background:#f2f5ff;display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#2a5bd7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${p}</svg></div>`;
+const T=(t,s)=>`<div class="abs c" style="top:${t}px"><div class="lbl" ${s?`style="${s}"`:''}></div></div>`;
+
+// scenes: s,e,tag,[n,tagtext],title,accent,body(html),char:[img,side]
+const S=[
+{s:0,e:2.6,top:'<div class="abs c small" data-d=".05" style="top:230px;letter-spacing:2px">EVERYONE IS</div><div class="abs c" data-d=".15" style="top:290px;font-size:104px;font-weight:700;letter-spacing:-3px">editing</div><div class="abs c acc" data-d=".5" style="top:430px;font-size:120px">videos.</div>',ch:['think','c']},
+{s:2.6,e:4.6,top:'<div class="abs c acc" data-d=".05" style="top:230px;font-size:86px">videos.</div><div class="abs c lbl" data-d=".3" style="top:430px;font-size:38px">Locked behind</div><div class="abs c" data-d=".5" style="top:520px"><svg width="260" height="120" viewBox="0 0 260 120" fill="none" stroke="#111" stroke-width="7"><rect x="20" y="40" width="220" height="40" rx="20" transform="rotate(-14 130 60)"/><rect x="70" y="52" width="120" height="16" rx="8" fill="#2a5bd7" stroke="none" transform="rotate(-14 130 60)"/></svg></div><div class="abs c lbl" data-d=".8" style="top:690px;font-size:44px">a <span class="acc" style="font-size:54px">course.</span></div>',ch:['right','r']},
+{s:4.6,e:7.6,top:'<div class="abs c lbl" data-d=".05" style="top:300px;font-size:50px">Let\'s build</div><div class="abs c acc" data-d=".25" style="top:380px;font-size:80px">in 60 seconds.</div><div class="abs c" data-d=".55" style="top:540px"><svg width="200" height="160" viewBox="0 0 200 160"><rect x="40" y="20" width="120" height="100" rx="12" fill="#fff" stroke="#dfe3ea" stroke-width="3"/><path d="M60 50h80M60 70h80M60 90h50" stroke="#2a5bd7" stroke-width="5" stroke-linecap="round"/><path d="M10 120h180l-14 30H24z" fill="#2a5bd7"/></svg></div>',ch:['left','r']},
+{s:7.6,e:11.6,tag:[1,'YOUR WORKSPACE'],title:'Start on',acc:'your desktop.',body:'<div class="abs card c" data-d=".3" style="left:110px;right:110px;top:470px;width:500px;height:300px;margin:0 auto;text-align:center;padding-top:115px"><div class="lbl" style="font-size:38px">Claude Code</div><div style="margin:22px auto 0;width:300px;height:36px;border-radius:12px;background:#dbe5ff"></div></div><div class="abs" data-d=".6" style="left:300px;top:790px;width:120px;height:14px;background:#e3e5ea;border-radius:7px"></div>',ch:['right','l']},
+{s:11.6,e:20.2,tag:[1,'YOUR WORKSPACE'],title:'One folder.',acc:'Three homes.',body:'<div class="abs c" data-d=".4" style="top:420px"><div style="display:inline-block">'+FOLDER(220,'#2a5bd7',DASH)+'</div></div><div class="abs c lbl" data-d=".6" style="top:590px">AI Video Editor</div><div class="abs" data-d="3.2" style="left:70px;top:700px;width:180px;text-align:center">'+FOLDER(130,'#2a5bd7',PLAY)+'<div class="small" style="margin-top:4px">Raw Footage</div></div><div class="abs" data-d="4.6" style="left:270px;top:700px;width:180px;text-align:center">'+FOLDER(130,'#2a5bd7','<rect x="60" y="62" width="50" height="38" rx="5" fill="none" stroke="#fff" stroke-width="5"/>')+'<div class="small" style="margin-top:4px">References</div></div><div class="abs" data-d="6" style="left:470px;top:700px;width:180px;text-align:center">'+FOLDER(130,'#2a5bd7',UP)+'<div class="small" style="margin-top:4px">Exports</div></div>',ch:['left','r']},
+{s:20.2,e:26,tag:[1,'YOUR WORKSPACE'],title:'Bring it',acc:'all together.',body:'<div class="abs card" data-d=".3" style="left:90px;top:440px;width:540px;height:300px;padding:26px"><div class="small">New Claude Code chat</div><div style="margin-top:18px;height:90px;border-radius:12px;background:#f3f5f9;padding:14px;font-size:18px;color:#666">Let\'s make something…</div><div style="margin-top:22px;display:flex;gap:14px"><span class="btn" data-d="2">Local</span><span class="btn o">AI Video Editor</span></div></div><div class="abs c" data-d="3.4" style="top:790px"><svg width="40" height="60" viewBox="0 0 40 60" stroke="#2a5bd7" stroke-width="5" fill="none" stroke-linecap="round"><path d="M20 4v46M6 36l14 16 14-16"/></svg></div><div class="abs c lbl" data-d="3.8" style="top:870px;font-size:30px">Now Claude can <span class="acc" style="font-size:38px">see your files.</span></div>',ch:['right','l']},
+{s:26,e:32.2,tag:[2,'THE EDITING ENGINE'],title:'Give it',acc:'five superpowers.',body:'<div class="abs" data-d=".3" style="left:300px;top:560px;width:120px;height:120px;border-radius:50%;background:#111;color:#fff;text-align:center;line-height:116px;font-family:\'Liberation Serif\',serif;font-style:italic;font-size:64px">5</div><div class="abs" data-d="1.2" style="left:126px;top:440px;width:110px;text-align:center">'+ICON('<rect x="4" y="6" width="22" height="18" rx="3"/><path d="M12 11l7 4-7 4z"/>')+'<div class="small" style="margin-top:6px;text-align:center">Remotion</div></div><div class="abs" data-d="1.6" style="left:486px;top:440px;width:110px;text-align:center">'+ICON('<rect x="4" y="5" width="22" height="20" rx="3"/><path d="M9 13h12M9 18h8"/>')+'<div class="small" style="margin-top:6px;text-align:center">HyperFrames</div></div><div class="abs" data-d="2" style="left:106px;top:690px;width:110px;text-align:center">'+ICON('<path d="M15 5v14M8 13l7 7 7-7M6 25h18"/>')+'<div class="small" style="margin-top:6px;text-align:center">yt-dlp</div></div><div class="abs" data-d="2.4" style="left:506px;top:690px;width:110px;text-align:center">'+ICON('<path d="M8 8l14 14M22 8L8 22"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="22" r="3"/>')+'<div class="small" style="margin-top:6px;text-align:center">FFmpeg</div></div><div class="abs" data-d="2.8" style="left:305px;top:790px;width:110px;text-align:center">'+ICON('<rect x="11" y="4" width="8" height="15" rx="4"/><path d="M6 14a9 9 0 0 0 18 0M15 23v4"/>')+'<div class="small" style="margin-top:6px;text-align:center">Whisper</div></div>',ch:['think','r']},
+{s:32.2,e:34.6,tag:[2,'THE EDITING ENGINE'],title:'FFmpeg',acc:'Cut. Export.',body:'<div class="abs c" data-d=".3" style="top:520px"><svg width="520" height="110" viewBox="0 0 520 110"><rect width="520" height="110" rx="6" fill="#111"/><g fill="#fff">'+Array.from({length:20},(_,i)=>`<rect x="${10+i*26}" y="6" width="14" height="10" rx="2"/><rect x="${10+i*26}" y="94" width="14" height="10" rx="2"/>`).join('')+'</g><rect x="14" y="22" width="150" height="66" fill="#2a5bd7"/><rect x="178" y="22" width="160" height="66" fill="#4b78e6"/><rect x="352" y="22" width="154" height="66" fill="#2a5bd7"/></svg></div><div class="abs c small" data-d=".9" style="top:680px;font-size:22px">Close the gaps.</div><div class="abs c" data-d="1.3" style="top:760px"><span class="btn">Export MP4</span></div>',ch:['left','r']},
+{s:34.6,e:36.6,tag:[2,'THE EDITING ENGINE'],title:'Whisper',acc:'Words, alive.',body:'<div class="abs c" data-d=".3" style="top:540px"><svg width="540" height="100" viewBox="0 0 540 100" stroke="#2a5bd7" stroke-width="5" stroke-linecap="round">'+Array.from({length:36},(_,i)=>{const h=8+Math.abs(Math.sin(i*1.3))*60+Math.abs(Math.cos(i*.7))*14;return `<path d="M${10+i*15} ${50-h/2}v${h}"/>`}).join('')+'</svg></div><div class="abs c lbl" data-d=".9" style="top:700px;font-size:36px;border-bottom:3px solid var(--blue);display:inline-block;left:200px;right:200px;padding-bottom:6px">Your words.</div>',ch:['right','l']},
+{s:36.6,e:38,tag:[2,'THE EDITING ENGINE'],title:'yt-dlp',acc:'Bring references.',body:'<div class="abs card" data-d=".2" style="left:90px;top:470px;width:540px;height:60px;padding:14px;text-align:center" ><span class="small">Reference link → Your collection</span></div><div class="abs" data-d=".6" style="left:110px;top:590px;display:flex;gap:30px"><div class="card" style="width:140px;height:170px"></div><div class="card" style="width:140px;height:170px;border-color:#2a5bd7"></div><div class="card" style="width:140px;height:170px"></div></div><div class="abs c small" data-d="1" style="top:800px;font-size:22px">Collect what inspires you.</div>',ch:['left','r']},
+{s:38,e:41,tag:[0,'PASTE ONCE · INSTALL'],title:'Paste once.',acc:'Build everything.',body:'<div class="abs card" data-d=".3" style="left:110px;top:440px;width:500px;height:380px;padding:30px"><div class="small" style="letter-spacing:1px;color:#2a5bd7">YOUR VIDEO EDITOR PROMPT</div><div style="margin-top:20px;font-size:20px;color:#444;line-height:1.6">Be my video editor.<br>Install and test the tools…</div><div class="abs" style="right:26px;bottom:26px;width:56px;height:56px;border-radius:50%;background:#2a5bd7"><svg width="56" height="56" viewBox="0 0 56 56" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"><path d="M28 38V18M19 26l9-9 9 9"/></svg></div></div><div class="abs c lbl" data-d="1.4" style="top:870px;font-size:28px">You do not install <span class="acc" style="font-size:36px">anything.</span></div>',ch:['think','l']},
+{s:41,e:42.4,top:'<div class="abs c acc" data-d=".1" style="top:430px;font-size:260px">?</div>',ch:['think','c']},
+{s:42.4,e:44.2,tag:[3,'TEACH IT YOUR TASTE'],title:'It knows the tools.',acc:'You know the taste.',body:'<div class="abs acc" data-d=".3" style="left:440px;top:470px;font-size:200px">?</div><div class="abs c lbl" data-d=".9" style="top:790px;font-size:32px">Show it what good looks like.</div>',ch:['think','l']},
+{s:44.2,e:48.2,tag:[3,'TEACH IT YOUR TASTE'],title:'Collect a feeling.',acc:'Find your pattern.',body:'<div class="abs" data-d=".3" style="left:90px;top:470px;display:flex;gap:26px"><div class="card" style="width:150px;height:190px;padding:20px;font-family:serif;font-size:56px">Aa</div><div class="card" style="width:150px;height:190px;padding:30px"><svg width="90" height="80" viewBox="0 0 90 80" stroke="#2a5bd7" stroke-width="4" fill="none"><path d="M5 70C25 10 55 80 85 10"/></svg></div><div class="card" style="width:150px;height:190px;padding:34px"><svg width="80" height="90" viewBox="0 0 80 90" fill="#2a5bd7"><rect x="4" y="40" width="16" height="48"/><rect x="30" y="10" width="16" height="78"/><rect x="56" y="54" width="16" height="34"/></svg></div></div><div class="abs card" data-d="1.6" style="left:150px;top:720px;width:420px;height:150px;padding:20px"><div class="small">Your brand sheet</div><div style="margin-top:14px;font-family:serif;font-size:30px">Aa <span style="color:#aaa">/ Aa</span></div></div><div class="abs c small" data-d="2.4" style="top:900px;font-size:22px">3–5 references → one original style</div>',ch:['right','l']},
+{s:48.2,e:50.2,top:'<div class="abs c lbl" data-d=".1" style="top:230px;font-size:44px;font-weight:700">The most</div><div class="abs c acc" data-d=".3" style="top:290px;font-size:84px">important line.</div>',ch:['think','c'],big:1},
+{s:50.2,e:52.2,top:'<div class="abs c acc" data-d=".1" style="top:240px;font-size:150px">inspired.</div>',ch:['right','c'],big:1},
+{s:52.2,e:54.4,top:'<div class="abs c lbl" data-d=".1" style="top:240px;font-size:76px;font-weight:700">Your edits.</div>',ch:['left','c'],big:1},
+{s:54.4,e:56.2,top:'<div class="abs" data-d=".2" style="left:100px;top:560px"><svg width="80" height="90" viewBox="0 0 80 90"><path d="M10 10l60 35-60 35z" fill="#2a5bd7"/></svg></div><div class="abs" data-d=".5" style="left:400px;top:600px">'+FOLDER(210,'#2a5bd7','')+'</div><div class="abs small" data-d="1" style="left:300px;top:840px;font-size:24px">Last step.</div>',ch:['think','l']},
+{s:56.2,e:60.2,tag:[4,'MAKE YOUR FIRST EDIT'],title:'Film normally.',acc:'Drop it in.',body:'<div class="abs card" data-d=".3" style="left:120px;top:440px;width:200px;height:360px;border-radius:26px;border-color:#111;border-width:4px"><div style="margin:130px auto 0;width:80px;height:80px;border-radius:50%;background:#dbe5ff"></div></div><div class="abs" data-d="1.2" style="left:380px;top:640px;text-align:center">'+FOLDER(220,'#2a5bd7','')+'<div class="small" style="margin-top:6px">Raw Footage</div></div><div class="abs" data-d="2" style="left:310px;top:600px"><svg width="90" height="50" viewBox="0 0 90 50" stroke="#2a5bd7" stroke-width="5" fill="none" stroke-linecap="round"><path d="M5 25h70M58 8l18 17-18 17"/></svg></div>',ch:['right','l']},
+{s:60.2,e:64.4,tag:[4,'MAKE YOUR FIRST EDIT'],title:'Cut the silence.',acc:'Keep the story.',body:'<div class="abs card" data-d=".3" style="left:200px;top:440px;width:320px;height:250px;text-align:center;padding-top:60px"><div class="small">Your next</div><div style="font-family:serif;font-style:italic;font-size:34px;color:var(--blue)">great idea.</div><div class="btn" style="margin-top:26px;font-size:18px;padding:8px 22px">Clear captions</div></div><div class="abs" data-d="1.4" style="left:90px;top:740px;display:flex;gap:8px"><div style="width:140px;height:44px;background:#111"></div><div style="width:150px;height:44px;background:var(--blue)"></div><div style="width:130px;height:44px;background:#111"></div></div><div class="abs" data-d="1.9" style="left:90px;top:800px;width:430px;height:40px;background:repeating-linear-gradient(90deg,#9db6f0 0 4px,transparent 4px 10px)"></div><div class="abs small" data-d="2.4" style="left:90px;top:870px;font-size:22px">Dead air out · captions and music in</div>',ch:['left','r']},
+{s:64.4,e:66.4,top:'<div class="abs" data-d=".1" style="left:200px;top:540px;width:320px;height:130px;border:3px dashed #9db6f0"></div><div class="abs c small" data-d=".8" style="top:820px;font-size:24px">If something feels off…</div>',ch:['think','l']},
+{s:66.4,e:70.2,tag:[5,'TELL IT WHAT TO CHANGE'],title:'Something off?',acc:'Just say it.',body:'<div class="abs c" data-d=".3" style="top:500px"><div style="display:inline-block;padding:30px 70px;border:3px solid #c9d6f6;font-size:54px;font-weight:700;letter-spacing:-1px">THE HOOK</div></div><div class="abs c lbl" data-d="1.4" style="top:700px;font-size:30px">Make the hook bigger.</div>',ch:['right','l']},
+{s:70.2,e:74.2,top:'<div class="abs c lbl" data-d=".1" style="top:260px;font-size:60px;font-weight:700">From a folder</div><div class="abs c acc" data-d=".4" style="top:340px;font-size:84px">to your next Reel.</div><div class="abs" data-d=".9" style="left:140px;top:560px">'+FOLDER(200,'#2a5bd7','')+'</div><div class="abs" data-d="1.6" style="left:360px;top:560px"><svg width="200" height="140" viewBox="0 0 200 140" fill="none" stroke="#2a5bd7" stroke-width="4"><rect x="60" y="10" width="100" height="120" rx="10" fill="#fff"/><path d="M80 40h60M80 60h60M80 80h40" stroke-linecap="round"/></svg></div>',ch:['left','r']},
+{s:74.2,e:76.8,top:'<div class="abs c lbl" data-d=".1" style="top:250px;font-size:62px;font-weight:700">The tools cut.</div><div class="abs c acc" data-d=".5" style="top:340px;font-size:92px">Your taste</div><div class="abs c lbl" data-d=".9" style="top:470px;font-size:62px;font-weight:700">does the rest.</div>',ch:['think','c'],big:1},
+{s:76.8,e:81.6,top:'<div class="abs c small" data-d=".1" style="top:196px;font-size:32px;font-weight:600;color:#111">Comment</div><div class="abs c" data-d=".25" style="top:240px;font-size:92px;font-weight:600;color:var(--blue);letter-spacing:-1px;border-bottom:4px solid var(--blue);display:inline-block;left:130px;right:130px">EDITOR</div><div class="abs c small" data-d=".6" style="top:380px;font-size:22px">Get all three prompts.</div><div class="abs" data-d="1.2" style="left:130px;top:460px;display:flex;gap:30px">'+['01','02','03'].map(n=>`<div class="card" style="width:130px;height:170px;padding:22px;font-family:serif;font-style:italic;font-size:32px;color:#2a5bd7">${n}<div style="margin-top:18px;height:6px;background:#dbe5ff"></div><div style="margin-top:10px;height:6px;background:#dbe5ff;width:70%"></div></div>`).join('')+'</div><div class="abs c small" data-d="2.4" style="top:740px;font-size:24px">Next: my own <span class="acc" style="font-size:32px">editing style.</span></div>',ch:['left','r']},
+];
+
+const stage=document.getElementById('stage');
+const els=S.map(sc=>{
+  const d=document.createElement('div');d.className='scene';
+  let h='';
+  if(sc.tag){ if(sc.tag[0]) h+=`<div class="tag" data-d="0"><b>${sc.tag[0]}</b><span>${sc.tag[1]}</span></div>`;
+    h+=`<div class="h h1" data-d=".1">${sc.title}<span class="acc" data-d=".35">${sc.acc}</span></div>`; h+=sc.body||''; }
+  else h+=sc.top;
+  // character
+  const side=sc.ch[1], img=sc.ch[0];
+  const big=sc.big;
+  const W=big?460:300, H=big?640:390, Hh=big?1180:700;
+  let pos= side==='l'?'left:10px':side==='r'?'right:10px':'left:'+(720-W)/2+'px';
+  if(side==='c'&&big){ pos='left:130px' }
+  h+=`<div class="ch" data-ch="1" style="${pos};width:${W}px;height:${H}px"><img src="assets/char_${img==='think'?'think':img==='right'?'right':'left'}.png" style="height:${Hh}px;left:50%;transform:translateX(-50%)"></div>`;
+  d.innerHTML=h;stage.appendChild(d);
+  d._items=[...d.querySelectorAll('[data-d]')].map(n=>({n,d:parseFloat(n.dataset.d)}));
+  d._ch=d.querySelector('[data-ch]');
+  return d;
+});
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>1-Math.pow(1-x,3);
+window.render=function(t){
+  S.forEach((sc,i)=>{
+    const el=els[i],lt=t-sc.s,dur=sc.e-sc.s;
+    if(lt<-0.01||lt>dur+0.01){el.style.opacity=0;el.style.visibility='hidden';return}
+    el.style.visibility='visible';
+    const o=Math.min(clamp(lt/.3),clamp((dur-lt)/.25));
+    el.style.opacity=o;
+    el._items.forEach(({n,d})=>{const p=ease(clamp((lt-d)/.55));n.style.opacity=p;n.style.transform=`translateY(${(1-p)*26}px)`});
+    const pc=ease(clamp((lt-.15)/.6));
+    el._ch.style.transform=`translateY(${(1-pc)*220}px)`;
+  });
+};
+render(0);
+</script></body></html>
