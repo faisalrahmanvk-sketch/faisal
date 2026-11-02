@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.gwrap{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.grp{width:520px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.grp.big{margin-top:24px}
+.glbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.glogo{height:250px;max-width:460px;width:auto;object-fit:contain;border-radius:30px}
+.chip{margin-top:4px;padding:6px 26px;border-radius:30px;background:#eef3ff;color:#2330c9;font-weight:700;font-size:34px;white-space:nowrap}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="31.44" data-width="1080" data-height="1920">
+<div id="g-1l" class="clip " data-start="0.000" data-duration="3.758" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-1l-in" class="grp big"><div class="glbl">&nbsp;</div><img class="glogo" src="assets/midjourney.png" alt="midjourney.png logo"></div></div></div>
+<div id="g-1r" class="clip " data-start="1.318" data-duration="2.440" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-1r-in" class="grp big"><div class="glbl">Nano Banana</div><img class="glogo" src="assets/nanobanana.png" alt="Nano Banana logo"></div></div></div>
+<div id="g-2" class="clip " data-start="3.828" data-duration="4.316" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-2-in" class="grp big"><div class="glbl">&nbsp;</div><img class="glogo" src="assets/midjourney.png" alt="midjourney.png logo"></div></div></div>
+<div id="g-3" class="clip " data-start="8.214" data-duration="6.127" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-3-in" class="grp big"><div class="glbl">Nano Banana</div><img class="glogo" src="assets/nanobanana.png" alt="Nano Banana logo"></div></div></div>
+<div id="g-4" class="clip " data-start="14.411" data-duration="7.124" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-4-in" class="grp big"><div class="glbl">ChatGPT Images</div><img class="glogo" src="assets/chatgpt.png" alt="ChatGPT Images logo"></div></div></div>
+<div id="g-50" class="clip " data-start="21.605" data-duration="1.567" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-50-in" class="grp big"><div class="glbl">&nbsp;</div><img class="glogo" src="assets/midjourney.png" alt="midjourney.png logo"><div class="chip">Artistic Visuals</div></div></div></div>
+<div id="g-51" class="clip " data-start="23.222" data-duration="1.437" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-51-in" class="grp big"><div class="glbl">Nano Banana</div><img class="glogo" src="assets/nanobanana.png" alt="Nano Banana logo"><div class="chip">Photo Editing</div></div></div></div>
+<div id="g-52" class="clip " data-start="24.709" data-duration="4.231" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-52-in" class="grp big"><div class="glbl">ChatGPT Images</div><img class="glogo" src="assets/chatgpt.png" alt="ChatGPT Images logo"><div class="chip">Create + Edit</div></div></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="1.348" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇത് Midjourney</span></div></div>
+<div id="c1" class="clip " data-start="1.348" data-duration="1.211" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇത് Nano Banana</span></div></div>
+<div id="c2" class="clip " data-start="2.559" data-duration="1.199" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c3" class="clip " data-start="3.758" data-duration="1.096" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">Midjourney ഉപയോഗിച്ച്</span></div></div>
+<div id="c4" class="clip " data-start="4.854" data-duration="1.044" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">cinematic ആയിട്ടുള്ള</span></div></div>
+<div id="c5" class="clip " data-start="5.899" data-duration="1.514" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">images-ഉം artistic designs-ഉം</span></div></div>
+<div id="c6" class="clip " data-start="7.413" data-duration="0.731" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">create ചെയ്യാം</span></div></div>
+<div id="c7" class="clip " data-start="8.144" data-duration="0.819" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">ഇത് Nano Banana.</span></div></div>
+<div id="c8" class="clip " data-start="8.963" data-duration="1.127" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">ഒരു photo കൊടുത്തിട്ട്</span></div></div>
+<div id="c9" class="clip " data-start="10.090" data-duration="1.485" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">അതിൽ വേണ്ട മാറ്റങ്ങൾ പറഞ്ഞാൽ,</span></div></div>
+<div id="c10" class="clip " data-start="11.575" data-duration="1.024" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">image edit ചെയ്യാനും</span></div></div>
+<div id="c11" class="clip " data-start="12.600" data-duration="1.741" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">പല photos combine ചെയ്യാനും പറ്റും</span></div></div>
+<div id="c12" class="clip " data-start="14.341" data-duration="1.285" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">ChatGPT Images ഉപയോഗിച്ച്</span></div></div>
+<div id="c13" class="clip " data-start="15.626" data-duration="1.439" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">പുതിയ images create ചെയ്യാം.</span></div></div>
+<div id="c14" class="clip " data-start="17.064" data-duration="1.439" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">Existing photo upload ചെയ്ത്</span></div></div>
+<div id="c15" class="clip " data-start="18.503" data-duration="0.822" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">changes പറയാനും,</span></div></div>
+<div id="c16" class="clip " data-start="19.325" data-duration="2.210" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">image-ന്റെ ഉള്ളിൽ text add ചെയ്യാനും പറ്റും</span></div></div>
+<div id="c17" class="clip " data-start="21.535" data-duration="0.994" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">Artistic visuals?</span></div></div>
+<div id="c18" class="clip " data-start="22.529" data-duration="0.643" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">Midjourney.</span></div></div>
+<div id="c19" class="clip " data-start="23.172" data-duration="0.801" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">Photo editing?</span></div></div>
+<div id="c20" class="clip " data-start="23.973" data-duration="0.686" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">Nano Banana.</span></div></div>
+<div id="c21" class="clip " data-start="24.659" data-duration="1.273" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">Image create ചെയ്യാനും</span></div></div>
+<div id="c22" class="clip " data-start="25.932" data-duration="2.140" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">instructions കൊടുത്ത് edit ചെയ്യാനും?</span></div></div>
+<div id="c23" class="clip " data-start="28.072" data-duration="0.868" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">ChatGPT Images.</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.348" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p1" class="clip " data-start="1.348" data-duration="1.211" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p2" class="clip " data-start="2.559" data-duration="1.199" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p3" class="clip " data-start="3.758" data-duration="4.386" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p4" class="clip " data-start="8.144" data-duration="6.197" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p5" class="clip " data-start="14.341" data-duration="7.194" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p6" class="clip " data-start="21.535" data-duration="1.637" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p7" class="clip " data-start="23.172" data-duration="1.487" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p8" class="clip " data-start="24.659" data-duration="4.281" data-track-index="2" style="z-index:2"><img id="p8-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="28.940" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="28.940" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="31.44" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#g-1l-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},0.000);
+tl.to("#g-1l-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},3.538);
+tl.fromTo("#g-1r-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},1.318);
+tl.to("#g-1r-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},3.538);
+tl.fromTo("#g-2-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},3.828);
+tl.to("#g-2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},7.924);
+tl.fromTo("#g-3-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},8.214);
+tl.to("#g-3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},14.121);
+tl.fromTo("#g-4-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},14.411);
+tl.to("#g-4-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},21.315);
+tl.fromTo("#g-50-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},21.605);
+tl.to("#g-50-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},22.952);
+tl.fromTo("#g-51-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},23.222);
+tl.to("#g-51-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},24.439);
+tl.fromTo("#g-52-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},24.709);
+tl.to("#g-52-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},28.720);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.348);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.559);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.758);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.854);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.899);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.413);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.144);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.963);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.090);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.575);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.600);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.341);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.626);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},17.064);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.503);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.325);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.535);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},22.529);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.172);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.973);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.659);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},25.932);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},28.072);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.674,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.606,ease:"sine.inOut",yoyo:true,repeat:1},1.348);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.599,ease:"sine.inOut",yoyo:true,repeat:1},2.559);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:2.193,ease:"sine.inOut",yoyo:true,repeat:1},3.758);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:3.099,ease:"sine.inOut",yoyo:true,repeat:1},8.144);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:3.597,ease:"sine.inOut",yoyo:true,repeat:1},14.341);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:0.819,ease:"sine.inOut",yoyo:true,repeat:1},21.535);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:0.744,ease:"sine.inOut",yoyo:true,repeat:1},23.172);
+tl.fromTo("#p8-in",{y:0},{y:-9,duration:2.140,ease:"sine.inOut",yoyo:true,repeat:1},24.659);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},28.94);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
