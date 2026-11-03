@@ -16,25 +16,32 @@ def caps(s, e, chunks):
     w=[max(len(c),4) for c in chunks]; tot=sum(w); t=s
     for k,c in enumerate(chunks):
         d=(e-s)*w[k]/tot; cap.append((t, t+d if k<len(chunks)-1 else e, c)); t+=d
-i1,i2,q = tl["s1-i1"],tl["s1-i2"],tl["s1-q"]
-st=[0.0]+[tl[f"s{n}"]["start"]-0.1 for n in (2,3,4,5,6)]+[CARD]
-group("1l",0.0,st[1],-250,"sora.png",None); group("1r",i2["start"]-0.03,st[1],250,"kling.png",None)
+i1,i2,q = tl["s1-i1"],tl["s1-i2"],tl["s1-q"]; j1,j2,q2 = tl["s4-i1"],tl["s4-i2"],tl["s4-q"]
+st=[0.0, tl["s2"]["start"]-0.1, tl["s3"]["start"]-0.1, tl["s4-i1"]["start"]-0.1, tl["s5"]["start"]-0.1, tl["s6"]["start"]-0.1, tl["s7"]["start"]-0.1, CARD]
+# scene 1: Sora + Kling
+group("1l",0.0,st[1],-250,"sora.png","Sora"); group("1r",i2["start"]-0.03,st[1],250,"kling.png","Kling")
 caps(0.0,i2["start"],["ഇത് Sora"]); caps(i2["start"],q["start"],["ഇത് Kling"]); caps(q["start"],st[1],["എന്താണ് വ്യത്യാസം?"])
 poses += [(0.0,i2["start"],"L"),(i2["start"],q["start"],"R"),(q["start"],st[1],"T")]
-SC=[(2,"sora.png","Sora","L",["Sora ഉപയോഗിച്ച്","text prompt കൊടുത്ത്","AI videos create ചെയ്യാം.","Creative ideas-നെ video ആക്കി","മാറ്റാൻ ഇത് സഹായിക്കും"]),
-    (3,"kling.png","Kling","R",["Kling AI-യുടെ speciality,","realistic motion-ഉം","cinematic ആയിട്ടുള്ള","video shots-ഉം create","ചെയ്യാനുള്ള കഴിവാണ്"]),
-    (4,"runway.png","Runway","L",["Runway-യുടെ speciality","AI video generate","ചെയ്യുന്നതിന് പുറമേ,","existing videos edit ചെയ്യാനും","shots control ചെയ്യാനും പറ്റും"]),
-    (5,"veo.png","Veo","R",["Veo ഉപയോഗിച്ച്","realistic videos create ചെയ്യാം.","കൂടാതെ video-യിൽ തന്നെ","sound-ഉം dialogue-ഉം","generate ചെയ്യാൻ കഴിയും"])]
-for n,logo,label,pose,chunks in SC:
-    s,e=st[n-1],st[n]
-    group(str(n),tl[f"s{n}"]["start"]-0.03,e,0,logo,label); caps(s,e,chunks); poses.append((s,e,pose))
-# scene 6: four logos quick, one after another
-s,e=st[5],st[6]; c6=tl["s6"]; q4=(c6["end"]-c6["start"])/4
-caps(s,e,["AI video tools-ന്റെ","ഈ വ്യത്യാസങ്ങൾ","future-ൽ ഉപകാരപ്പെടാൻ","ഈ വീഡിയോ save ചെയ്തുവെച്ചോ!"]); poses.append((s,e,"T"))
-for k,(logo,label) in enumerate([("sora.png","Sora"),("kling.png","Kling"),("runway.png","Runway"),("veo.png","Veo")]):
-    gs=c6["start"]+k*q4-0.03 if k else c6["start"]-0.03
-    ge=e if k==3 else c6["start"]+(k+1)*q4-0.03
-    group(f"6{k}",max(gs,s),ge,0,logo,label)
+# scenes 2,3
+for n,logo,label,pose,chunks in [(2,"sora.png","Sora","L",["Sora ഉപയോഗിച്ച്","text prompt കൊടുത്ത്","AI videos create ചെയ്യാം."]),
+    (3,"kling.png","Kling","R",["Kling-ന്റെ speciality","realistic movements-ഉം","cinematic video shots-ഉം","create ചെയ്യാൻ","കഴിയുന്നതാണ്"])]:
+    s,e=st[n-1],st[n]; group(str(n),tl[f"s{n}"]["start"]-0.03,e,0,logo,label); caps(s,e,chunks); poses.append((s,e,pose))
+# scene 4: Runway + Veo 3
+group("4l",st[3],st[4],-250,"runway.png","Runway"); group("4r",j2["start"]-0.03,st[4],250,"veo.png","Veo 3")
+caps(st[3],j2["start"],["ഇത് Runway"]); caps(j2["start"],q2["start"],["ഇത് Veo 3"]); caps(q2["start"],st[4],["എന്താണ് വ്യത്യാസം?"])
+poses += [(st[3],j2["start"],"L"),(j2["start"],q2["start"],"R"),(q2["start"],st[4],"T")]
+# scenes 5,6
+for n,logo,label,pose,chunks in [(5,"runway.png","Runway","L",["Runway ഉപയോഗിച്ച്","AI videos create ചെയ്യാനും","existing videos","edit ചെയ്യാനും കഴിയും"]),
+    (6,"veo.png","Veo 3","R",["Veo 3-യുടെ പ്രത്യേകത","video-ക്കൊപ്പം","sound effects-ഉം","dialogues-ഉം generate","ചെയ്യാൻ കഴിയും എന്നതാണ്"])]:
+    s,e=st[n-1],st[n]; group(str(n),tl[f"s{n}"]["start"]-0.03,e,0,logo,label); caps(s,e,chunks); poses.append((s,e,pose))
+# scene 7: all four logos together
+s,e=st[6],st[7]; c7=tl["s7"]
+tiles="".join(f'<div id="t7-{k}" class="tile"><img class="tlogo" src="assets/{lg}" alt="{lb} logo"><div class="tlbl">{lb}</div></div>' for k,(lg,lb) in enumerate([("sora.png","Sora"),("kling.png","Kling"),("runway.png","Runway"),("veo.png","Veo 3")]))
+clip("g-7", s, e, f'<div class="grid4">{tiles}</div>', z=3)
+for k in range(4):
+    js.append(f'tl.fromTo("#t7-{k}",{{scale:0.3,opacity:0}},{{scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"}},{c7["start"]-0.03+k*0.28:.3f});')
+js.append(f'tl.to("#g-7",{{opacity:0,duration:0.2}},{e-0.22:.3f});')
+caps(s,e,["ഈ നാല് AI video tools-ന്റെയും","specialities അറിയാൻ","ഈ വീഡിയോ future reference-ന്","save ചെയ്തുവെച്ചോ!"]); poses.append((s,e,"T"))
 for i,(s,e,t) in enumerate(cap):
     clip(f"c{i}", s, e, f'<div class="cap"><span id="c{i}-in">{html.escape(t)}</span></div>', z=5)
     js.append(f'tl.fromTo("#c{i}-in",{{y:18,opacity:0}},{{y:0,opacity:1,duration:0.18,ease:"power2.out"}},{s:.3f});')
@@ -52,6 +59,10 @@ CSS += """
 .grp.big{margin-top:24px}
 .glbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
 .glogo{height:250px;max-width:460px;width:auto;object-fit:contain;border-radius:30px}
+.grid4{position:absolute;left:90px;top:170px;width:900px;display:grid;grid-template-columns:1fr 1fr;gap:34px 40px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:10px}
+.tlogo{height:170px;max-width:300px;width:auto;object-fit:contain;border-radius:24px}
+.tlbl{font-weight:700;font-size:38px}
 .chip{margin-top:4px;padding:6px 26px;border-radius:30px;background:#eef3ff;color:#2330c9;font-weight:700;font-size:34px;white-space:nowrap}
 """
 doc = f"""<!doctype html>

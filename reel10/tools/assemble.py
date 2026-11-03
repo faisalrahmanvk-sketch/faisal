@@ -38,7 +38,11 @@ def place(label,p,gap):
     d=dur(p); tl.append({"clip":label,"start":round(t,3),"end":round(t+d,3)}); parts.append((p,t)); t+=d+gap
 i1,i2=split2("s1-intro")
 place("s1-i1",i1,0.14); place("s1-i2",i2,0.14); place("s1-q",prep("s1-q"),0.55)
-for s in (2,3,4,5,6):
+for s in (2,3):
+    place(f"s{s}",prep(f"s{s}"),0.55)
+j1,j2=split2("s4-intro")
+place("s4-i1",j1,0.14); place("s4-i2",j2,0.14); place("s4-q",prep("s1-q"),0.55)
+for s in (5,6,7):
     place(f"s{s}",prep(f"s{s}"),0.55)
 total=round(t,2); ins=[]; fl=[]
 for i,(p,st) in enumerate(parts):

@@ -39,10 +39,10 @@ env=np.convolve(np.abs(v),np.ones(int(0.12*SR))/int(0.12*SR),"same"); env=np.con
 bgm*= (1-0.6*np.clip(env,0,1))*0.20
 # ---- SFX events
 sfx=np.zeros(N)
-for name in ("s1-i1","s1-i2","s2","s3","s4","s5"):
+for name in ("s1-i1","s1-i2","s2","s3","s4-i1","s4-i2","s5","s6"):
     add(sfx,click(),max(0.0,clips[name]["start"]-0.03),0.8)
-c6=clips["s6"]
-for k in range(4): add(sfx,click(),c6["start"]+0.02+k*(c6["end"]-c6["start"])/4,0.8)   # 4 logos in the ending
+c6=clips["s7"]
+for k in range(4): add(sfx,click(),c6["start"]+0.02+k*0.28,0.8)   # 4 logos pop together in the ending
 add(sfx,click(),CARD,1.0)   # follow card: uploaded click only
 VG=float(os.environ.get('REEL_VOICE_GAIN','1.0'))   # new videos: REEL_VOICE_GAIN=1.45 (~+3 dB)
 mix=np.tanh((v*VG+sfx*0.6)*1.0) if VG!=1.0 else v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
