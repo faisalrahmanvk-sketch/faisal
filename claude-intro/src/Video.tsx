@@ -21,14 +21,15 @@ const MAL = "'Noto Sans Malayalam', Inter, sans-serif";
 
 // ---------- timing (all in absolute seconds of the voice-over) ----------
 type Wd = {w: string; s: number; e: number; scene: number; ph: number};
-const WORDS = words as Wd[];
+const SPEED = 1.5;
+const WORDS = (words as Wd[]).map((x) => ({...x, s: x.s / SPEED, e: x.e / SPEED}));
 const PHW: Wd[][] = [];
 WORDS.forEach((x) => {
   (PHW[x.ph] = PHW[x.ph] || []).push(x);
 });
 const cue = (ph: number, k = 0) => PHW[ph][k].s;
 
-const B = [0, 10.7, 21.65, 33.22, 43.65, 52.85, 59.09];
+const B = [0, 10.7, 21.65, 33.22, 43.65, 52.85, 59.16].map((x) => x / SPEED);
 const F = B.map((s) => Math.round(s * FPS));
 export const TOTAL_FRAMES = F[F.length - 1];
 
@@ -211,6 +212,15 @@ const Win: React.FC<{x: number; y: number; at: number; stroke: string; fill?: st
   </g>
 );
 
+const Logo: React.FC<{src: string; x: number; y: number; w: number; at: number; align?: 'left' | 'right'}> = ({src, x, y, w, at, align = 'left'}) => {
+  const p = useProg(at, 0.6);
+  return (
+    <div style={{position: 'absolute', top: y, [align]: x, width: w, opacity: p > 0 ? 1 : 0, clipPath: `inset(-5% ${(1 - p) * 102}% -5% 0)`, mixBlendMode: 'multiply'} as React.CSSProperties}>
+      <Img src={staticFile(src)} style={{width: '100%', display: 'block'}} />
+    </div>
+  );
+};
+
 const Scene1: React.FC = () => {
   const t = useT();
   const tMeet = cue(3, 1);
@@ -219,12 +229,12 @@ const Scene1: React.FC = () => {
   return (
     <>
       <Layer>
-        <Win x={24} y={590} at={cue(0, 1)} stroke={MUTED} label="ChatGPT" labelColor={MUTED} />
-        <Win x={546} y={590} at={cue(3, 1)} stroke={BLUE} fill={BLUE_SOFT} label="Claude" labelColor={BLUE} star />
         <Ink d="M 110 580 C 200 528, 520 528, 616 580" at={cue(2, 4)} dur={1.0} stroke={BLUE} w={4} dash />
         <Ink d="M 596 560 L 616 584 L 588 590" at={cue(2, 4) + 0.9} dur={0.3} stroke={BLUE} w={4} />
         <Spark x={90} y={360} at={cue(3, 1) + 0.3} /><Spark x={640} y={380} s={22} at={cue(3, 1) + 0.5} />
       </Layer>
+      <Logo src="logos/chatgpt.png" x={10} y={610} w={210} at={cue(0, 1)} />
+      <Logo src="logos/claude.png" x={14} y={640} w={230} at={cue(3, 1)} align="right" />
       <Reveal at={cue(2, 4)} style={{position: 'absolute', top: subTop, left: 0, right: 0, textAlign: 'center'}}>
         <Bold size={42}>Another </Bold><Ital size={58}>powerful AI</Ital>
       </Reveal>
@@ -250,9 +260,7 @@ const Scene2: React.FC = () => (
       <Reveal at={cue(5, 0)}><Bold size={52}>Founded in</Bold></Reveal>
       <div style={{marginTop: 4}}><WriteOn at={cue(5, 0) + 0.15} dur={0.8}><Ital size={120}>2021.</Ital></WriteOn></div>
     </div>
-    <div style={{position: 'absolute', top: 470, left: 300, right: 150, textAlign: 'right'}}>
-      <WriteOn at={cue(5, 2)} dur={0.9}><Ital size={70}>Anthropic</Ital></WriteOn>
-    </div>
+    <Logo src="logos/anthropic.png" x={36} y={480} w={330} at={cue(5, 2)} align="right" />
   </>
 );
 
@@ -394,7 +402,7 @@ const SceneFade: React.FC<{dur: number; children: React.ReactNode}> = ({dur, chi
 export const ClaudeIntro: React.FC = () => (
   <AbsoluteFill style={{background: '#fff'}}>
     <Background />
-    <Audio src={staticFile('audio/voiceover.mp3')} />
+    <Audio src={staticFile('audio/voiceover-1.5x.mp3')} />
     {SCENES.map(({C, side}, i) => (
       <Sequence key={i} from={F[i]} durationInFrames={F[i + 1] - F[i]} name={`Scene ${i + 1}`}>
         <Ctx.Provider value={F[i]}>
