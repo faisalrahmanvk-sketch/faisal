@@ -1,27 +1,39 @@
-<!doctype html><html lang="ml"><head><meta charset="UTF-8"><style>
-@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><style>
 @font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
 @font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
 *{margin:0;box-sizing:border-box}
-body{width:1080px;height:1920px;background:#fff;font-family:"PopFz","NotoMal",sans-serif;position:relative;overflow:hidden}
-.glow{position:absolute;left:-200px;top:520px;width:1480px;height:1100px;background:radial-gradient(closest-side,#e8eeff,#fff 75%)}
-.top{position:absolute;left:0;top:200px;width:1080px;display:flex;justify-content:center;gap:34px;align-items:center}
-.top img{height:130px;border-radius:30px}
-.pill{background:#2330c9;color:#fff;font-weight:800;font-size:60px;padding:14px 44px;border-radius:60px}
-.title{position:absolute;left:60px;right:60px;top:380px;text-align:center;font-weight:800;font-size:104px;line-height:1.3;color:#0b0b14}
-.title .cv{display:inline-block;background:#2330c9;color:#fff;padding:0 34px;border-radius:26px;margin:0 6px}
-.title .red{color:#e11d48}
-.sub{position:absolute;left:0;top:860px;width:1080px;text-align:center;font-weight:700;font-size:40px;color:#475569}
-.sub b{color:#d97757}
-.char{position:absolute;left:50%;transform:translateX(-50%);top:950px;height:790px}
-.emoji{position:absolute;left:640px;top:1010px;font-size:150px}
+body{width:1080px;height:1920px;background:#fff;font-family:"PopFz",sans-serif;position:relative;overflow:hidden}
+.glow{position:absolute;left:-250px;top:560px;width:1580px;height:1200px;background:radial-gradient(closest-side,#e6ecff,#fff 78%)}
+.pill{position:absolute;left:0;top:250px;width:1080px;display:flex;justify-content:center}
+.pill span{background:#16a34a;color:#fff;font-weight:700;font-size:44px;padding:12px 42px;border-radius:60px;letter-spacing:1px}
+.t1,.t2{position:absolute;left:0;width:1080px;text-align:center;font-weight:800;letter-spacing:-2px}
+.t1{top:350px;font-size:170px;color:#0b0b14;line-height:1.1}
+.t2{top:535px;font-size:150px;line-height:1.1;color:#0b0b14}
+.t2 b{color:#d97757}
+.cv{position:absolute;left:520px;top:800px;width:470px;height:640px;background:#fff;border-radius:34px;box-shadow:0 30px 80px rgba(35,48,201,.22),0 0 0 6px #2330c9;transform:rotate(5deg);padding:46px 40px}
+.av{width:96px;height:96px;border-radius:50%;background:#93c5fd}
+.nm{position:absolute;left:158px;top:58px}
+.nm i{display:block;height:20px;border-radius:10px;background:#1e293b;width:200px;margin-bottom:14px}
+.nm i+i{height:14px;width:140px;background:#94a3b8}
+.sec{margin-top:36px}
+.sec i{display:block;height:14px;border-radius:7px;background:#cbd5e1;margin-bottom:16px}
+.sec .h{background:#2330c9;width:130px;height:18px;margin-bottom:20px}
+.chips{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+.chips u{display:block;height:34px;width:96px;border-radius:17px;background:#dbeafe}
+.ats{position:absolute;right:-26px;top:-30px;background:#16a34a;color:#fff;font-weight:800;font-size:40px;padding:12px 30px;border-radius:40px;box-shadow:0 10px 24px rgba(22,163,74,.4)}
+.claude{position:absolute;left:780px;top:1340px;width:230px;height:230px;border-radius:52px;box-shadow:0 22px 50px rgba(217,119,87,.35);background:#fff}
+.char{position:absolute;left:30px;top:860px;height:830px}
 .wm{position:absolute;left:0;bottom:70px;width:1080px;text-align:center;font-weight:700;font-size:42px;color:#374151}
 </style></head><body>
 <div class="glow"></div>
-<div class="top"><div class="pill">2027</div><img src="assets/claude.png" alt="Claude"></div>
-<div class="title"><div style="font-size:124px;line-height:1.25"><span class="red">പൈസ</span></div><div>കൊടുത്താണോ</div><div style="font-size:82px;line-height:1.5"><span class="cv">CV</span> ഉണ്ടാക്കുന്നത്?</div></div>
-<div class="sub">ATS-friendly CV · <b>Claude AI</b> ഉപയോഗിച്ച്</div>
-<img class="char" src="assets/pose_think.png" alt="">
-<div class="emoji">😳</div>
+<div class="pill"><span>ATS-FRIENDLY</span></div>
+<div class="t1">Create CV</div>
+<div class="t2">with <b>Claude</b></div>
+<div class="cv"><div class="ats">ATS ✓</div><div class="av"></div><div class="nm"><i></i><i></i></div>
+<div class="sec"><i class="h"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:86%"></i></div>
+<div class="sec"><i class="h"></i><i style="width:88%"></i><i style="width:70%"></i></div>
+<div class="sec"><i class="h"></i><div class="chips"><u></u><u></u><u></u></div></div></div>
+<img class="claude" src="assets/claude.png" alt="Claude">
+<img class="char" src="assets/pose_pointR.png" alt="">
 <div class="wm">@fyze.ai</div>
 </body></html>
