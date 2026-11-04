@@ -12,7 +12,7 @@ def svg(key, text=None):
 def icon(spec):
     key,label,*rest = spec
     art = f'<img src="assets/claude.png" alt="Claude">' if key=="claude" else svg(key, rest[0] if rest else None)
-    return f'<div class="ic">{art}<div class="il">{html.escape(label)}</div></div>'
+    return f'<div class="ic">{art}' + (f'<div class="il">{html.escape(label)}</div>' if label else '') + '</div>'
 N=10
 SL=[
  dict(kind="cover"),
@@ -24,11 +24,12 @@ SL=[
  dict(kick="STEP 2", title="Paste my <o>prompt</o> into Claude", body="Copy the prompt I give you and paste it into Claude.", icons=[("copy","Copy prompt"),("claude","Paste in Claude")], pose="pointR", side="L"),
  dict(kick="STEP 3", title="Add the <b>job description</b>", body="Copy the job description and company name of the job you’re applying for, and paste them below the prompt.", icons=[("jd","Job description"),("company","Company name")], pose="pointL", side="R"),
  dict(kick="RESULT", title="A CV <g>tailored</g> to the job", body="Claude matches your experience with the job description and helps you build the right CV for that position.", icons=[("claude","Claude AI"),("ats","Tailored CV")], pose="pointR", side="L"),
- dict(kick="WANT THE PROMPT?", title="Comment <b>“CV”</b> or <o>“CLAUDE”</o>", body="and I’ll share the prompt with you!", icons=[("comment","Option 1","CV"),("comment","Option 2","CLAUDE")], pose="pointL", side="R", last=True),
+ dict(kick="WANT THE PROMPT?", title="Comment <b>“CV”</b> or <o>“CLAUDE”</o>", body="and I’ll share the prompt with you!", icons=[("comment","","CV"),("comment","","CLAUDE")], pose="pointL", side="R", last=True),
 ]
 CSS = """
 @font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
 @font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:500;src:url("assets/fonts/pop500.woff2") format("woff2")}
 *{margin:0;box-sizing:border-box}
 body{width:1080px;height:1350px;background:#fff;font-family:"PopFz",sans-serif;position:relative;overflow:hidden;color:#0b0b14}
 .glow{position:absolute;left:-250px;top:380px;width:1580px;height:1100px;background:radial-gradient(closest-side,#e6ecff,#fff 78%)}
@@ -36,9 +37,10 @@ body{width:1080px;height:1350px;background:#fff;font-family:"PopFz",sans-serif;p
 .hd b{color:#2330c9;font-weight:800}
 .kick{position:absolute;left:0;top:140px;width:1080px;display:flex;justify-content:center}
 .kick span{background:#2330c9;color:#fff;font-weight:800;font-size:38px;padding:10px 38px;border-radius:50px;letter-spacing:1.5px}
-.ttl{position:absolute;left:70px;right:70px;top:240px;text-align:center;font-weight:800;font-size:96px;line-height:1.1;letter-spacing:-2px}
+.txt{position:absolute;left:70px;right:70px;top:240px;display:flex;flex-direction:column;align-items:center;gap:34px}
+.ttl{width:100%;text-align:center;font-weight:800;font-size:96px;line-height:1.1;letter-spacing:-2px}
 .ttl .o{color:#d97757}.ttl .g{color:#16a34a}.ttl b{color:#2330c9}
-.bod{position:absolute;left:110px;right:110px;text-align:center;font-weight:700;font-size:42px;line-height:1.35;color:#475569}
+.bod{width:880px;text-align:center;font-weight:500;font-size:42px;line-height:1.4;color:#64748b}
 .row{position:absolute;display:flex;justify-content:center;gap:34px;height:330px;align-items:flex-start}
 .ic{width:230px;text-align:center}.ic svg,.ic img{width:230px;height:230px;object-fit:contain;display:block}
 .ic img{border-radius:50px;box-shadow:0 18px 44px rgba(217,119,87,.3);padding:0}
@@ -55,7 +57,7 @@ def hd(i): return f'<div class="hd"><span><b>@fyze.ai</b></span><span>{i:02d}/{N
 for i,s in enumerate(SL,1):
     if s.get("kind")=="cover":
         b = hd(i)+'<div class="kick"><span style="background:#16a34a">ATS-FRIENDLY</span></div>'
-        b += '<div class="ttl" style="top:230px;font-size:150px;line-height:1.08">Create CV<br>with <span class="o">Claude</span></div>'
+        b += '<div class="ttl" style="position:absolute;left:70px;right:70px;top:230px;font-size:138px;line-height:1.1">Create CV<br>with <span class="o">Claude</span></div>'
         b += '''<style>.cv{position:absolute;left:520px;top:690px;width:430px;height:540px;background:#fff;border-radius:32px;box-shadow:0 26px 70px rgba(35,48,201,.22),0 0 0 6px #2330c9;transform:rotate(5deg);padding:40px 36px}
 .av{width:86px;height:86px;border-radius:50%;background:#93c5fd}.nm{position:absolute;left:140px;top:52px}.nm i{display:block;height:18px;border-radius:9px;background:#1e293b;width:180px;margin-bottom:12px}.nm i+i{height:12px;width:124px;background:#94a3b8}
 .sec{margin-top:30px}.sec i{display:block;height:13px;border-radius:7px;background:#cbd5e1;margin-bottom:14px}.sec .h{background:#2330c9;width:116px;height:16px;margin-bottom:18px}
@@ -70,20 +72,14 @@ for i,s in enumerate(SL,1):
 <img class="char" style="left:30px;height:700px;bottom:70px" src="assets/pose_pointR.png" alt="">'''
         b += '<div class="sw">Swipe →</div>'
     else:
-        b = hd(i)+f'<div class="kick"><span>{html.escape(s["kick"])}</span></div><div class="ttl">{s["title"]}</div>'
-        nl = 3 if len(re.sub("<[^>]+>","",s["title"]))>26 else 2
-        btop = 240 + int(96*1.1*nl)+30
-        b += f'<div class="bod" style="top:{btop}px">{html.escape(s["body"])}</div>'
+        b = hd(i)+f'<div class="kick"><span>{html.escape(s["kick"])}</span></div><div class="txt"><div class="ttl">{s["title"]}</div><div class="bod">{html.escape(s["body"])}</div></div>'
         left = s["side"]=="L"   # character side
         rowx = (330,1010) if left else (60,740)
-        import math
-        bh = math.ceil(len(s["body"])/38)*57
-        avail = 1350-70-(btop+bh)
-        rtop = btop+bh+max(40,(avail-330)//2 - (60 if s.get('last') else 0))
-        b += f'<div class="row" style="top:{rtop}px;left:{rowx[0]}px;width:{rowx[1]-rowx[0]}px">{"".join(icon(x) for x in s["icons"])}</div>'
+        b += f'<div class="row" style="top:760px;left:{rowx[0]}px;width:{rowx[1]-rowx[0]}px">{"".join(icon(x) for x in s["icons"])}</div>'
         b += f'<img class="char" style="{"left:20px" if left else "right:20px"}" src="assets/{POSE[s["pose"]]}" alt="">'
         if s.get("last"): b += '<div class="fol" style="top:1140px"><span>Follow @fyze.ai</span></div>'
         else: b += '<div class="sw">Swipe →</div>'
     b += '<div class="wm">@fyze.ai</div>' if False else ""
+    if not s.get('kind')=='cover': b += '<script>const t=document.querySelector(".txt").getBoundingClientRect().bottom,r=document.querySelector(".row");const av=1350-70-t;r.style.top=(t+Math.max(40,(av-330)/2-%d))+"px";</script>' % (60 if s.get('last') else 0)
     (HERE/f"s{i:02d}.html").write_text(page(b), encoding="utf-8")
 print("slides", len(SL))
