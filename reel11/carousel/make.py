@@ -24,7 +24,7 @@ SL=[
  dict(kick="STEP 2", title="Paste my <o>prompt</o> into Claude", body="Copy the prompt I give you and paste it into Claude.", icons=[("copy","Copy prompt"),("claude","Paste in Claude")], pose="pointR", side="L"),
  dict(kick="STEP 3", title="Add the <b>job description</b>", body="Copy the job description and company name of the job you’re applying for, and paste them below the prompt.", icons=[("jd","Job description"),("company","Company name")], pose="pointL", side="R"),
  dict(kick="RESULT", title="A CV <g>tailored</g> to the job", body="Claude matches your experience with the job description and helps you build the right CV for that position.", icons=[("claude","Claude AI"),("ats","Tailored CV")], pose="pointR", side="L"),
- dict(kick="WANT THE PROMPT?", title="Comment <b>“CV”</b> or <o>“CLAUDE”</o>", body="and I’ll share the prompt with you!", icons=[("comment","","CV"),("comment","","CLAUDE")], pose="pointL", side="R", last=True),
+ dict(kick="WANT THE PROMPT?", title="Comment <b>“CV”</b> or <o>“CLAUDE”</o>", body="and I’ll share the prompt with you!", icons=[], pose="pointL", side="R", last=True),
 ]
 CSS = """
 @font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
@@ -75,9 +75,9 @@ for i,s in enumerate(SL,1):
         b = hd(i)+f'<div class="kick"><span>{html.escape(s["kick"])}</span></div><div class="txt"><div class="ttl">{s["title"]}</div><div class="bod">{html.escape(s["body"])}</div></div>'
         left = s["side"]=="L"   # character side
         rowx = (330,1010) if left else (60,740)
-        b += f'<div class="row" style="top:760px;left:{rowx[0]}px;width:{rowx[1]-rowx[0]}px">{"".join(icon(x) for x in s["icons"])}</div>'
+        if s["icons"]: b += f'<div class="row" style="top:760px;left:{rowx[0]}px;width:{rowx[1]-rowx[0]}px">{"".join(icon(x) for x in s["icons"])}</div>'
         b += f'<img class="char" style="{"left:20px" if left else "right:20px"}" src="assets/{POSE[s["pose"]]}" alt="">'
-        if s.get("last"): b += '<div class="fol" style="top:1140px"><span>Follow @fyze.ai</span></div>'
+        if s.get("last"): b += '<div class="fol" style="top:800px"><span>Follow @fyze.ai</span></div>'
         else: b += '<div class="sw">Swipe →</div>'
     b += '<div class="wm">@fyze.ai</div>' if False else ""
     if not s.get('kind')=='cover': b += '<script>const t=document.querySelector(".txt").getBoundingClientRect().bottom,r=document.querySelector(".row");const av=1350-70-t;r.style.top=(t+Math.max(40,(av-330)/2-%d))+"px";</script>' % (60 if s.get('last') else 0)
