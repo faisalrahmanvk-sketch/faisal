@@ -21,7 +21,7 @@ const MAL = "'Noto Sans Malayalam', Inter, sans-serif";
 
 // ---------- timing (all in absolute seconds of the voice-over) ----------
 type Wd = {w: string; s: number; e: number; scene: number; ph: number};
-const SPEED = 1.5;
+const SPEED = 1.25;
 const WORDS = (words as Wd[]).map((x) => ({...x, s: x.s / SPEED, e: x.e / SPEED}));
 const PHW: Wd[][] = [];
 WORDS.forEach((x) => {
@@ -221,6 +221,19 @@ const Logo: React.FC<{src: string; x: number; y: number; w: number; at: number; 
   );
 };
 
+const AppIcon: React.FC<{src: string; x: number; y: number; size: number; at: number; label: string; color: string; align: 'left' | 'right'}> = ({src, x, y, size, at, label, color, align}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const start = Math.round(at * FPS) - useContext(Ctx);
+  const sp = spring({frame: frame - start, fps, config: {damping: 13, stiffness: 140}});
+  return (
+    <div style={{position: 'absolute', top: y, [align]: x, width: size, textAlign: 'center', opacity: frame >= start ? 1 : 0, transform: `scale(${sp})`}}>
+      <Img src={staticFile(src)} style={{width: size, height: size, display: 'block', borderRadius: size * 0.22}} />
+      <div style={{marginTop: 10, fontFamily: SANS, fontWeight: 700, fontSize: 26, color}}>{label}</div>
+    </div>
+  );
+};
+
 const Scene1: React.FC = () => {
   const t = useT();
   const tMeet = cue(3, 1);
@@ -229,12 +242,12 @@ const Scene1: React.FC = () => {
   return (
     <>
       <Layer>
-        <Ink d="M 110 580 C 200 528, 520 528, 616 580" at={cue(2, 4)} dur={1.0} stroke={BLUE} w={4} dash />
-        <Ink d="M 596 560 L 616 584 L 588 590" at={cue(2, 4) + 0.9} dur={0.3} stroke={BLUE} w={4} />
+        <Ink d="M 100 600 C 190 548, 530 548, 620 600" at={cue(2, 4)} dur={1.0} stroke={BLUE} w={4} dash />
+        <Ink d="M 604 580 L 624 604 L 596 610" at={cue(2, 4) + 0.9} dur={0.3} stroke={BLUE} w={4} />
         <Spark x={90} y={360} at={cue(3, 1) + 0.3} /><Spark x={640} y={380} s={22} at={cue(3, 1) + 0.5} />
       </Layer>
-      <Logo src="logos/chatgpt.png" x={10} y={610} w={210} at={cue(0, 1)} />
-      <Logo src="logos/claude.png" x={14} y={640} w={230} at={cue(3, 1)} align="right" />
+      <AppIcon src="logos/chatgpt-icon.png" x={36} y={610} size={130} at={cue(0, 1)} label="ChatGPT" color={MUTED} align="left" />
+      <AppIcon src="logos/claude-icon.png" x={36} y={610} size={130} at={cue(3, 1)} label="Claude" color={BLUE} align="right" />
       <Reveal at={cue(2, 4)} style={{position: 'absolute', top: subTop, left: 0, right: 0, textAlign: 'center'}}>
         <Bold size={42}>Another </Bold><Ital size={58}>powerful AI</Ital>
       </Reveal>
@@ -402,7 +415,7 @@ const SceneFade: React.FC<{dur: number; children: React.ReactNode}> = ({dur, chi
 export const ClaudeIntro: React.FC = () => (
   <AbsoluteFill style={{background: '#fff'}}>
     <Background />
-    <Audio src={staticFile('audio/voiceover-1.5x.mp3')} />
+    <Audio src={staticFile('audio/voiceover-1.25x.mp3')} />
     {SCENES.map(({C, side}, i) => (
       <Sequence key={i} from={F[i]} durationInFrames={F[i + 1] - F[i]} name={`Scene ${i + 1}`}>
         <Ctx.Provider value={F[i]}>
