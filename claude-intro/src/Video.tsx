@@ -1,322 +1,380 @@
-import React from 'react';
+import React, {createContext, useContext} from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import words from './words.json';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/instrument-serif/400-italic.css';
-import {Layer, DrawPath, DashedDraw, Ring, Underline, Ripples, Orbit, Burst, Sparkle, CheckRing, Wave, useProg, TypeBubble} from './Anim';
+import '@fontsource/noto-sans-malayalam/malayalam-500.css';
+import '@fontsource/noto-sans-malayalam/malayalam-700.css';
 
 const FPS = 30;
 const BLUE = '#2459E8';
+const BLUE_SOFT = '#DCE6FF';
 const INK = '#0B0B0F';
 const MUTED = '#6B7280';
+const LINE = '#E3E7F0';
 const SANS = 'Inter, sans-serif';
 const SERIF = "'Instrument Serif', serif";
+const MAL = "'Noto Sans Malayalam', Inter, sans-serif";
 
-// Scene boundaries (seconds) measured from the voice-over silences.
-const B = [0, 10.7, 21.65, 36.95, 43.64, 52.85, 59.09];
+// ---------- timing (all in absolute seconds of the voice-over) ----------
+type Wd = {w: string; s: number; e: number; scene: number; ph: number};
+const WORDS = words as Wd[];
+const PHW: Wd[][] = [];
+WORDS.forEach((x) => {
+  (PHW[x.ph] = PHW[x.ph] || []).push(x);
+});
+const cue = (ph: number, k = 0) => PHW[ph][k].s;
+
+const B = [0, 10.7, 21.65, 33.22, 43.65, 52.85, 59.09];
 const F = B.map((s) => Math.round(s * FPS));
 export const TOTAL_FRAMES = F[F.length - 1];
 
-type Side = 'left' | 'right' | 'center';
-const POSE: Record<Side, {src: string; h: number; ar: number}> = {
-  center: {src: 'chars/pose-center-thinking.png', h: 780, ar: 832 / 1920},
-  left: {src: 'chars/pose-left.png', h: 660, ar: 1024 / 1536},
-  right: {src: 'chars/pose-right.png', h: 660, ar: 1024 / 1536},
-};
+const Ctx = createContext(0);
+const useT = () => (useCurrentFrame() + useContext(Ctx)) / FPS;
+const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
+const useProg = (at: number, dur = 0.6) => ease(clamp01((useT() - at) / dur));
 
-const useIn = (at: number, dur = 14) => {
-  const frame = useCurrentFrame();
-  return interpolate(frame, [at * FPS, at * FPS + dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: (t) => 1 - Math.pow(1 - t, 3)});
-};
-
-const Reveal: React.FC<{at: number; dx?: number; dy?: number; children: React.ReactNode; style?: React.CSSProperties}> = ({at, dx = 0, dy = 28, children, style}) => {
-  const p = useIn(at);
+// ---------- primitives ----------
+const Reveal: React.FC<{at: number; dy?: number; dx?: number; dur?: number; style?: React.CSSProperties; children: React.ReactNode}> = ({at, dy = 22, dx = 0, dur = 0.55, style, children}) => {
+  const p = useProg(at, dur);
   return <div style={{opacity: p, transform: `translate(${(1 - p) * dx}px, ${(1 - p) * dy}px)`, ...style}}>{children}</div>;
 };
 
-const Background: React.FC = () => (
-  <AbsoluteFill style={{background: '#FFFFFF', backgroundImage: 'radial-gradient(#D9DEE8 1.4px, transparent 1.4px)', backgroundSize: '32px 32px'}}>
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 35%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.85) 100%)'}} />
-  </AbsoluteFill>
+/** hand-written reveal: the word is wiped in left → right */
+const WriteOn: React.FC<{at: number; dur?: number; children: React.ReactNode; style?: React.CSSProperties}> = ({at, dur = 0.7, children, style}) => {
+  const p = useProg(at, dur);
+  return <span style={{display: 'inline-block', clipPath: `inset(-20% ${(1 - p) * 102}% -20% 0)`, opacity: p > 0 ? 1 : 0, ...style}}>{children}</span>;
+};
+
+const Layer: React.FC<{children: React.ReactNode}> = ({children}) => (
+  <svg width={720} height={1280} viewBox="0 0 720 1280" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>{children}</svg>
 );
 
-const Progress: React.FC<{idx: number}> = ({idx}) => (
-  <div style={{position: 'absolute', top: 56, left: 0, right: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 10, fontFamily: SANS, fontWeight: 600, fontSize: 18, color: MUTED}}>
-    <span style={{marginRight: 6}}>{idx + 1}/6</span>
-    {[0, 1, 2, 3, 4, 5].map((i) => (
-      <div key={i} style={{width: i === idx ? 44 : 30, height: 16, borderRadius: 9, border: `2px solid ${i <= idx ? BLUE : '#CBD2E0'}`, background: i < idx ? BLUE : '#fff', position: 'relative'}}>
-        {i === idx && <div style={{position: 'absolute', top: 1, left: 24, width: 10, height: 10, borderRadius: 5, background: BLUE}} />}
-      </div>
+/** a path that draws itself; optional soft fill appears after */
+const Ink: React.FC<{d: string; at: number; dur?: number; stroke?: string; w?: number; fill?: string; dash?: boolean}> = ({d, at, dur = 0.8, stroke = INK, w = 3.5, fill, dash}) => {
+  const p = useProg(at, dur);
+  const fp = useProg(at + dur * 0.8, 0.4);
+  if (p <= 0) return null;
+  return (
+    <>
+      {fill && <path d={d} fill={fill} opacity={fp} stroke="none" />}
+      {dash ? (
+        <path d={d} fill="none" stroke={stroke} strokeWidth={w} strokeLinecap="round" strokeDasharray="9 11" opacity={p} />
+      ) : (
+        <path d={d} fill="none" stroke={stroke} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} />
+      )}
+    </>
+  );
+};
+
+const Underline: React.FC<{x: number; y: number; w: number; at: number; dur?: number}> = ({x, y, w, at, dur = 0.6}) => (
+  <Ink d={`M ${x} ${y} C ${x + w * 0.3} ${y - 7}, ${x + w * 0.6} ${y + 6}, ${x + w} ${y - 3}`} at={at} dur={dur} stroke={BLUE} w={4.5} />
+);
+
+const Spark: React.FC<{x: number; y: number; s?: number; at: number}> = ({x, y, s = 16, at}) => {
+  const t = useT();
+  if (t < at) return null;
+  const k = 0.6 + 0.4 * Math.sin((t - at) * 5 + x);
+  const a = s * k * Math.min(1, (t - at) * 4);
+  return <path d={`M ${x} ${y - a} Q ${x} ${y} ${x + a} ${y} Q ${x} ${y} ${x} ${y + a} Q ${x} ${y} ${x - a} ${y} Q ${x} ${y} ${x} ${y - a} Z`} fill={BLUE} />;
+};
+
+/** short radiating tick lines (no circles) */
+const Ticks: React.FC<{x: number; y: number; at: number; n?: number; r0?: number; r1?: number}> = ({x, y, at, n = 9, r0 = 60, r1 = 100}) => {
+  const p = useProg(at, 0.5);
+  if (p <= 0) return null;
+  return (
+    <g opacity={1 - clamp01((p - 0.7) / 0.3) * 0.0}>
+      {Array.from({length: n}).map((_, i) => {
+        const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+        return <line key={i} x1={x + Math.cos(a) * r0} y1={y + Math.sin(a) * r0} x2={x + Math.cos(a) * (r0 + (r1 - r0) * p)} y2={y + Math.sin(a) * (r0 + (r1 - r0) * p)} stroke={BLUE} strokeWidth={4} strokeLinecap="round" />;
+      })}
+    </g>
+  );
+};
+
+// ---------- line icons (64×64 viewBox) ----------
+const ICON: Record<string, string[]> = {
+  pen: ['M10 54 L14 40 L40 14 L50 24 L24 50 Z', 'M34 20 L44 30', 'M10 54 L24 50'],
+  bulb: ['M32 6 C18 6 12 18 17 29 C20 35 24 37 24 44 H40 C40 37 44 35 47 29 C52 18 46 6 32 6 Z', 'M25 51 H39', 'M28 58 H36'],
+  code: ['M22 16 L7 32 L22 48', 'M42 16 L57 32 L42 48', 'M37 10 L27 54'],
+  doc: ['M14 6 H38 L52 20 V58 H14 Z', 'M38 6 V20 H52', 'M22 32 H44', 'M22 42 H44', 'M22 51 H35'],
+  calendar: ['M7 14 H57 V57 H7 Z', 'M7 27 H57', 'M20 6 V19', 'M44 6 V19'],
+  building: ['M8 58 V12 H36 V58', 'M36 30 H56 V58', 'M4 58 H60', 'M16 22 H28', 'M16 32 H28', 'M16 42 H28', 'M43 40 H49', 'M43 49 H49'],
+  question: ['M20 22 C20 8 44 8 44 22 C44 34 32 33 32 44', 'M32 55 V56'],
+  check: ['M9 34 L26 50 L55 15'],
+  star: ['M32 4 V60', 'M4 32 H60', 'M12 12 L52 52', 'M52 12 L12 52'],
+};
+const Icon: React.FC<{k: string; x: number; y: number; size: number; at: number; dur?: number; stroke?: string; fill?: string}> = ({k, x, y, size, at, dur = 0.8, stroke = INK, fill}) => (
+  <g transform={`translate(${x},${y}) scale(${size / 64})`}>
+    {ICON[k].map((d, i) => (
+      <Ink key={i} d={d} at={at + i * dur * 0.25} dur={dur * 0.7} stroke={stroke} w={3.2 * (64 / size) * 0.9 + 1.2} fill={i === 0 ? fill : undefined} />
     ))}
-  </div>
+  </g>
 );
 
+// ---------- frame furniture ----------
+const Background: React.FC = () => (
+  <AbsoluteFill style={{background: '#fff', backgroundImage: `linear-gradient(#EEF1F7 1px, transparent 1px), linear-gradient(90deg, #EEF1F7 1px, transparent 1px)`, backgroundSize: '36px 36px', backgroundPosition: '-1px -1px'}} />
+);
+
+const LABELS = ['INTRODUCTION', 'THE STORY', 'WHAT CAN YOU DO?', 'THE COMMON MISTAKE', 'WHAT YOU WILL LEARN', 'ENDING'];
+const Header: React.FC<{idx: number}> = ({idx}) => {
+  const p = useProg(B[idx] + 0.05, 0.5);
+  return (
+    <>
+      <div style={{position: 'absolute', left: 36, top: 44, display: 'flex', alignItems: 'center', gap: 12, opacity: p, fontFamily: SANS, fontWeight: 700, fontSize: 16, letterSpacing: 2, color: INK}}>
+        <div style={{width: 28, height: 28, borderRadius: 8, background: INK, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 15, letterSpacing: 0}}>{idx + 1}</div>
+        {LABELS[idx]}
+      </div>
+      <Layer>
+        <Ink d="M 36 92 H 684" at={B[idx] + 0.15} dur={0.6} stroke={LINE} w={2} />
+      </Layer>
+    </>
+  );
+};
+
+/** Malayalam caption, one word at a time, exactly on the spoken word */
+const Caption: React.FC<{scene: number}> = ({scene}) => {
+  const t = useT();
+  const phs = PHW.map((p, i) => ({i, p})).filter((x) => x.p[0].scene === scene);
+  let cur = -1;
+  for (const x of phs) if (t >= x.p[0].s - 0.08) cur = x.i;
+  if (cur < 0) return null;
+  const p = PHW[cur];
+  const next = PHW[cur + 1] && PHW[cur + 1][0].scene === scene ? PHW[cur + 1][0].s : Infinity;
+  if (t > p[p.length - 1].e + 0.9 && next === Infinity) return null;
+  return (
+    <div style={{position: 'absolute', left: 36, right: 36, top: 112, textAlign: 'center', fontFamily: MAL, fontWeight: 500, fontSize: 31, lineHeight: 1.55, color: INK}}>
+      {p.map((wd, i) => {
+        const a = ease(clamp01((t - wd.s) / 0.18));
+        const active = t >= wd.s && t < wd.e + 0.08;
+        const latin = /^[A-Za-z0-9]/.test(wd.w);
+        return (
+          <span key={i} style={{display: 'inline-block', margin: '0 6px', opacity: a, transform: `translateY(${(1 - a) * 10}px)`, filter: `blur(${(1 - a) * 4}px)`, color: active ? BLUE : INK, fontFamily: latin ? SANS : MAL, fontWeight: active ? 700 : 500, borderBottom: `3.5px solid ${active ? BLUE : 'transparent'}`, lineHeight: 1.35}}>
+            {wd.w}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+// ---------- character ----------
+type Side = 'left' | 'right' | 'center';
+const POSE: Record<Side, {src: string; h: number; ar: number}> = {
+  center: {src: 'chars/pose-center-thinking.png', h: 720, ar: 832 / 1920},
+  left: {src: 'chars/pose-left.png', h: 640, ar: 1024 / 1536},
+  right: {src: 'chars/pose-right.png', h: 640, ar: 1024 / 1536},
+};
 const Character: React.FC<{side: Side}> = ({side}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const p = POSE[side];
   const w = p.h * p.ar;
   const s = spring({frame: frame - 2, fps, config: {damping: 16, stiffness: 120}});
-  const float = Math.sin(frame / 18) * 5;
-  const left = side === 'left' ? 4 : side === 'right' ? 720 - w - 4 : (720 - w) / 2;
+  const float = Math.sin(frame / 18) * 4;
+  const left = side === 'left' ? 6 : side === 'right' ? 720 - w - 6 : (720 - w) / 2;
   return (
-    <div style={{position: 'absolute', left, bottom: 14 - (1 - s) * 80 - float, width: w, height: p.h, opacity: s, filter: 'drop-shadow(0 18px 22px rgba(20,30,70,0.18))'}}>
+    <div style={{position: 'absolute', left, bottom: 10 - (1 - s) * 70 - float, width: w, height: p.h, opacity: s}}>
       <Img src={staticFile(p.src)} style={{width: '100%', height: '100%'}} />
     </div>
   );
 };
 
-const Title: React.FC<{a?: string; b: string; at?: number; align?: 'left' | 'right' | 'center'; size?: number}> = ({a, b, at = 0.3, align = 'center', size = 92}) => (
-  <Reveal at={at} style={{textAlign: align, lineHeight: 1.0}}>
-    {a && <div style={{fontFamily: SANS, fontWeight: 800, fontSize: size * 0.8, color: INK, letterSpacing: -1}}>{a}</div>}
-    <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: size, color: BLUE, marginTop: 4}}>{b}</div>
-  </Reveal>
+// ---------- headline helpers ----------
+const Bold: React.FC<{children: React.ReactNode; size?: number}> = ({children, size = 60}) => (
+  <span style={{fontFamily: SANS, fontWeight: 700, fontSize: size, color: INK, letterSpacing: -1}}>{children}</span>
+);
+const Ital: React.FC<{children: React.ReactNode; size?: number}> = ({children, size = 84}) => (
+  <span style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: size, color: BLUE, letterSpacing: -0.5}}>{children}</span>
 );
 
-// Layout helper: text column on the side opposite the character.
-const Opp: React.FC<{side: Side; children: React.ReactNode; top?: number}> = ({side, children, top = 150}) => (
-  <div style={{position: 'absolute', top, left: side === 'left' ? 360 : 30, right: side === 'left' ? 30 : 360, display: 'flex', flexDirection: 'column', gap: 22, alignItems: side === 'left' ? 'flex-end' : 'flex-start'}}>{children}</div>
+// ================= SCENES =================
+const Win: React.FC<{x: number; y: number; at: number; stroke: string; fill?: string; label: string; labelColor: string; star?: boolean}> = ({x, y, at, stroke, fill, label, labelColor, star}) => (
+  <g transform={`translate(${x},${y})`}>
+    <Ink d="M14 0 H136 Q150 0 150 14 V106 Q150 120 136 120 H14 Q0 120 0 106 V14 Q0 0 14 0 Z" at={at} dur={0.7} stroke={stroke} fill={fill} w={3.5} />
+    <Ink d="M0 26 H150" at={at + 0.2} dur={0.4} stroke={stroke} w={3} />
+    <Ink d="M16 50 H104" at={at + 0.4} dur={0.4} stroke={stroke} w={3.5} />
+    <Ink d="M16 68 H128" at={at + 0.5} dur={0.4} stroke={stroke} w={3.5} />
+    <Ink d="M16 86 H84" at={at + 0.6} dur={0.4} stroke={stroke} w={3.5} />
+    {star && (
+      <g transform="translate(112,86) scale(0.34)">
+        {ICON.star.map((d, i) => <Ink key={i} d={d} at={at + 0.9 + i * 0.1} dur={0.4} stroke={BLUE} w={6} />)}
+      </g>
+    )}
+    <text x={75} y={152} textAnchor="middle" fontFamily={SANS} fontWeight={700} fontSize={24} fill={labelColor} opacity={useProg(at + 0.4, 0.4)}>{label}</text>
+  </g>
 );
 
-const Card: React.FC<{children: React.ReactNode; style?: React.CSSProperties}> = ({children, style}) => (
-  <div style={{background: '#fff', border: '1.5px solid #E3E7F0', borderRadius: 22, boxShadow: '0 12px 30px rgba(30,50,110,0.10)', ...style}}>{children}</div>
-);
-
-const Icon: React.FC<{k: 'pen' | 'bulb' | 'code' | 'file' | 'q' | 'check'; color?: string}> = ({k, color = BLUE}) => {
-  const p = {fill: 'none', stroke: color, strokeWidth: 2.2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
-  return (
-    <svg width="46" height="46" viewBox="0 0 24 24">
-      {k === 'pen' && <path {...p} d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3" />}
-      {k === 'bulb' && <path {...p} d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z" />}
-      {k === 'code' && <path {...p} d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />}
-      {k === 'file' && <path {...p} d="M6 3h8l5 5v13H6zM14 3v5h5M9 13h7M9 17h7" />}
-      {k === 'q' && <path {...p} d="M9 9a3 3 0 116 0c0 2-3 2-3 4M12 17v.5" />}
-      {k === 'check' && <path {...p} d="M5 12l5 5 9-10" />}
-    </svg>
-  );
-};
-
-// ---------- Scenes ----------
 const Scene1: React.FC = () => {
-  const frame = useCurrentFrame();
+  const t = useT();
+  const tMeet = cue(3, 1);
+  const move = ease(clamp01((t - tMeet) / 0.5));
+  const subTop = 300 + move * 188;
   return (
     <>
       <Layer>
-        <Ripples cx={360} cy={880} max={300} at={0.4} />
-        <Ring cx={360} cy={880} r={300} at={0.6} dur={1.4} dashed />
-        <Orbit cx={360} cy={880} r={300} at={1.5} n={3} speed={0.015} showRing={false} />
-        <Underline x={170} y={496} w={380} at={1.6} />
-        <Sparkle x={90} y={200} at={1.0} /><Sparkle x={640} y={260} s={22} at={1.4} /><Sparkle x={600} y={560} at={2.0} /><Sparkle x={110} y={600} s={20} at={2.4} />
-        <DashedDraw d="M 178 729 C 270 590, 470 610, 556 776" at={7.0} dur={1.1} />
-        <circle cx={556} cy={776} r={7} fill={BLUE} opacity={useProg(8.0, 0.2)} />
+        <Win x={24} y={590} at={cue(0, 1)} stroke={MUTED} label="ChatGPT" labelColor={MUTED} />
+        <Win x={546} y={590} at={cue(3, 1)} stroke={BLUE} fill={BLUE_SOFT} label="Claude" labelColor={BLUE} star />
+        <Ink d="M 110 580 C 200 528, 520 528, 616 580" at={cue(2, 4)} dur={1.0} stroke={BLUE} w={4} dash />
+        <Ink d="M 596 560 L 616 584 L 588 590" at={cue(2, 4) + 0.9} dur={0.3} stroke={BLUE} w={4} />
+        <Spark x={90} y={360} at={cue(3, 1) + 0.3} /><Spark x={640} y={380} s={22} at={cue(3, 1) + 0.5} />
       </Layer>
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
-        <Title a="MEET" b="CLAUDE" size={150} />
+      <Reveal at={cue(2, 4)} style={{position: 'absolute', top: subTop, left: 0, right: 0, textAlign: 'center'}}>
+        <Bold size={42}>Another </Bold><Ital size={58}>powerful AI</Ital>
+      </Reveal>
+      <div style={{position: 'absolute', top: 300, left: 0, right: 0, textAlign: 'center', lineHeight: 1.0}}>
+        <Reveal at={tMeet}><Bold size={66}>Meet</Bold></Reveal>
+        <div style={{marginTop: 2}}><WriteOn at={tMeet + 0.2} dur={0.8}><Ital size={100}>Claude.</Ital></WriteOn></div>
       </div>
-      <Reveal at={1.0} style={{position: 'absolute', top: 440, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 34, letterSpacing: 4, color: INK}}>
-        ANOTHER POWERFUL AI
-      </Reveal>
-      <TypeBubble at={0.5} text="Using ChatGPT?" style={{left: 24, top: 600}} size={24} hideAfter={6.5} />
-      <TypeBubble at={3.6} text="another AI exists…" style={{right: 24, top: 640}} size={24} hideAfter={6.5} dark />
-      <Reveal at={0.8} dx={-40} dy={0} style={{position: 'absolute', left: 30, top: 700}}>
-        <Card style={{padding: '14px 26px', fontFamily: SANS, fontWeight: 600, fontSize: 28, color: MUTED}}>ChatGPT</Card>
-      </Reveal>
-      <Reveal at={6.7} dx={40} dy={0} style={{position: 'absolute', right: 30, top: 780}}>
-        <Card style={{padding: '14px 26px', fontFamily: SANS, fontWeight: 700, fontSize: 28, color: '#fff', background: BLUE, border: 'none', transform: `scale(${1 + 0.03 * Math.sin(frame / 8)})`}}>Claude</Card>
-      </Reveal>
     </>
   );
 };
 
 const Scene2: React.FC = () => (
   <>
-  <Layer>
-    <Underline x={385} y={252} w={300} at={0.9} />
-    <DashedDraw d="M 540 640 L 540 1190" at={3.2} dur={1.8} />
-    {[720, 900, 1080].map((y, i) => (
-      <g key={y} opacity={useProg(3.6 + i * 0.9, 0.3)}>
-        <circle cx={540} cy={y} r={18} fill="#fff" stroke={BLUE} strokeWidth={5} />
-        <circle cx={540} cy={y} r={7} fill={BLUE} />
-      </g>
-    ))}
-    <Ripples cx={540} cy={1080} max={120} n={2} at={5.4} />
-    <Ring cx={540} cy={1080} r={44} at={5.4} dur={0.8} w={4} />
-    <Sparkle x={660} y={760} at={4.4} /><Sparkle x={420} y={980} s={20} at={5.0} /><Sparkle x={650} y={1130} s={14} at={6.0} />
-    <Orbit cx={540} cy={470} r={165} at={3.0} n={2} speed={0.02} />
-  </Layer>
-  <TypeBubble at={3.8} text="Use AI" style={{left: 580, top: 698}} size={22} />
-  <TypeBubble at={4.8} text="Do more" style={{left: 580, top: 878}} size={22} />
-  <TypeBubble at={5.8} text="Easily" style={{left: 580, top: 1058}} size={22} dark />
-  <Opp side="left">
-    <Title b="ANTHROPIC" at={0.3} align="right" size={76} />
-    <Reveal at={1.2} style={{fontFamily: SANS, fontWeight: 700, fontSize: 30, letterSpacing: 3, color: INK, textAlign: 'right'}}>FOUNDED IN 2021</Reveal>
-    <Reveal at={2.2} dx={40} style={{marginTop: 30}}>
-      <Card style={{padding: '30px 34px', width: 300, textAlign: 'center'}}>
-        <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 16, letterSpacing: 3, color: MUTED}}>FOUNDED</div>
-        <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 120, color: BLUE, lineHeight: 1.05}}>2021</div>
-        <div style={{height: 4, background: '#E3E7F0', borderRadius: 2, marginTop: 14}}>
-          <div style={{height: 4, width: `${useIn(3, 60) * 100}%`, background: BLUE, borderRadius: 2}} />
-        </div>
-      </Card>
-    </Reveal>
-  </Opp>
+    <Layer>
+      <Icon k="calendar" x={316} y={330} size={92} at={cue(5, 0)} stroke={INK} fill={BLUE_SOFT} />
+      <Icon k="building" x={540} y={650} size={120} at={cue(5, 2)} stroke={INK} fill={BLUE_SOFT} />
+      <Ink d="M 470 1180 L 540 1130 L 580 1150 L 640 1060 L 690 1000" at={cue(6, 3)} dur={1.6} stroke={BLUE} w={6} />
+      <Ink d="M 664 998 L 692 998 L 692 1026" at={cue(6, 3) + 1.5} dur={0.4} stroke={BLUE} w={6} />
+      <Spark x={450} y={900} at={cue(6, 0)} /><Spark x={680} y={880} s={22} at={cue(6, 1)} /><Spark x={500} y={1040} s={14} at={cue(6, 4)} />
+      <Ink d="M 470 1210 H 700" at={cue(6, 3) - 0.2} dur={0.6} stroke={LINE} w={3} />
+    </Layer>
+    <div style={{position: 'absolute', top: 300, left: 300, right: 36, textAlign: 'right', lineHeight: 1.0}}>
+      <Reveal at={cue(5, 0)}><Bold size={52}>Founded in</Bold></Reveal>
+      <div style={{marginTop: 4}}><WriteOn at={cue(5, 0) + 0.15} dur={0.8}><Ital size={120}>2021.</Ital></WriteOn></div>
+    </div>
+    <div style={{position: 'absolute', top: 470, left: 300, right: 150, textAlign: 'right'}}>
+      <WriteOn at={cue(5, 2)} dur={0.9}><Ital size={70}>Anthropic</Ital></WriteOn>
+    </div>
   </>
 );
 
-const items3: {k: 'pen' | 'bulb' | 'code' | 'file'; t: string; cue: number}[] = [
-  {k: 'pen', t: 'WRITE', cue: 3.4},
-  {k: 'bulb', t: 'GENERATE IDEAS', cue: 4.6},
-  {k: 'code', t: 'WRITE CODE', cue: 5.8},
-  {k: 'file', t: 'ANALYSE FILES', cue: 7.6},
-];
+const Item: React.FC<{y: number; at: number; icon: string; a: string; b?: string}> = ({y, at, icon, a, b}) => (
+  <>
+    <Layer><Icon k={icon} x={36} y={y + 8} size={52} at={at} stroke={INK} fill={BLUE_SOFT} /></Layer>
+    <div style={{position: 'absolute', top: y, left: 108, whiteSpace: 'nowrap'}}>
+      <Reveal at={at} dx={-24} dy={0}>
+        <Bold size={44}>{a}</Bold>
+        {b && <span style={{marginLeft: 14}}><Ital size={58}>{b}</Ital></span>}
+      </Reveal>
+    </div>
+  </>
+);
+
 const Scene3: React.FC = () => {
-  const frame = useCurrentFrame();
-  const cy = [218, 345, 472, 599];
-  const hub = {x: 520, y: 390};
-  const ends = [[466, 360], [460, 382], [460, 402], [468, 424]];
+  const items = [
+    {icon: 'pen', a: 'Write', b: 'texts', at: cue(8, 0)},
+    {icon: 'bulb', a: 'Generate', b: 'ideas', at: cue(9, 1)},
+    {icon: 'code', a: 'Write', b: 'code', at: cue(10, 0)},
+    {icon: 'doc', a: 'Analyse', b: 'files', at: cue(11, 1)},
+  ];
   return (
     <>
-    <Layer>
-      <Ripples cx={hub.x} cy={hub.y} max={140} n={2} at={0.8} />
-      <Ring cx={hub.x} cy={hub.y} r={100} at={0.6} dur={1.2} w={4} />
-      <Orbit cx={hub.x} cy={hub.y} r={150} at={1.4} n={3} speed={0.022} />
-      {items3.map((it, i) => (
-        <DashedDraw key={it.t} d={`M 322 ${cy[i]} C 400 ${cy[i]}, 410 ${ends[i][1]}, ${ends[i][0]} ${ends[i][1]}`} at={it.cue} dur={0.7} />
-      ))}
-      <circle cx={hub.x} cy={hub.y} r={58 * useProg(0.9, 0.5)} fill={BLUE} />
-      <g opacity={useProg(1.3, 0.4)} stroke="#fff" strokeWidth={6} strokeLinecap="round">
-        {[0, 45, 90, 135].map((a) => (
-          <line key={a} x1={hub.x - Math.cos((a * Math.PI) / 180) * 26} y1={hub.y - Math.sin((a * Math.PI) / 180) * 26} x2={hub.x + Math.cos((a * Math.PI) / 180) * 26} y2={hub.y + Math.sin((a * Math.PI) / 180) * 26} />
-        ))}
-      </g>
-      <Burst cx={hub.x} cy={hub.y} at={7.6} r0={110} r1={190} />
-    </Layer>
-    <TypeBubble at={3.4} text="Write an email…" style={{left: 360, top: 566}} size={22} hideAfter={4.5} />
-    <TypeBubble at={4.6} text="Give me ideas…" style={{left: 360, top: 566}} size={22} hideAfter={5.7} />
-    <TypeBubble at={5.8} text="Write some code…" style={{left: 360, top: 566}} size={22} hideAfter={7.5} />
-    <TypeBubble at={7.6} text="Summarise this file…" style={{left: 360, top: 566}} size={22} dark />
-    <div style={{position: 'absolute', top: 170, left: 30, width: 290, display: 'flex', flexDirection: 'column', gap: 26}}>
-      {items3.map((it, i) => {
-        const on = frame >= it.cue * FPS;
-        return (
-          <Reveal key={it.t} at={0.4 + i * 0.25} dx={-60} dy={0}>
-            <Card style={{padding: '24px 22px', display: 'flex', alignItems: 'center', gap: 16, background: on ? BLUE : '#fff', borderColor: on ? BLUE : '#E3E7F0'}}>
-              <Icon k={it.k} color={on ? '#fff' : BLUE} />
-              <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 25, color: on ? '#fff' : INK, lineHeight: 1.15}}>{it.t}</div>
-            </Card>
-          </Reveal>
-        );
-      })}
-    </div>
+      {items.map((it, i) => <Item key={i} y={300 + i * 92} {...it} />)}
+      <Layer>
+        {/* big drawing on the free right-top area, changes with each word */}
+        <Big k="pen" at={items[0].at} until={items[1].at} />
+        <Big k="bulb" at={items[1].at} until={items[2].at} />
+        <Big k="code" at={items[2].at} until={items[3].at} />
+        <Big k="doc" at={items[3].at} until={999} />
+        <Spark x={420} y={310} at={items[0].at} /><Spark x={690} y={600} s={20} at={items[2].at} />
+      </Layer>
     </>
+  );
+};
+const Big: React.FC<{k: string; at: number; until: number}> = ({k, at, until}) => {
+  const t = useT();
+  if (t < at || t > until + 0.25) return null;
+  const out = until === 999 ? 1 : 1 - clamp01((t - until) / 0.25);
+  return (
+    <g opacity={out}>
+      <Icon k={k} x={470} y={310} size={190} at={at + 0.05} dur={1.0} stroke={INK} fill={BLUE_SOFT} />
+    </g>
   );
 };
 
 const Scene4: React.FC = () => {
-  const fl = useCurrentFrame();
-  const out = 1 - useProg(3.4, 0.4);
-  const qs = [[640, 800, 80, 0], [600, 1000, 70, 1.3], [440, 1120, 80, 2.1]];
+  const t = useT();
+  const tGood = cue(16, 1);
+  const q = 1 - clamp01((t - tGood) / 0.3);
   return (
-  <>
-  <Layer>
-    {qs.map(([x, y, sz, ph], i) => (
-      <text key={i} x={x} y={y + Math.sin(fl / 10 + ph) * 10} fontFamily="Instrument Serif, serif" fontStyle="italic" fontSize={sz} fill={BLUE} opacity={useProg(0.9 + i * 0.4, 0.4) * out} transform={`rotate(${Math.sin(fl / 14 + ph) * 8} ${x} ${y})`}>?</text>
-    ))}
-    <CheckRing cx={540} cy={950} r={105} at={3.7} />
-    <Burst cx={540} cy={950} at={4.6} r0={125} r1={210} />
-    <Sparkle x={420} y={680} at={4.8} /><Sparkle x={670} y={780} s={20} at={5.0} />
-  </Layer>
-  <TypeBubble at={1.0} text="What to ask?" style={{left: 400, top: 760}} size={24} hideAfter={3.4} />
-  <TypeBubble at={2.0} text="How to ask?" style={{left: 450, top: 850}} size={24} hideAfter={3.4} />
-  <Opp side="left">
-    <Reveal at={0.3} style={{textAlign: 'right'}}>
-      <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 56, color: INK, lineHeight: 1.05}}>ASK BETTER</div>
-      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 84, color: BLUE, lineHeight: 1.0}}>QUESTIONS</div>
-    </Reveal>
-    <Reveal at={3.6} style={{textAlign: 'right', marginTop: 10}}>
-      <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 56, color: INK, lineHeight: 1.05}}>GET BETTER</div>
-      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 84, color: BLUE, lineHeight: 1.0}}>RESULTS</div>
-    </Reveal>
-    <Reveal at={1.0} dx={40} style={{marginTop: 20}}>
-      <Card style={{width: 300, padding: 24, display: 'flex', alignItems: 'center', gap: 16}}>
-        <Icon k={useIn(3.6) > 0.5 ? 'check' : 'q'} />
-        <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 22, color: INK}}>{useIn(3.6) > 0.5 ? 'Clear answer' : 'Vague answer?'}</div>
-      </Card>
-    </Reveal>
-  </Opp>
-  </>
+    <>
+      <div style={{position: 'absolute', top: 290, left: 300, right: 36, textAlign: 'right', lineHeight: 1.0}}>
+        <Reveal at={cue(14, 0)}><Bold size={56}>Ask better</Bold></Reveal>
+        <div style={{marginTop: 2}}><WriteOn at={cue(14, 0) + 0.2} dur={0.8}><Ital size={96}>questions.</Ital></WriteOn></div>
+      </div>
+      <div style={{position: 'absolute', top: 500, left: 300, right: 36, textAlign: 'right', lineHeight: 1.0}}>
+        <Reveal at={tGood}><Bold size={56}>Get better</Bold></Reveal>
+        <div style={{marginTop: 2}}><WriteOn at={tGood + 0.2} dur={0.8}><Ital size={96}>results.</Ital></WriteOn></div>
+      </div>
+      <Layer>
+        <g opacity={q}>
+          <Icon k="question" x={480} y={700} size={200} at={cue(13, 2)} stroke={INK} fill={BLUE_SOFT} />
+          <Icon k="question" x={430} y={960} size={70} at={cue(14, 0)} stroke={BLUE} />
+          <Icon k="question" x={620} y={980} size={80} at={cue(15, 0)} stroke={BLUE} />
+        </g>
+        <Icon k="check" x={470} y={720} size={220} at={tGood + 0.1} dur={0.9} stroke={BLUE} />
+        <Ticks x={580} y={830} at={tGood + 0.9} n={10} r0={150} r1={200} />
+        <Spark x={690} y={700} at={tGood + 1.0} /><Spark x={440} y={1010} s={20} at={tGood + 1.2} />
+      </Layer>
+    </>
   );
 };
 
 const Scene5: React.FC = () => {
   const rows = [
-    {t: 'LEARN CLAUDE', at: 0.4},
-    {t: 'STEP BY STEP', at: 3.2},
-    {t: 'WORK SMARTER', at: 5.8},
+    {at: cue(17, 2), a: 'Learn', b: 'Claude.'},
+    {at: cue(19, 3), a: 'Work', b: 'smarter.'},
+    {at: cue(20, 1), a: 'Step by', b: 'step.'},
   ];
-  const arc = (a0: number, a1: number, r: number, cx: number, cy: number) => {
-    const t = (a: number) => [cx + Math.cos(((a - 90) * Math.PI) / 180) * r, cy + Math.sin(((a - 90) * Math.PI) / 180) * r];
-    const [x0, y0] = t(a0), [x1, y1] = t(a1);
-    return `M ${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1}`;
-  };
-  const hx = 535, hy = 400;
+  const stairs = [
+    'M 440 560 H 500 V 500',
+    'M 500 500 H 560 V 440',
+    'M 560 440 H 620 V 380',
+    'M 620 380 H 690 V 320',
+  ];
+  const sAt = [cue(17, 2) + 0.2, cue(18, 1), cue(19, 3), cue(20, 1)];
   return (
     <>
-    <Layer>
-      <circle cx={hx} cy={hy} r={110} fill="none" stroke="#E3E7F0" strokeWidth={14} />
-      <DrawPath d={arc(2, 118, 110, hx, hy)} at={0.6} dur={0.9} w={14} />
-      <DrawPath d={arc(122, 238, 110, hx, hy)} at={3.4} dur={0.9} w={14} />
-      <DrawPath d={arc(242, 358, 110, hx, hy)} at={6.0} dur={0.9} w={14} />
-      <Orbit cx={hx} cy={hy} r={160} at={1.0} n={2} speed={0.016} />
-      <CheckRing cx={hx} cy={hy} r={52} at={6.9} />
-      <Burst cx={hx} cy={hy} at={7.5} r0={130} r1={210} />
-      <DashedDraw d="M 75 300 L 75 330" at={3.2} dur={0.3} />
-      <DashedDraw d="M 75 424 L 75 458" at={5.8} dur={0.3} />
-      <Sparkle x={380} y={230} at={1.2} /><Sparkle x={690} y={560} s={20} at={3.0} />
-    </Layer>
-    <TypeBubble at={0.8} text="Use Claude" style={{left: 440, top: 560}} size={22} hideAfter={3.3} />
-    <TypeBubble at={3.6} text="Write prompts" style={{left: 430, top: 560}} size={22} hideAfter={5.9} />
-    <TypeBubble at={6.2} text="Save time" style={{left: 450, top: 560}} size={22} dark />
-    <div style={{position: 'absolute', top: 200, left: 30, width: 300, display: 'flex', flexDirection: 'column', gap: 34}}>
       {rows.map((r, i) => (
-        <Reveal key={r.t} at={r.at} dx={-60} dy={0}>
-          <Card style={{padding: '24px 22px', display: 'flex', alignItems: 'center', gap: 16}}>
-            <div style={{width: 46, height: 46, borderRadius: 23, background: BLUE, color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0}}>{i + 1}</div>
-            <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 28, color: INK, lineHeight: 1.1}}>{r.t}</div>
-          </Card>
-        </Reveal>
+        <div key={i} style={{position: 'absolute', top: 290 + i * 115, left: 36, whiteSpace: 'nowrap', lineHeight: 1}}>
+          <Reveal at={r.at} dx={-24} dy={0}><Bold size={52}>{r.a}</Bold><span style={{marginLeft: 16}}><WriteOn at={r.at + 0.15} dur={0.7}><Ital size={76}>{r.b}</Ital></WriteOn></span></Reveal>
+        </div>
       ))}
-    </div>
+      <Layer>
+        {stairs.map((d, i) => <Ink key={i} d={d} at={sAt[i]} dur={0.7} stroke={INK} w={5} />)}
+        <Ink d="M 690 320 V 260" at={cue(20, 2)} dur={0.4} stroke={BLUE} w={5} />
+        <Ink d="M 690 262 L 650 278 L 690 294" at={cue(20, 2) + 0.35} dur={0.4} stroke={BLUE} w={5} fill={BLUE} />
+        <Ink d="M 440 560 H 700" at={cue(17, 2)} dur={0.6} stroke={LINE} w={3} />
+        <Spark x={430} y={400} at={cue(18, 0)} /><Spark x={560} y={300} s={20} at={cue(19, 1)} />
+      </Layer>
     </>
   );
 };
 
-const Scene6: React.FC = () => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const s = spring({frame: frame - 4.45 * FPS, fps, config: {damping: 12}});
-  return (
-    <>
-      <Layer>
-        <Ripples cx={360} cy={900} max={360} at={0.2} />
-        <Ring cx={360} cy={900} r={310} at={0.5} dur={1.4} dashed />
-        <Orbit cx={360} cy={900} r={310} at={1.2} n={3} speed={0.014} showRing={false} />
-        <Burst cx={360} cy={430} at={4.45} n={16} r0={190} r1={300} />
-        <Sparkle x={100} y={300} at={0.8} /><Sparkle x={640} y={340} s={22} at={1.2} /><Sparkle x={80} y={720} at={2.0} /><Sparkle x={650} y={700} s={20} at={2.4} />
-      </Layer>
-      <TypeBubble at={1.5} text="Use it right" style={{left: 24, top: 640}} size={22} />
-      <TypeBubble at={5.2} text="Let’s go!" style={{right: 24, top: 640}} size={26} dark />
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
-        <Title a="MASTER" b="CLAUDE" size={118} at={0.3} />
-      </div>
-      <div style={{position: 'absolute', top: 392, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: frame > 4.4 * FPS ? 1 : 0}}>
-        <div style={{transform: `scale(${0.6 + 0.4 * s})`, background: BLUE, color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 34, padding: '18px 40px', borderRadius: 18, boxShadow: '0 16px 34px rgba(36,89,232,0.35)'}}>LET’S GET STARTED</div>
-      </div>
-    </>
-  );
-};
+const Scene6: React.FC = () => (
+  <>
+    <div style={{position: 'absolute', top: 280, left: 0, right: 0, textAlign: 'center', lineHeight: 1}}>
+      <Reveal at={cue(22, 2)}><Bold size={80}>Master</Bold></Reveal>
+      <div style={{marginTop: 2}}><WriteOn at={cue(22, 2) + 0.2} dur={0.8}><Ital size={112}>Claude.</Ital></WriteOn></div>
+    </div>
+    <div style={{position: 'absolute', top: 470, left: 0, right: 0, textAlign: 'center'}}>
+      <Reveal at={cue(23, 0)}><Bold size={46}>Let’s get <span style={{color: BLUE, fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: 62}}>started!</span></Bold></Reveal>
+    </div>
+    <Layer>
+      <Underline x={140} y={540} w={440} at={cue(23, 1)} dur={0.8} />
+      <Ticks x={360} y={420} at={cue(23, 2)} n={14} r0={210} r1={270} />
+      <Spark x={90} y={330} at={cue(22, 2)} /><Spark x={640} y={350} s={24} at={cue(23, 0)} /><Spark x={110} y={600} at={cue(23, 1)} /><Spark x={630} y={590} s={18} at={cue(23, 2)} />
+    </Layer>
+  </>
+);
 
 const SCENES: {C: React.FC; side: Side}[] = [
   {C: Scene1, side: 'center'},
@@ -327,11 +385,10 @@ const SCENES: {C: React.FC; side: Side}[] = [
   {C: Scene6, side: 'center'},
 ];
 
-const Wipe: React.FC = () => {
+const SceneFade: React.FC<{dur: number; children: React.ReactNode}> = ({dur, children}) => {
   const f = useCurrentFrame();
-  const x = f < 8 ? interpolate(f, [0, 8], [-720, 0]) : interpolate(f, [8, 17], [0, 720], {extrapolateRight: 'clamp'});
-  if (f > 17) return null;
-  return <AbsoluteFill style={{background: BLUE, transform: `translateX(${x}px)`}} />;
+  const o = interpolate(f, [0, 6, dur - 6, dur], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return <AbsoluteFill style={{opacity: o}}>{children}</AbsoluteFill>;
 };
 
 export const ClaudeIntro: React.FC = () => (
@@ -340,12 +397,14 @@ export const ClaudeIntro: React.FC = () => (
     <Audio src={staticFile('audio/voiceover.mp3')} />
     {SCENES.map(({C, side}, i) => (
       <Sequence key={i} from={F[i]} durationInFrames={F[i + 1] - F[i]} name={`Scene ${i + 1}`}>
-        <AbsoluteFill>
-          <Progress idx={i} />
-          <C />
-          <Character side={side} />
-          {i > 0 && <Wipe />}
-        </AbsoluteFill>
+        <Ctx.Provider value={F[i]}>
+          <SceneFade dur={F[i + 1] - F[i]}>
+            <Header idx={i} />
+            <Caption scene={i + 1} />
+            <C />
+            <Character side={side} />
+          </SceneFade>
+        </Ctx.Provider>
       </Sequence>
     ))}
   </AbsoluteFill>
