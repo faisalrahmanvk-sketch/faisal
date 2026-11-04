@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.gwrap{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.grp{width:520px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.grp.big{margin-top:24px}
+.glbl{font-weight:700;font-size:40px;letter-spacing:-0.5px;white-space:nowrap}
+.glogo{height:300px;max-width:460px;width:auto;object-fit:contain;border-radius:30px}
+.ico{height:330px;width:330px}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="51.1" data-width="1080" data-height="1920">
+<div id="g-i1" class="clip " data-start="0.000" data-duration="5.161" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i1-in" class="grp big"><div class="glbl">CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#2330c9" stroke-width="8"/><circle cx="100" cy="58" r="16" fill="#93c5fd"/><rect x="62" y="88" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="108" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="128" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="148" width="56" height="9" rx="4" fill="#cbd5e1"/></svg></div></div></div>
+<div id="g-i2" class="clip " data-start="1.850" data-duration="3.311" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i2-in" class="grp big"><div class="glbl">Price</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="95" r="70" fill="#fbbf24" stroke="#d97706" stroke-width="8"/><circle cx="100" cy="95" r="52" fill="none" stroke="#d97706" stroke-width="5"/><text x="100" y="118" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="70" fill="#b45309">&#8377;</text></svg></div></div></div>
+<div id="g-i3" class="clip " data-start="5.231" data-duration="3.444" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i3-in" class="grp big"><div class="glbl">ATS-friendly CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#16a34a" stroke-width="8"/><rect x="62" y="52" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="72" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="92" width="76" height="9" rx="4" fill="#cbd5e1"/><circle cx="138" cy="150" r="34" fill="#16a34a"/><path d="M122 150 l12 13 l22 -26" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="30" width="54" height="26" rx="8" fill="#16a34a"/><text x="85" y="50" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="20" fill="#fff">ATS</text></svg></div></div></div>
+<div id="g-i4" class="clip " data-start="8.745" data-duration="2.839" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i4-in" class="grp big"><div class="glbl">One CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#2330c9" stroke-width="8"/><circle cx="100" cy="58" r="16" fill="#93c5fd"/><rect x="62" y="88" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="108" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="128" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="148" width="56" height="9" rx="4" fill="#cbd5e1"/><circle cx="148" cy="148" r="34" fill="#e11d48"/><path d="M134 134 l28 28 M162 134 l-28 28" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg></div></div></div>
+<div id="g-i5" class="clip " data-start="9.775" data-duration="1.809" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i5-in" class="grp big"><div class="glbl">All companies</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="40" width="104" height="130" rx="8" fill="#e0e7ff" stroke="#2330c9" stroke-width="8"/><rect x="62" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="62" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="62" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="88" y="132" width="24" height="38" fill="#2330c9"/></svg></div></div></div>
+<div id="g-i6" class="clip " data-start="11.654" data-duration="3.549" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i6-in" class="grp big"><div class="glbl">Job Description</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="30" width="104" height="140" rx="12" fill="#fff" stroke="#2330c9" stroke-width="8"/><rect x="78" y="18" width="44" height="26" rx="8" fill="#2330c9"/><rect x="62" y="62" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="82" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="102" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="122" width="56" height="9" rx="4" fill="#cbd5e1"/><text x="100" y="150" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="26" fill="#2330c9">JD</text></svg></div></div></div>
+<div id="g-i7" class="clip " data-start="13.584" data-duration="1.619" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i7-in" class="grp big"><div class="glbl">Skills</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="30" width="120" height="140" rx="14" fill="#fff" stroke="#2330c9" stroke-width="8"/><path d="M58 62 l9 10 l17 -20" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="96" y="56" width="46" height="10" rx="5" fill="#cbd5e1"/><path d="M58 100 l9 10 l17 -20" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="96" y="94" width="46" height="10" rx="5" fill="#cbd5e1"/><path d="M58 138 l9 10 l17 -20" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="96" y="132" width="46" height="10" rx="5" fill="#cbd5e1"/></svg></div></div></div>
+<div id="g-i8" class="clip " data-start="15.273" data-duration="2.912" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i8-in" class="grp big"><div class="glbl">Tailor your CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="62" cy="145" r="22" fill="none" stroke="#e11d48" stroke-width="10"/><circle cx="138" cy="145" r="22" fill="none" stroke="#e11d48" stroke-width="10"/><path d="M76 128 L138 28 M124 128 L62 28" stroke="#64748b" stroke-width="12" stroke-linecap="round"/></svg></div></div></div>
+<div id="g-i9" class="clip " data-start="18.255" data-duration="1.811" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i9-in" class="grp big"><div class="glbl">Claude AI</div><img class="glogo" src="assets/claude.png" alt="Claude AI"></div></div></div>
+<div id="g-i10" class="clip " data-start="20.136" data-duration="2.431" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i10-in" class="grp big"><div class="glbl">ATS-friendly CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#16a34a" stroke-width="8"/><rect x="62" y="52" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="72" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="92" width="76" height="9" rx="4" fill="#cbd5e1"/><circle cx="138" cy="150" r="34" fill="#16a34a"/><path d="M122 150 l12 13 l22 -26" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="30" width="54" height="26" rx="8" fill="#16a34a"/><text x="85" y="50" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="20" fill="#fff">ATS</text></svg></div></div></div>
+<div id="g-i11" class="clip " data-start="22.637" data-duration="1.821" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i11-in" class="grp big"><div class="glbl">Step 1 · Upload CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M52 128 a30 30 0 0 1 8 -58 a42 42 0 0 1 82 6 a28 28 0 0 1 -4 52 z" fill="#dbeafe" stroke="#2330c9" stroke-width="8" stroke-linejoin="round"/><path d="M100 150 V84 M72 108 L100 80 L128 108" fill="none" stroke="#2330c9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div>
+<div id="g-i12" class="clip " data-start="24.458" data-duration="3.323" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i12-in" class="grp big"><div class="glbl">No CV? Fill the form</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#2330c9" stroke-width="8"/><rect x="62" y="38" width="76" height="20" rx="6" fill="#eff6ff" stroke="#2330c9" stroke-width="3"/><rect x="62" y="70" width="76" height="20" rx="6" fill="#eff6ff" stroke="#2330c9" stroke-width="3"/><rect x="62" y="102" width="76" height="20" rx="6" fill="#eff6ff" stroke="#2330c9" stroke-width="3"/><rect x="62" y="134" width="76" height="20" rx="6" fill="#eff6ff" stroke="#2330c9" stroke-width="3"/><rect x="62" y="162" width="0" height="0"/></svg></div></div></div>
+<div id="g-i13" class="clip " data-start="27.851" data-duration="2.960" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i13-in" class="grp big"><div class="glbl">Step 2 · Prompt</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M30 40 h140 a14 14 0 0 1 14 14 v76 a14 14 0 0 1 -14 14 h-80 l-34 30 v-30 h-26 a14 14 0 0 1 -14 -14 v-76 a14 14 0 0 1 14 -14z" fill="#fff" stroke="#d97757" stroke-width="8" stroke-linejoin="round"/><rect x="52" y="66" width="96" height="10" rx="5" fill="#fcd9ca"/><rect x="52" y="90" width="96" height="10" rx="5" fill="#fcd9ca"/><rect x="52" y="114" width="52" height="10" rx="5" fill="#fcd9ca"/></svg></div></div></div>
+<div id="g-i14" class="clip " data-start="29.181" data-duration="1.630" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i14-in" class="grp big"><div class="glbl">Claude</div><img class="glogo" src="assets/claude.png" alt="Claude"></div></div></div>
+<div id="g-i15" class="clip " data-start="30.881" data-duration="5.181" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i15-in" class="grp big"><div class="glbl">Step 3 · Job Description</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="30" width="104" height="140" rx="12" fill="#fff" stroke="#2330c9" stroke-width="8"/><rect x="78" y="18" width="44" height="26" rx="8" fill="#2330c9"/><rect x="62" y="62" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="82" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="102" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="122" width="56" height="9" rx="4" fill="#cbd5e1"/><text x="100" y="150" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="26" fill="#2330c9">JD</text></svg></div></div></div>
+<div id="g-i16" class="clip " data-start="32.811" data-duration="3.251" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i16-in" class="grp big"><div class="glbl">Company name</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="48" y="40" width="104" height="130" rx="8" fill="#e0e7ff" stroke="#2330c9" stroke-width="8"/><rect x="62" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="56" width="16" height="16" rx="3" fill="#2330c9"/><rect x="62" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="86" width="16" height="16" rx="3" fill="#2330c9"/><rect x="62" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="92" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="122" y="116" width="16" height="16" rx="3" fill="#2330c9"/><rect x="88" y="132" width="24" height="38" fill="#2330c9"/></svg></div></div></div>
+<div id="g-i17" class="clip " data-start="36.132" data-duration="7.659" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i17-in" class="grp big"><div class="glbl">Claude</div><img class="glogo" src="assets/claude.png" alt="Claude"></div></div></div>
+<div id="g-i18" class="clip " data-start="38.104" data-duration="5.687" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i18-in" class="grp big"><div class="glbl">Tailored CV</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><rect x="45" y="20" width="110" height="150" rx="12" fill="#fff" stroke="#16a34a" stroke-width="8"/><rect x="62" y="52" width="76" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="72" width="56" height="9" rx="4" fill="#cbd5e1"/><rect x="62" y="92" width="76" height="9" rx="4" fill="#cbd5e1"/><circle cx="138" cy="150" r="34" fill="#16a34a"/><path d="M122 150 l12 13 l22 -26" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="30" width="54" height="26" rx="8" fill="#16a34a"/><text x="85" y="50" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="20" fill="#fff">ATS</text></svg></div></div></div>
+<div id="g-i19" class="clip " data-start="43.861" data-duration="3.071" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i19-in" class="grp big"><div class="glbl">Comment</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M30 40 h140 a14 14 0 0 1 14 14 v76 a14 14 0 0 1 -14 14 h-80 l-34 30 v-30 h-26 a14 14 0 0 1 -14 -14 v-76 a14 14 0 0 1 14 -14z" fill="#fff" stroke="#2330c9" stroke-width="8" stroke-linejoin="round"/><text x="100" y="108" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="44" fill="#2330c9">CV</text></svg></div></div></div>
+<div id="g-i20" class="clip " data-start="45.391" data-duration="1.541" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i20-in" class="grp big"><div class="glbl">or</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M30 40 h140 a14 14 0 0 1 14 14 v76 a14 14 0 0 1 -14 14 h-80 l-34 30 v-30 h-26 a14 14 0 0 1 -14 -14 v-76 a14 14 0 0 1 14 -14z" fill="#fff" stroke="#2330c9" stroke-width="8" stroke-linejoin="round"/><text x="100" y="108" text-anchor="middle" font-family="PopFz, sans-serif" font-weight="800" font-size="28" fill="#2330c9">CLAUDE</text></svg></div></div></div>
+<div id="g-i21" class="clip " data-start="47.002" data-duration="1.598" data-track-index="3" style="z-index:3"><div class="gwrap"><div id="g-i21-in" class="grp big"><div class="glbl">Prompt share</div><svg class="ico" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M24 100 L176 30 L140 170 L98 126 Z" fill="#dbeafe" stroke="#2330c9" stroke-width="8" stroke-linejoin="round"/><path d="M98 126 L176 30 M98 126 L96 170 L120 146" fill="none" stroke="#2330c9" stroke-width="8" stroke-linejoin="round"/></svg></div></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="0.830" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">2027 ആയിട്ടും</span></div></div>
+<div id="c1" class="clip " data-start="0.830" data-duration="1.276" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">നിങ്ങൾ CV ഉണ്ടാക്കാൻ</span></div></div>
+<div id="c2" class="clip " data-start="2.106" data-duration="1.149" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">പൈസ കൊടുക്കുകയാണോ?</span></div></div>
+<div id="c3" class="clip " data-start="3.255" data-duration="0.866" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">എങ്കിൽ ഈ വീഡിയോ</span></div></div>
+<div id="c4" class="clip " data-start="4.121" data-duration="1.040" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">നിങ്ങൾക്കുള്ളതാണ്!</span></div></div>
+<div id="c5" class="clip " data-start="5.161" data-duration="0.982" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">ഇന്നത്തെ പല കമ്പനികളും</span></div></div>
+<div id="c6" class="clip " data-start="6.143" data-duration="1.026" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">ATS-friendly ആയിട്ടുള്ള</span></div></div>
+<div id="c7" class="clip " data-start="7.169" data-duration="0.892" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">CV-കൾക്ക് പ്രാധാന്യം</span></div></div>
+<div id="c8" class="clip " data-start="8.061" data-duration="0.714" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">കൊടുക്കുന്നുണ്ട്</span></div></div>
+<div id="c9" class="clip " data-start="8.775" data-duration="0.872" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">പക്ഷേ ഒരു CV തന്നെ</span></div></div>
+<div id="c10" class="clip " data-start="9.647" data-duration="0.920" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">എല്ലാ കമ്പനികൾക്കും</span></div></div>
+<div id="c11" class="clip " data-start="10.567" data-duration="1.017" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">അയച്ചിട്ട് കാര്യമില്ല</span></div></div>
+<div id="c12" class="clip " data-start="11.584" data-duration="0.907" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">കാരണം ഓരോ കമ്പനിയുടെ</span></div></div>
+<div id="c13" class="clip " data-start="12.491" data-duration="0.816" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">job description-ഉം</span></div></div>
+<div id="c14" class="clip " data-start="13.307" data-duration="1.088" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">ആവശ്യപ്പെടുന്ന skills-ഉം</span></div></div>
+<div id="c15" class="clip " data-start="14.396" data-duration="0.907" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">വ്യത്യസ്തമായിരിക്കും</span></div></div>
+<div id="c16" class="clip " data-start="15.303" data-duration="1.043" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">അതുകൊണ്ട് ഓരോ job-നും</span></div></div>
+<div id="c17" class="clip " data-start="16.346" data-duration="0.994" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">അനുസരിച്ച് നിങ്ങളുടെ</span></div></div>
+<div id="c18" class="clip " data-start="17.340" data-duration="0.845" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">CV tailor ചെയ്യണം</span></div></div>
+<div id="c19" class="clip " data-start="18.185" data-duration="0.941" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">ഇത് ചെയ്യാൻ നമുക്ക്</span></div></div>
+<div id="c20" class="clip " data-start="19.126" data-duration="1.040" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">Claude AI ഉപയോഗിക്കാം</span></div></div>
+<div id="c21" class="clip " data-start="20.166" data-duration="0.609" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">എങ്ങനെ ഓരോ job-നും</span></div></div>
+<div id="c22" class="clip " data-start="20.775" data-duration="0.845" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">പ്രത്യേകം ATS-friendly CV</span></div></div>
+<div id="c23" class="clip " data-start="21.620" data-duration="0.947" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">ഉണ്ടാക്കാമെന്ന് കാണിച്ചുതരാം</span></div></div>
+<div id="c24" class="clip " data-start="22.567" data-duration="0.645" data-track-index="5" style="z-index:5"><div class="cap"><span id="c24-in">ആദ്യം നിങ്ങളുടെ</span></div></div>
+<div id="c25" class="clip " data-start="23.212" data-duration="1.247" data-track-index="5" style="z-index:5"><div class="cap"><span id="c25-in">നിലവിലുള്ള CV upload ചെയ്യുക.</span></div></div>
+<div id="c26" class="clip " data-start="24.458" data-duration="0.523" data-track-index="5" style="z-index:5"><div class="cap"><span id="c26-in">CV ഇല്ലെങ്കിൽ,</span></div></div>
+<div id="c27" class="clip " data-start="24.981" data-duration="1.120" data-track-index="5" style="z-index:5"><div class="cap"><span id="c27-in">education, experience, skills,</span></div></div>
+<div id="c28" class="clip " data-start="26.101" data-duration="1.045" data-track-index="5" style="z-index:5"><div class="cap"><span id="c28-in">personal details എന്നിവയുള്ള</span></div></div>
+<div id="c29" class="clip " data-start="27.146" data-duration="0.635" data-track-index="5" style="z-index:5"><div class="cap"><span id="c29-in">form fill ചെയ്യുക</span></div></div>
+<div id="c30" class="clip " data-start="27.781" data-duration="1.143" data-track-index="5" style="z-index:5"><div class="cap"><span id="c30-in">അതിനുശേഷം ഞാൻ തരുന്ന</span></div></div>
+<div id="c31" class="clip " data-start="28.924" data-duration="0.858" data-track-index="5" style="z-index:5"><div class="cap"><span id="c31-in">prompt Claude-ൽ</span></div></div>
+<div id="c32" class="clip " data-start="29.782" data-duration="1.029" data-track-index="5" style="z-index:5"><div class="cap"><span id="c32-in">copy-paste ചെയ്യുക</span></div></div>
+<div id="c33" class="clip " data-start="30.811" data-duration="1.135" data-track-index="5" style="z-index:5"><div class="cap"><span id="c33-in">ഇനി നിങ്ങൾ apply ചെയ്യാൻ</span></div></div>
+<div id="c34" class="clip " data-start="31.946" data-duration="0.757" data-track-index="5" style="z-index:5"><div class="cap"><span id="c34-in">പോകുന്ന job-ന്റെ</span></div></div>
+<div id="c35" class="clip " data-start="32.703" data-duration="1.419" data-track-index="5" style="z-index:5"><div class="cap"><span id="c35-in">description-ഉം company name-ഉം</span></div></div>
+<div id="c36" class="clip " data-start="34.122" data-duration="1.088" data-track-index="5" style="z-index:5"><div class="cap"><span id="c36-in">copy ചെയ്ത് prompt-ന്റെ</span></div></div>
+<div id="c37" class="clip " data-start="35.210" data-duration="0.852" data-track-index="5" style="z-index:5"><div class="cap"><span id="c37-in">താഴെ paste ചെയ്യുക</span></div></div>
+<div id="c38" class="clip " data-start="36.062" data-duration="0.844" data-track-index="5" style="z-index:5"><div class="cap"><span id="c38-in">ഇപ്പോൾ Claude</span></div></div>
+<div id="c39" class="clip " data-start="36.906" data-duration="1.494" data-track-index="5" style="z-index:5"><div class="cap"><span id="c39-in">നിങ്ങളുടെ experience-ഉം</span></div></div>
+<div id="c40" class="clip " data-start="38.400" data-duration="2.078" data-track-index="5" style="z-index:5"><div class="cap"><span id="c40-in">job description-ഉം match ചെയ്ത്,</span></div></div>
+<div id="c41" class="clip " data-start="40.479" data-duration="1.624" data-track-index="5" style="z-index:5"><div class="cap"><span id="c41-in">ആ position-ന് അനുയോജ്യമായ</span></div></div>
+<div id="c42" class="clip " data-start="42.102" data-duration="1.689" data-track-index="5" style="z-index:5"><div class="cap"><span id="c42-in">CV തയ്യാറാക്കാൻ സഹായിക്കും</span></div></div>
+<div id="c43" class="clip " data-start="43.791" data-duration="0.962" data-track-index="5" style="z-index:5"><div class="cap"><span id="c43-in">ഈ prompt വേണമെങ്കിൽ</span></div></div>
+<div id="c44" class="clip " data-start="44.753" data-duration="1.266" data-track-index="5" style="z-index:5"><div class="cap"><span id="c44-in">comment-ൽ ‘CV’ അല്ലെങ്കിൽ</span></div></div>
+<div id="c45" class="clip " data-start="46.019" data-duration="1.013" data-track-index="5" style="z-index:5"><div class="cap"><span id="c45-in">‘CLAUDE’ എന്ന് എഴുതൂ</span></div></div>
+<div id="c46" class="clip " data-start="47.032" data-duration="0.882" data-track-index="5" style="z-index:5"><div class="cap"><span id="c46-in">Prompt നിങ്ങളുമായി</span></div></div>
+<div id="c47" class="clip " data-start="47.914" data-duration="0.686" data-track-index="5" style="z-index:5"><div class="cap"><span id="c47-in">share ചെയ്യാം!</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="3.255" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p1" class="clip " data-start="3.255" data-duration="1.906" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p2" class="clip " data-start="5.161" data-duration="3.614" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p3" class="clip " data-start="8.775" data-duration="2.809" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p4" class="clip " data-start="11.584" data-duration="3.719" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p5" class="clip " data-start="15.303" data-duration="2.882" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p6" class="clip " data-start="18.185" data-duration="1.981" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p7" class="clip " data-start="20.166" data-duration="2.401" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p8" class="clip " data-start="22.567" data-duration="5.214" data-track-index="2" style="z-index:2"><img id="p8-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p9" class="clip " data-start="27.781" data-duration="3.030" data-track-index="2" style="z-index:2"><img id="p9-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p10" class="clip " data-start="30.811" data-duration="5.251" data-track-index="2" style="z-index:2"><img id="p10-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p11" class="clip " data-start="36.062" data-duration="7.729" data-track-index="2" style="z-index:2"><img id="p11-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p12" class="clip " data-start="43.791" data-duration="3.241" data-track-index="2" style="z-index:2"><img id="p12-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p13" class="clip " data-start="47.032" data-duration="1.568" data-track-index="2" style="z-index:2"><img id="p13-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="48.600" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="48.600" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="51.1" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#g-i1-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},0.000);
+tl.to("#g-i1-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},4.941);
+tl.fromTo("#g-i2-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},1.850);
+tl.to("#g-i2-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},4.941);
+tl.fromTo("#g-i3-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},5.231);
+tl.to("#g-i3-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},8.455);
+tl.fromTo("#g-i4-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},8.745);
+tl.to("#g-i4-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},11.364);
+tl.fromTo("#g-i5-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},9.775);
+tl.to("#g-i5-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},11.364);
+tl.fromTo("#g-i6-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},11.654);
+tl.to("#g-i6-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},14.983);
+tl.fromTo("#g-i7-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},13.584);
+tl.to("#g-i7-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},14.983);
+tl.fromTo("#g-i8-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},15.273);
+tl.to("#g-i8-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},17.965);
+tl.fromTo("#g-i9-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},18.255);
+tl.to("#g-i9-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},19.846);
+tl.fromTo("#g-i10-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},20.136);
+tl.to("#g-i10-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},22.347);
+tl.fromTo("#g-i11-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},22.637);
+tl.to("#g-i11-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},24.238);
+tl.fromTo("#g-i12-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},24.458);
+tl.to("#g-i12-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},27.561);
+tl.fromTo("#g-i13-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},27.851);
+tl.to("#g-i13-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},30.591);
+tl.fromTo("#g-i14-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},29.181);
+tl.to("#g-i14-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},30.591);
+tl.fromTo("#g-i15-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},30.881);
+tl.to("#g-i15-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},35.842);
+tl.fromTo("#g-i16-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},32.811);
+tl.to("#g-i16-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},35.842);
+tl.fromTo("#g-i17-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},36.132);
+tl.to("#g-i17-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},43.571);
+tl.fromTo("#g-i18-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},38.104);
+tl.to("#g-i18-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},43.571);
+tl.fromTo("#g-i19-in",{x:-250,scale:0.35,opacity:0},{x:-250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},43.861);
+tl.to("#g-i19-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},46.712);
+tl.fromTo("#g-i20-in",{x:250,scale:0.35,opacity:0},{x:250,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},45.391);
+tl.to("#g-i20-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},46.712);
+tl.fromTo("#g-i21-in",{x:0,scale:0.35,opacity:0},{x:0,scale:1,opacity:1,duration:0.4,ease:"back.out(1.8)"},47.002);
+tl.to("#g-i21-in",{opacity:0,scale:0.85,duration:0.2,ease:"power1.in"},48.380);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.830);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.106);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.255);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.121);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.161);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.143);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.169);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.061);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.775);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.647);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.567);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.584);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.491);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},13.307);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.396);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.303);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.346);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},17.340);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.185);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.126);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},20.166);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},20.775);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.620);
+tl.fromTo("#c24-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},22.567);
+tl.fromTo("#c25-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.212);
+tl.fromTo("#c26-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.458);
+tl.fromTo("#c27-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.981);
+tl.fromTo("#c28-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.101);
+tl.fromTo("#c29-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},27.146);
+tl.fromTo("#c30-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},27.781);
+tl.fromTo("#c31-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},28.924);
+tl.fromTo("#c32-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},29.782);
+tl.fromTo("#c33-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},30.811);
+tl.fromTo("#c34-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},31.946);
+tl.fromTo("#c35-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},32.703);
+tl.fromTo("#c36-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},34.122);
+tl.fromTo("#c37-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},35.210);
+tl.fromTo("#c38-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},36.062);
+tl.fromTo("#c39-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},36.906);
+tl.fromTo("#c40-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},38.400);
+tl.fromTo("#c41-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},40.479);
+tl.fromTo("#c42-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},42.102);
+tl.fromTo("#c43-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},43.791);
+tl.fromTo("#c44-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},44.753);
+tl.fromTo("#c45-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},46.019);
+tl.fromTo("#c46-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},47.032);
+tl.fromTo("#c47-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},47.914);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:1.627,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.953,ease:"sine.inOut",yoyo:true,repeat:1},3.255);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:1.807,ease:"sine.inOut",yoyo:true,repeat:1},5.161);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:1.404,ease:"sine.inOut",yoyo:true,repeat:1},8.775);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:1.860,ease:"sine.inOut",yoyo:true,repeat:1},11.584);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:1.441,ease:"sine.inOut",yoyo:true,repeat:1},15.303);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:0.991,ease:"sine.inOut",yoyo:true,repeat:1},18.185);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:1.200,ease:"sine.inOut",yoyo:true,repeat:1},20.166);
+tl.fromTo("#p8-in",{y:0},{y:-9,duration:2.607,ease:"sine.inOut",yoyo:true,repeat:1},22.567);
+tl.fromTo("#p9-in",{y:0},{y:-9,duration:1.515,ease:"sine.inOut",yoyo:true,repeat:1},27.781);
+tl.fromTo("#p10-in",{y:0},{y:-9,duration:2.625,ease:"sine.inOut",yoyo:true,repeat:1},30.811);
+tl.fromTo("#p11-in",{y:0},{y:-9,duration:3.864,ease:"sine.inOut",yoyo:true,repeat:1},36.062);
+tl.fromTo("#p12-in",{y:0},{y:-9,duration:1.620,ease:"sine.inOut",yoyo:true,repeat:1},43.791);
+tl.fromTo("#p13-in",{y:0},{y:-9,duration:0.784,ease:"sine.inOut",yoyo:true,repeat:1},47.032);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},48.6);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
