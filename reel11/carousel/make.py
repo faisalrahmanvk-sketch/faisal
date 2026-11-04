@@ -47,6 +47,9 @@ body{width:1080px;height:1350px;background:#fff;font-family:"PopFz",sans-serif;p
 .il{margin-top:12px;font-weight:700;font-size:30px;color:#1e293b;white-space:nowrap}
 .char{position:absolute;bottom:60px;height:540px}
 .wm{position:absolute;left:0;bottom:16px;width:1080px;text-align:center;font-weight:700;font-size:30px;color:#6b7280}
+.halo{position:absolute;left:250px;top:740px;width:580px;height:580px;border-radius:50%;background:radial-gradient(closest-side,#c7d6ff,#e9efff 60%,rgba(255,255,255,0))}
+.ring{position:absolute;left:200px;top:700px;width:680px;height:680px;border-radius:50%;border:4px dashed #bcc9f5}
+.dt{position:absolute;border-radius:50%;display:block}
 .sw{position:absolute;right:70px;bottom:22px;font-weight:800;font-size:32px;color:#2330c9}
 .fol{position:absolute;left:0;width:1080px;display:flex;justify-content:center;top:760px}
 .fol span{background:linear-gradient(180deg,#3b82f6,#2330c9);color:#fff;font-weight:800;font-size:44px;padding:16px 56px;border-radius:50px;box-shadow:0 14px 34px rgba(35,48,201,.35)}
@@ -57,7 +60,7 @@ def hd(i): return f'<div class="hd"><span><b>@fyze.ai</b></span><span>{i:02d}/{N
 for i,s in enumerate(SL,1):
     if s.get("kind")=="cover":
         b = hd(i)+'<div class="kick"><span style="background:#16a34a">ATS-FRIENDLY</span></div>'
-        b += '<div class="ttl" style="position:absolute;left:70px;right:70px;top:230px;font-size:138px;line-height:1.1">Create CV<br>with <span class="o">Claude</span></div>'
+        b += '<div class="ttl" style="position:absolute;left:70px;width:940px;top:230px;font-size:138px;line-height:1.1">Create CV<br>with <span class="o">Claude</span></div>'
         b += '''<style>.cv{position:absolute;left:520px;top:690px;width:430px;height:540px;background:#fff;border-radius:32px;box-shadow:0 26px 70px rgba(35,48,201,.22),0 0 0 6px #2330c9;transform:rotate(5deg);padding:40px 36px}
 .av{width:86px;height:86px;border-radius:50%;background:#93c5fd}.nm{position:absolute;left:140px;top:52px}.nm i{display:block;height:18px;border-radius:9px;background:#1e293b;width:180px;margin-bottom:12px}.nm i+i{height:12px;width:124px;background:#94a3b8}
 .sec{margin-top:30px}.sec i{display:block;height:13px;border-radius:7px;background:#cbd5e1;margin-bottom:14px}.sec .h{background:#2330c9;width:116px;height:16px;margin-bottom:18px}
@@ -76,10 +79,14 @@ for i,s in enumerate(SL,1):
         left = s["side"]=="L"   # character side
         rowx = (330,1010) if left else (60,740)
         if s["icons"]: b += f'<div class="row" style="top:760px;left:{rowx[0]}px;width:{rowx[1]-rowx[0]}px">{"".join(icon(x) for x in s["icons"])}</div>'
-        b += f'<img class="char" style="{"left:20px" if left else "right:20px"}" src="assets/{POSE[s["pose"]]}" alt="">'
+        if s.get("last"):
+            b += '<div class="halo"></div><div class="ring"></div><i class="dt" style="left:170px;top:820px;width:22px;height:22px;background:#d97757"></i><i class="dt" style="left:880px;top:780px;width:30px;height:30px;background:#16a34a"></i><i class="dt" style="left:230px;top:1130px;width:16px;height:16px;background:#2330c9"></i><i class="dt" style="left:860px;top:1100px;width:20px;height:20px;background:#fbbf24"></i>'
+            b += f'<img class="char" style="left:50%;transform:translateX(-50%);height:575px;bottom:30px" src="assets/{POSE[s["pose"]]}" alt="">'
+        else:
+            b += f'<img class="char" style="{"left:20px" if left else "right:20px"}" src="assets/{POSE[s["pose"]]}" alt="">'
         if s.get("last"): b += '<div class="fol" style="top:800px"><span>Follow @fyze.ai</span></div>'
         else: b += '<div class="sw">Swipe →</div>'
     b += '<div class="wm">@fyze.ai</div>' if False else ""
-    if not s.get('kind')=='cover': b += '<script>const t=document.querySelector(".txt").getBoundingClientRect().bottom,r=document.querySelector(".row");const av=1350-70-t;r.style.top=(t+Math.max(40,(av-330)/2-%d))+"px";</script>' % (60 if s.get('last') else 0)
+    if not s.get('kind')=='cover': b += '<script>const t=document.querySelector(".txt").getBoundingClientRect().bottom,r=document.querySelector(".row"),f=document.querySelector(".fol");const av=1350-70-t;if(r)r.style.top=(t+Math.max(40,(av-330)/2))+"px";if(f)f.style.top=(t+40)+"px";</script>'
     (HERE/f"s{i:02d}.html").write_text(page(b), encoding="utf-8")
 print("slides", len(SL))
