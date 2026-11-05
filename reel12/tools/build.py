@@ -11,11 +11,11 @@ def caps(s, e, chunks):
     for k,c in enumerate(chunks):
         d=(e-s)*w[k]/tot; cap.append((t, t+d if k<len(chunks)-1 else e, c)); t+=d
 c=lambda n: tl[f"c{n}"]
-S2=c(4)["start"]-0.1; S3=c(7)["start"]-0.1; S4=CARD       # scene starts (scene 1 = 0)
+S2=c(4)["start"]-0.1; S3=c(7)["start"]-0.1; S4=tl["d1"]["start"]-0.1       # scene starts (scene 1 = 0)
 # ---- two photo tiles: KSRTC left, Dubai Bus right (script: Dubai pops right, KSRTC pops left)
 def tile(id_, side, photo, label):
     return f'<div id="{id_}" class="tile {side}"><div class="tl">{html.escape(label)}</div><img src="assets/{photo}" alt="{html.escape(label)}"></div>'
-clip("tiles", 0, S4, tile("tk","l","ksrtc.jpg","KSRTC")+tile("td","r","dubai.jpg","Dubai Bus"), z=3)
+clip("tiles", 0, S4+0.3, tile("tk","l","ksrtc.jpg","KSRTC")+tile("td","r","dubai.jpg","Dubai Bus"), z=3)
 t_d=c(1)["start"]-0.03; t_k=c(2)["start"]-0.03
 js.append(f'gsap.set("#tk,#td",{{opacity:0}});')
 js.append(f'tl.fromTo("#td",{{x:120,scale:0.4,opacity:0}},{{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"}},{t_d:.3f});')
@@ -33,6 +33,21 @@ caps(S2,S3,["Dubai Bus, RTA","നിയന്ത്രിക്കുന്ന �
 caps(S3,S4,["KSRTC എന്ന് പറയുന്നത്","Kerala State Road","Transport Corporation ആണ്.","കേരളത്തിലെ നഗരങ്ങളെയും","ഗ്രാമങ്ങളെയും ബന്ധിപ്പിക്കുന്ന","public transport service ആണിത്.","Ordinary മുതൽ","Super Fast, long-distance","services വരെ ഇതിലുണ്ട്"])
 # ---- poses: R (looks right at Dubai), L (looks left at KSRTC), think = front / camera
 poses += [(0.0,c(2)["start"],"R"),(c(2)["start"],c(3)["start"],"L"),(c(3)["start"],S2,"T"),(S2,S3,"R"),(S3,S4,"L")]
+D=lambda n: tl[f"d{n}"]
+
+# ================= part 2: Nol Card (right) vs Bus Conductor (left) =================
+clip("tiles2", S4, CARD, tile("tc","l","conductor.jpg","Bus Conductor")+tile("tn","r","nol.jpg","Nol Card"), z=3)
+t_n=D(1)["start"]-0.03; t_c=D(2)["start"]-0.03
+js.append('gsap.set("#tc,#tn",{opacity:0});')
+js.append(f'tl.fromTo("#tn",{{x:120,scale:0.4,opacity:0}},{{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"}},{t_n:.3f});')
+js.append(f'tl.fromTo("#tc",{{x:-120,scale:0.4,opacity:0}},{{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"}},{t_c:.3f});')
+clicks += [round(t_n+0.02,3), round(t_c+0.02,3)]
+Q2=D(3)["start"]; P2S=D(4)["start"]-0.1; P3S=D(7)["start"]-0.1
+hl("#tn","#tc",P2S); hl("#tc","#tn",P3S)
+caps(S4,D(2)["start"],["ഇതാണ് Nol Card."]); caps(D(2)["start"],Q2,["ഇതാണ് Bus Conductor."]); caps(Q2,P2S,["എന്താണ് വ്യത്യാസം?"])
+caps(P2S,P3S,["Dubai-യിൽ ബസ്സിൽ","യാത്ര ചെയ്യുമ്പോൾ Nol Card","ഉപയോഗിച്ച് യാത്രാ നിരക്ക്","സ്വയം deduct ചെയ്യാം.","ബസ്സിൽ കയറുമ്പോഴും","ഇറങ്ങുമ്പോഴും","card reader-ൽ tap ചെയ്യണം.","യാത്രയുടെ നിരക്ക് അനുസരിച്ച്","ബാലൻസിൽ നിന്ന്","പണം കുറയും."])
+caps(P3S,CARD,["കേരളത്തിലെ സാധാരണ","ബസ് സർവീസുകളിൽ","യാത്രക്കാർക്ക് ടിക്കറ്റ് നൽകുന്നതും","പണം സ്വീകരിക്കുന്നതും","യാത്രക്കാരെ സഹായിക്കുന്നതും","Bus Conductor ആണ്."])
+poses += [(S4,D(2)["start"],"R"),(D(2)["start"],Q2,"L"),(Q2,P2S,"T"),(P2S,P3S,"R"),(P3S,CARD,"L")]
 for i,(s,e,t) in enumerate(cap):
     clip(f"c{i}", s, e, f'<div class="cap"><span id="c{i}-in">{html.escape(t)}</span></div>', z=5)
     js.append(f'tl.fromTo("#c{i}-in",{{y:18,opacity:0}},{{y:0,opacity:1,duration:0.18,ease:"power2.out"}},{s:.3f});')
