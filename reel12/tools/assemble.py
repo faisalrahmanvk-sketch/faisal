@@ -1,4 +1,4 @@
-"""Reel 12 (Dubai Bus vs KSRTC): one take cut at pauses into 11 chunks, sped up and placed with scene gaps."""
+"""Reel 12 (Dubai Bus vs KSRTC): one take cut at pauses into 10 chunks (closing follow line removed), sped up and placed with scene gaps."""
 import subprocess, json, pathlib, os
 R = pathlib.Path(__file__).resolve().parent.parent; A = R/"audio"
 SRC = os.environ.get("REEL_SRC","/root/.claude/uploads/7f783ea4-d946-5fec-9df1-3b3266bc0edf/16a0a71b-Bus.mp3")
@@ -7,8 +7,8 @@ TRIM = "silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.05,a
 def run(args): subprocess.run(["ffmpeg","-v","error","-y",*args],check=True)
 def dur(p): return float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",str(p)]).strip())
 (A/"proc").mkdir(exist_ok=True)
-CH=[(0,1.44),(1.95,3.34),(3.92,4.75),(5.38,9.48),(10.0,12.29),(12.75,19.64),(20.26,21.51),(21.97,26.86),(27.27,31.79),(32.31,37.3),(37.87,41.58)]
-GAP=[0.14,0.14,0.55,0.22,0.22,0.55,0.30,0.22,0.22,0.55,0.0]
+CH=[(0,1.44),(1.95,3.34),(3.92,4.75),(5.38,9.48),(10.0,12.29),(12.75,19.64),(20.26,21.51),(21.97,26.86),(27.27,31.79),(32.31,37.3)]
+GAP=[0.14,0.14,0.55,0.22,0.22,0.55,0.30,0.22,0.22,0.0]
 t=0.35; tl=[]; parts=[]
 for i,((a,b),g) in enumerate(zip(CH,GAP),1):
     out=A/"proc"/f"c{i}.wav"

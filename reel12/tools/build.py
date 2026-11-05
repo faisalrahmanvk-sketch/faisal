@@ -11,7 +11,7 @@ def caps(s, e, chunks):
     for k,c in enumerate(chunks):
         d=(e-s)*w[k]/tot; cap.append((t, t+d if k<len(chunks)-1 else e, c)); t+=d
 c=lambda n: tl[f"c{n}"]
-S2=c(4)["start"]-0.1; S3=c(7)["start"]-0.1; S4=c(11)["start"]-0.1       # scene starts (scene 1 = 0)
+S2=c(4)["start"]-0.1; S3=c(7)["start"]-0.1; S4=CARD       # scene starts (scene 1 = 0)
 # ---- two photo tiles: KSRTC left, Dubai Bus right (script: Dubai pops right, KSRTC pops left)
 def tile(id_, side, photo, label):
     return f'<div id="{id_}" class="tile {side}"><div class="tl">{html.escape(label)}</div><img src="assets/{photo}" alt="{html.escape(label)}"></div>'
@@ -31,9 +31,8 @@ js.append(f'tl.to("#tiles",{{opacity:0,duration:0.25}},{S4-0.05:.3f});')
 caps(0.0,c(2)["start"],["ഇതാണ് Dubai Bus."]); caps(c(2)["start"],c(3)["start"],["ഇതാണ് KSRTC."]); caps(c(3)["start"],S2,["എന്താണ് വ്യത്യാസം?"])
 caps(S2,S3,["Dubai Bus, RTA","നിയന്ത്രിക്കുന്ന ഒരു","public transport service ആണ്.","ഇവിടെ Nol Card ഉപയോഗിച്ച്","യാത്ര ചെയ്യാം.","AC ബസുകളും","നിശ്ചിത bus stops-ഉം","real-time route information-ഉം","ഇതിന്റെ പ്രത്യേകതകളാണ്"])
 caps(S3,S4,["KSRTC എന്ന് പറയുന്നത്","Kerala State Road","Transport Corporation ആണ്.","കേരളത്തിലെ നഗരങ്ങളെയും","ഗ്രാമങ്ങളെയും ബന്ധിപ്പിക്കുന്ന","public transport service ആണിത്.","Ordinary മുതൽ","Super Fast, long-distance","services വരെ ഇതിലുണ്ട്"])
-caps(S4,CARD,["ഇതുപോലെയുള്ള കൂടുതൽ","ഇൻഫർമേറ്റീവ് വീഡിയോകൾക്കായി","നമ്മളെ Follow ചെയ്യൂ!"])
 # ---- poses: R (looks right at Dubai), L (looks left at KSRTC), think = front / camera
-poses += [(0.0,c(2)["start"],"R"),(c(2)["start"],c(3)["start"],"L"),(c(3)["start"],S2,"T"),(S2,S3,"R"),(S3,S4,"L"),(S4,CARD,"T")]
+poses += [(0.0,c(2)["start"],"R"),(c(2)["start"],c(3)["start"],"L"),(c(3)["start"],S2,"T"),(S2,S3,"R"),(S3,S4,"L")]
 for i,(s,e,t) in enumerate(cap):
     clip(f"c{i}", s, e, f'<div class="cap"><span id="c{i}-in">{html.escape(t)}</span></div>', z=5)
     js.append(f'tl.fromTo("#c{i}-in",{{y:18,opacity:0}},{{y:0,opacity:1,duration:0.18,ease:"power2.out"}},{s:.3f});')
