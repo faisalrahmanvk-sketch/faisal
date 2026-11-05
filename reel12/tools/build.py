@@ -23,6 +23,7 @@ js.append(f'tl.fromTo("#tk",{{x:-120,scale:0.4,opacity:0}},{{x:0,scale:1,opacity
 clicks += [round(t_d+0.02,3), round(t_k+0.02,3)]
 # highlight: scene 2 -> Dubai, scene 3 -> KSRTC (other one dims)
 def hl(on, off, at):
+    clicks.append(round(at+0.02,3))   # click on every highlight pop
     js.append(f'tl.to("{on}",{{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"}},{at:.3f});')
     js.append(f'tl.to("{off}",{{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"}},{at:.3f});')
 hl("#td","#tk",S2); hl("#tk","#td",S3)
