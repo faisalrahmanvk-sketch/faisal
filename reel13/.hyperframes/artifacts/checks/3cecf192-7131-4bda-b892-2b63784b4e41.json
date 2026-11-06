@@ -1,0 +1,210 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"ph-1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#ph-1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"ph-1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"ph-2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#ph-2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"ph-2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p0\"> is a timeline element that contains nested <img id=\"p0-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p0",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p1\"> is a timeline element that contains nested <img id=\"p1-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p2\"> is a timeline element that contains nested <img id=\"p2-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"endcard\"> is a timeline element that contains nested <img id=\"endcard-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#endcard",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"endcard\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"wm\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#wm",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel13/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"wm\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 13.05,
+    "samples": [
+      0.725,
+      2.175,
+      3.625,
+      5.075,
+      6.525,
+      7.975,
+      9.425,
+      10.875,
+      12.325
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.725,
+      3.625,
+      6.525,
+      9.425,
+      12.325
+    ],
+    "checked": 4,
+    "passed": 4
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.12400000000000055,
+    "samples": 105
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

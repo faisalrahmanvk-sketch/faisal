@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.ph{position:absolute;left:70px;top:100px;width:940px;height:705px}
+.ph img{width:940px;height:705px;object-fit:cover;border-radius:34px;box-shadow:0 16px 44px rgba(0,0,0,.25);display:block}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="13.05" data-width="1080" data-height="1920">
+<div id="ph-1" class="clip " data-start="0.000" data-duration="4.248" data-track-index="3" style="z-index:3"><div class="ph"><img id="ph-1-in" src="assets/run1.jpg" alt="Dubai Run"></div></div>
+<div id="ph-2" class="clip " data-start="4.098" data-duration="6.452" data-track-index="3" style="z-index:3"><div class="ph"><img id="ph-2-in" src="assets/run2.jpg" alt="Dubai Run"></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="4.098" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p1" class="clip " data-start="4.098" data-duration="1.400" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p2" class="clip " data-start="5.498" data-duration="5.052" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="10.550" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="10.550" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="13.05" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#ph-1-in",{scale:0.4,opacity:0,y:30},{scale:1,opacity:1,y:0,duration:0.45,ease:"back.out(1.6)"},0.000);
+tl.fromTo("#ph-2-in",{scale:0.4,opacity:0,y:30},{scale:1,opacity:1,y:0,duration:0.45,ease:"back.out(1.6)"},4.098);
+tl.to("#ph-1-in",{opacity:0,duration:0.15},4.098);
+tl.to("#ph-2-in",{opacity:0,scale:0.92,duration:0.2},10.300);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:2.049,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.700,ease:"sine.inOut",yoyo:true,repeat:1},4.098);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:2.526,ease:"sine.inOut",yoyo:true,repeat:1},5.498);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},10.55);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
