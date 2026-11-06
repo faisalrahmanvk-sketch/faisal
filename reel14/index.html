@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.tile{position:absolute;top:215px;width:470px;text-align:center}
+.tile.l{left:45px}.tile.r{left:565px}
+.tl{font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
+.tile img{width:470px;height:350px;object-fit:cover;border-radius:28px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:block}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="44.03" data-width="1080" data-height="1920">
+<div id="tiles" class="clip " data-start="0.000" data-duration="41.530" data-track-index="3" style="z-index:3"><div id="te" class="tile l"><div class="tl">Employment Visa</div><img src="assets/employment.jpg" alt="Employment Visa"></div><div id="tg" class="tile r"><div class="tl">Golden Visa</div><img src="assets/golden.jpg" alt="Golden Visa"></div></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="1.557" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇതാണ് Golden Visa.</span></div></div>
+<div id="c1" class="clip " data-start="1.557" data-duration="1.415" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇതാണ് Employment Visa.</span></div></div>
+<div id="c2" class="clip " data-start="2.972" data-duration="1.294" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">എന്താണ് വ്യത്യാസം?</span></div></div>
+<div id="c3" class="clip " data-start="4.266" data-duration="0.873" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">Golden Visa.</span></div></div>
+<div id="c4" class="clip " data-start="5.139" data-duration="1.047" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">ഇത് UAE നൽകുന്ന</span></div></div>
+<div id="c5" class="clip " data-start="6.186" data-duration="1.953" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">ഒരു Long-Term Residency ആണ്.</span></div></div>
+<div id="c6" class="clip " data-start="8.139" data-duration="1.320" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">സാധാരണയായി 5 അല്ലെങ്കിൽ</span></div></div>
+<div id="c7" class="clip " data-start="9.459" data-duration="1.721" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">10 വർഷത്തേക്കാണ് ലഭിക്കുന്നത്.</span></div></div>
+<div id="c8" class="clip " data-start="11.180" data-duration="1.564" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">ഇതിന്റെ ഏറ്റവും വലിയ പ്രത്യേകത,</span></div></div>
+<div id="c9" class="clip " data-start="12.744" data-duration="1.311" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">ഒരു പ്രത്യേക Employer-ന്റെ</span></div></div>
+<div id="c10" class="clip " data-start="14.055" data-duration="1.614" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">Sponsorship ആവശ്യമില്ല എന്നതാണ്.</span></div></div>
+<div id="c11" class="clip " data-start="15.669" data-duration="1.378" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">Investors, Entrepreneurs,</span></div></div>
+<div id="c12" class="clip " data-start="17.047" data-duration="1.213" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">Skilled Professionals,</span></div></div>
+<div id="c13" class="clip " data-start="18.260" data-duration="1.543" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">Outstanding Students തുടങ്ങി</span></div></div>
+<div id="c14" class="clip " data-start="19.803" data-duration="1.598" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">നിശ്ചിത യോഗ്യതയുള്ള ആളുകൾക്ക്</span></div></div>
+<div id="c15" class="clip " data-start="21.401" data-duration="0.717" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">ഇത് ലഭിക്കും.</span></div></div>
+<div id="c16" class="clip " data-start="22.118" data-duration="0.973" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">Employment Visa.</span></div></div>
+<div id="c17" class="clip " data-start="23.091" data-duration="1.154" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">UAE-യിലെ ഒരു കമ്പനിയിൽ</span></div></div>
+<div id="c18" class="clip " data-start="24.245" data-duration="1.469" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">ജോലി ലഭിക്കുമ്പോൾ സാധാരണയായി</span></div></div>
+<div id="c19" class="clip " data-start="25.714" data-duration="1.259" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">ആ Employer ആണ് നിങ്ങളുടെ</span></div></div>
+<div id="c20" class="clip " data-start="26.973" data-duration="1.888" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">Work Permit-നും Residence Visa-ക്കും</span></div></div>
+<div id="c21" class="clip " data-start="28.861" data-duration="1.364" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">വേണ്ട നടപടികൾ ചെയ്യുന്നത്.</span></div></div>
+<div id="c22" class="clip " data-start="30.225" data-duration="1.719" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">സാധാരണ Employment Residence Visa</span></div></div>
+<div id="c23" class="clip " data-start="31.944" data-duration="1.773" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">രണ്ട് വർഷത്തേക്കാണ് ലഭിക്കുന്നത്.</span></div></div>
+<div id="c24" class="clip " data-start="33.717" data-duration="0.886" data-track-index="5" style="z-index:5"><div class="cap"><span id="c24-in">കാലാവധി കഴിഞ്ഞാൽ</span></div></div>
+<div id="c25" class="clip " data-start="34.603" data-duration="1.550" data-track-index="5" style="z-index:5"><div class="cap"><span id="c25-in">നിയമപ്രകാരമുള്ള നടപടികളിലൂടെ</span></div></div>
+<div id="c26" class="clip " data-start="36.152" data-duration="0.554" data-track-index="5" style="z-index:5"><div class="cap"><span id="c26-in">പുതുക്കാം.</span></div></div>
+<div id="c27" class="clip " data-start="36.706" data-duration="1.247" data-track-index="5" style="z-index:5"><div class="cap"><span id="c27-in">അതായത്, ഇവിടെ നിങ്ങളുടെ</span></div></div>
+<div id="c28" class="clip " data-start="37.953" data-duration="1.463" data-track-index="5" style="z-index:5"><div class="cap"><span id="c28-in">Residency ഒരു Employer-ന്റെ</span></div></div>
+<div id="c29" class="clip " data-start="39.416" data-duration="0.867" data-track-index="5" style="z-index:5"><div class="cap"><span id="c29-in">Sponsorship-മായി</span></div></div>
+<div id="c30" class="clip " data-start="40.283" data-duration="1.247" data-track-index="5" style="z-index:5"><div class="cap"><span id="c30-in">ബന്ധപ്പെട്ടിരിക്കുന്നു.</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.557" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p1" class="clip " data-start="1.557" data-duration="1.415" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p2" class="clip " data-start="2.972" data-duration="1.244" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p3" class="clip " data-start="4.216" data-duration="17.852" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p4" class="clip " data-start="22.068" data-duration="19.462" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="endcard" class="clip " data-start="41.530" data-duration="2.500" data-track-index="6" style="z-index:6"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="41.530" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="44.03" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set("#te,#tg",{opacity:0});
+tl.fromTo("#tg",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},0.320);
+tl.fromTo("#te",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},1.577);
+tl.to("#tg",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},4.286);
+tl.to("#te",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},4.286);
+tl.to("#te",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},22.138);
+tl.to("#tg",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},22.138);
+tl.to("#tiles",{opacity:0,duration:0.25},41.480);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.557);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.972);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.266);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.139);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.186);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.139);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.459);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.180);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.744);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.055);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.669);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},17.047);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.260);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},19.803);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.401);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},22.118);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},23.091);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.245);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},25.714);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.973);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},28.861);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},30.225);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},31.944);
+tl.fromTo("#c24-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},33.717);
+tl.fromTo("#c25-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},34.603);
+tl.fromTo("#c26-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},36.152);
+tl.fromTo("#c27-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},36.706);
+tl.fromTo("#c28-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},37.953);
+tl.fromTo("#c29-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},39.416);
+tl.fromTo("#c30-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},40.283);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.778,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.708,ease:"sine.inOut",yoyo:true,repeat:1},1.557);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.622,ease:"sine.inOut",yoyo:true,repeat:1},2.972);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:8.926,ease:"sine.inOut",yoyo:true,repeat:1},4.216);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:9.731,ease:"sine.inOut",yoyo:true,repeat:1},22.068);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},41.53);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
