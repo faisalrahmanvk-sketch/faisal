@@ -54,8 +54,12 @@ CAP={1:["ഇതാണ് Emirates ID."],2:["ഇതാണ് Aadhaar Card."],3:["
 30:["Documents digital ആയി","sign ചെയ്യാം,","ആ signature-ന്","legal value-ഉം ഉണ്ട്."],31:["ഇനി DigiLocker."],
 32:["ഇത് നമ്മുടെ documents","സൂക്ഷിക്കാനുള്ള ഒരു","digital wallet ആണ്."],33:["Driving licence, RC,","marksheet ഒക്കെ","ഇതിൽ കിട്ടും."],
 34:["Department നേരിട്ട്","issue ചെയ്യുന്ന documents","original-ന് തുല്യമാണ്."],35:["പക്ഷേ നമ്മൾ സ്വന്തമായി","scan ചെയ്ത് upload ചെയ്യുന്ന","documents-ന് ആ value","ഇല്ല!"]}
-starts=[0.0]+[c(n)["start"]-0.05 for n in range(2,36)]+[CARD]
-for n in range(1,36): caps(starts[n-1], starts[n], CAP[n])
+KEEP=[int(k["clip"][1:]) for k in json.load(open(R/"audio"/"timeline.json"))["clips"]]
+CAP[21]=["ശ്രദ്ധിക്കണം"]
+starts={}
+for i,n in enumerate(KEEP): starts[n]=0.0 if i==0 else c(n)["start"]-0.05
+ends={n:(starts[KEEP[i+1]] if i+1<len(KEEP) else CARD) for i,n in enumerate(KEEP)}
+for n in KEEP: caps(starts[n], ends[n], CAP[n])
 # ---- character poses per sentence
 P={}
 for n in range(1,36):
@@ -69,9 +73,9 @@ pose_of[24]="R"; pose_of[25]="L"; pose_of[26]="T"
 for n in range(27,31): pose_of[n]="R"
 for n in range(31,36): pose_of[n]="L"
 seg=[]; cur=None
-for n in range(1,36):
-    if cur and cur[2]==pose_of[n]: cur[1]=starts[n]
-    else: cur=[starts[n-1],starts[n],pose_of[n]]; seg.append(cur)
+for n in KEEP:
+    if cur and cur[2]==pose_of[n]: cur[1]=ends[n]
+    else: cur=[starts[n],ends[n],pose_of[n]]; seg.append(cur)
 poses=[tuple(x) for x in seg]
 for i,(s,e,t) in enumerate(cap):
     clip(f"c{i}", s, e, f'<div class="cap"><span id="c{i}-in">{html.escape(t)}</span></div>', z=5)

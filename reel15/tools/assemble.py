@@ -16,13 +16,16 @@ for s,e in zip(st,en):
     if (e-s)>=TH and not any(abs(s-k)<0.3 for k in SKIP): CH.append((a,s)); a=e
 CH.append((a,T-0.1))
 assert len(CH)==35, f"expected 35 sentences, got {len(CH)}"
+# revised script: dropped old s10-s12 (renew/fine lines) and s19-s20 (Centre fee lines)
+DROP={10,11,12,19,20}; KEEP=[k for k in range(1,36) if k not in DROP]
 # gap after sentence k (1-based): scene change 0.55 after s3, s12, s23, s26(question->explanation), s30 ; 0.14 for short intro lines
-SC={3,12,23,26,30}; SHORT={1,2,24,25}
-GAP=[0.55 if k in SC else (0.14 if k in SHORT else 0.25) for k in range(1,36)]; GAP[-1]=0.0
+SC={3,9,23,26,30}; SHORT={1,2,24,25}
 t=0.35; tl=[]; parts=[]
-for k,((a,b),g) in enumerate(zip(CH,GAP),1):
+for idx,k in enumerate(KEEP):
+    a_,b_=CH[k-1]; g=0.55 if k in SC else (0.14 if k in SHORT else 0.25)
+    if idx==len(KEEP)-1: g=0.0
     out=A/"proc"/f"c{k}.wav"
-    run(["-i",SRC,"-af",f"atrim=start={max(0,a-0.12)}:end={b+0.12},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)])
+    run(["-i",SRC,"-af",f"atrim=start={max(0,a_-0.12)}:end={b_+0.12},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)])
     d=dur(out); tl.append({"clip":f"c{k}","start":round(t,3),"end":round(t+d,3)}); parts.append((out,t)); t+=d+g
 total=round(t,2); ins=[]; fl=[]
 for i,(p,s_) in enumerate(parts):
@@ -31,4 +34,4 @@ fl.append("".join(f"[a{i}]" for i in range(len(parts)))+f"amix=inputs={len(parts
 run([*ins,"-filter_complex",";".join(fl),"-map","[o]","-t",str(total),"-ar","44100",str(A/"voice_all.wav")])
 json.dump({"total":total,"clips":tl},open(A/"timeline.json","w"),indent=1)
 card=round(tl[-1]["end"]+0.45,2); json.dump({"dur":round(card+2.5,2),"card":card},open(R/"tools"/"dur.json","w"))
-print("total",total,"card",card); print([ (k+1,round(a,1),round(b,1)) for k,(a,b) in enumerate(CH)][:36])
+print("total",total,"card",card,"sentences",len(KEEP))
