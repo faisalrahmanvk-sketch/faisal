@@ -32,12 +32,12 @@ def hl(on, off, at):
     js.append(f'tl.to("{on}",{{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"}},{at:.3f});')
     js.append(f'tl.to("{off}",{{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"}},{at:.3f});')
 # ---- visuals
-pair("a", 0.0, S2+0.25, ("r","emirates.jpg","Emirates ID"), ("l","aadhaar.jpg","Aadhaar Card"), ST(1), ST(2))
-single("emirates","emirates.jpg", S2, S3)
-single("aadhaar","aadhaar.jpg", S3, S4)
-pair("b", S4, S5, ("r","uaepass.jpg","UAE Pass"), ("l","digilocker.jpg","DigiLocker"), ST(24), ST(25))
+pair("a", 0.0, S4+0.25, ("r","emirates.jpg","Emirates ID"), ("l","aadhaar.jpg","Aadhaar Card"), ST(1), ST(2))
+hl("#ar","#al", ST(4))     # scene 2: Emirates ID highlighted, Aadhaar smaller
+hl("#al","#ar", ST(13))    # scene 3: Aadhaar highlighted, Emirates ID smaller
+pair("b", S4, CARD+0.1, ("r","uaepass.jpg","UAE Pass"), ("l","digilocker.jpg","DigiLocker"), ST(24), ST(25))
 hl("#br","#bl", ST(27))
-single("digilocker","digilocker.jpg", S5, CARD)
+hl("#bl","#br", ST(31))   # scene 5: DigiLocker highlighted, UAE Pass smaller
 # ---- captions (one block per sentence)
 CAP={1:["ഇതാണ് Emirates ID."],2:["ഇതാണ് Aadhaar Card."],3:["എന്താണ് വ്യത്യാസം?"],4:["ആദ്യം Emirates ID","നോക്കാം."],
 5:["UAE-യിൽ താമസിക്കുന്ന","എല്ലാവർക്കും ഇത്","നിർബന്ധമാണ്."],6:["Citizens ആയാലും","expats ആയാലും വേണം."],
