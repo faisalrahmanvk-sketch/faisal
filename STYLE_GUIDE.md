@@ -31,3 +31,7 @@ Removing the repeated "Debit Card:/Credit Card:" prefixes and hiding photo label
 
 ## Audio-cut bug (fixed Nov 1)
 Never use ffmpeg output `-ss/-t` together with `atempo`: they apply AFTER the tempo change and cut the wrong audio. Trim inside the filter graph first (`atrim=start=A:end=B,asetpts=PTS-STARTPTS,...,atempo=S`). Fixed in reel4-7 `tools/assemble.py`; reels 4, 5, 6 were re-rendered.
+
+## Instagram caption format (approved)
+Short only: one Malayalam hook line with an emoji, then "Follow @fyze.ai 📌", then one line of plain keywords (comma-separated, no hashtags, no bullet explanations).
+Example (reel 17): "🌍 GCC, Gulf, Middle East… ഇതെല്ലാം ഒന്നാണെന്ന് കരുതിയോ? 😳" / "Follow @fyze.ai 📌" / "GCC, UAE, Gulf Countries, Middle East, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Iraq, Iran"
