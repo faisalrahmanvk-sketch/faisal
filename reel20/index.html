@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+.cap{top:885px;height:130px}
+.pose{top:1040px;height:650px}
+.pv{position:absolute;width:450px;height:800px;object-fit:cover;border-radius:30px;box-shadow:0 18px 46px rgba(0,0,0,.30);background:#fff}
+.cta{position:absolute;left:230px;top:150px;width:620px;height:auto;-webkit-mask-image:radial-gradient(ellipse 52% 52% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 52% 52% at 50% 50%,#000 70%,transparent 100%)}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="28.49" data-width="1080" data-height="1920">
+<img id="pvR" class="clip pv" src="assets/normal_still.jpg" data-start="0.270" data-duration="24.153" data-track-index="3" style="z-index:3;left:600px;top:70px;transform-origin:100% 0%" alt="">
+<img id="pvL" class="clip pv" src="assets/pro_still.jpg" data-start="1.737" data-duration="22.686" data-track-index="3" style="z-index:3;left:30px;top:70px;transform-origin:0% 0%" alt="">
+<video id="vidR" class="clip pv" src="assets/normal_ai.mp4" muted playsinline data-start="4.855" data-duration="8.003" data-media-start="0" data-track-index="4" style="z-index:4;left:600px;top:70px;transform-origin:100% 0%"></video>
+<video id="vidL" class="clip pv" src="assets/pro_ai.mp4" muted playsinline data-start="12.858" data-duration="11.165" data-media-start="0" data-track-index="4" style="z-index:4;left:30px;top:70px;transform-origin:0% 0%"></video>
+<div id="cta" class="clip " data-start="24.223" data-duration="4.267" data-track-index="6" style="z-index:6"><img id="cta-in" class="cta" src="assets/follow_card.png" alt="Follow / DM"></div>
+<div id="c0" class="clip " data-start="0.000" data-duration="1.717" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഇതാണ് സാധാരണ AI വീഡിയോ.</span></div></div>
+<div id="c1" class="clip " data-start="1.717" data-duration="0.864" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">ഇതാണ് Professional</span></div></div>
+<div id="c2" class="clip " data-start="2.581" data-duration="0.913" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">Creative AI വീഡിയോ.</span></div></div>
+<div id="c3" class="clip " data-start="3.494" data-duration="0.990" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">എന്താണ് ഇവ തമ്മിലുള്ള</span></div></div>
+<div id="c4" class="clip " data-start="4.484" data-duration="0.471" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">വ്യത്യാസം?</span></div></div>
+<div id="c5" class="clip " data-start="4.955" data-duration="0.805" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">സാധാരണ AI വീഡിയോകൾ</span></div></div>
+<div id="c6" class="clip " data-start="5.760" data-duration="1.073" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">കൂടുതലായും Free AI Tools</span></div></div>
+<div id="c7" class="clip " data-start="6.833" data-duration="1.118" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">ഉപയോഗിച്ച് തയ്യാറാക്കുന്ന</span></div></div>
+<div id="c8" class="clip " data-start="7.951" data-duration="1.163" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">Entertainment Content ആണ്.</span></div></div>
+<div id="c9" class="clip " data-start="9.114" data-duration="1.076" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">Likes, Shares, Reach,</span></div></div>
+<div id="c10" class="clip " data-start="10.190" data-duration="0.820" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">Followers എന്നിവ</span></div></div>
+<div id="c11" class="clip " data-start="11.010" data-duration="1.128" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">കൂട്ടാനാണ് പ്രധാനമായും</span></div></div>
+<div id="c12" class="clip " data-start="12.138" data-duration="0.820" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">ഉപയോഗിക്കുന്നത്.</span></div></div>
+<div id="c13" class="clip " data-start="12.958" data-duration="0.778" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">എന്നാൽ Creative AI</span></div></div>
+<div id="c14" class="clip " data-start="13.736" data-duration="0.865" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">Advertisement എന്നത്</span></div></div>
+<div id="c15" class="clip " data-start="14.601" data-duration="0.908" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">Premium Paid AI Tools</span></div></div>
+<div id="c16" class="clip " data-start="15.509" data-duration="0.994" data-track-index="5" style="z-index:5"><div class="cap"><span id="c16-in">ഉപയോഗിച്ച് Professional</span></div></div>
+<div id="c17" class="clip " data-start="16.503" data-duration="0.994" data-track-index="5" style="z-index:5"><div class="cap"><span id="c17-in">Creators തയ്യാറാക്കുന്ന</span></div></div>
+<div id="c18" class="clip " data-start="17.497" data-duration="0.951" data-track-index="5" style="z-index:5"><div class="cap"><span id="c18-in">High-Quality Cinematic</span></div></div>
+<div id="c19" class="clip " data-start="18.448" data-duration="0.519" data-track-index="5" style="z-index:5"><div class="cap"><span id="c19-in">വീഡിയോകളാണ്.</span></div></div>
+<div id="c20" class="clip " data-start="18.967" data-duration="1.072" data-track-index="5" style="z-index:5"><div class="cap"><span id="c20-in">നിങ്ങളുടെ Products-ഉം</span></div></div>
+<div id="c21" class="clip " data-start="20.039" data-duration="1.072" data-track-index="5" style="z-index:5"><div class="cap"><span id="c21-in">Services-ഉം ആകർഷകമായി</span></div></div>
+<div id="c22" class="clip " data-start="21.112" data-duration="0.664" data-track-index="5" style="z-index:5"><div class="cap"><span id="c22-in">അവതരിപ്പിച്ച്</span></div></div>
+<div id="c23" class="clip " data-start="21.775" data-duration="0.970" data-track-index="5" style="z-index:5"><div class="cap"><span id="c23-in">Brand Promotion-നും</span></div></div>
+<div id="c24" class="clip " data-start="22.745" data-duration="1.328" data-track-index="5" style="z-index:5"><div class="cap"><span id="c24-in">Marketing-നും ഉപയോഗിക്കാം.</span></div></div>
+<div id="c25" class="clip " data-start="24.073" data-duration="0.893" data-track-index="5" style="z-index:5"><div class="cap"><span id="c25-in">നിങ്ങളുടെ Brand-നും</span></div></div>
+<div id="c26" class="clip " data-start="24.966" data-duration="1.128" data-track-index="5" style="z-index:5"><div class="cap"><span id="c26-in">ഇതുപോലെയുള്ള Creative AI</span></div></div>
+<div id="c27" class="clip " data-start="26.094" data-duration="0.893" data-track-index="5" style="z-index:5"><div class="cap"><span id="c27-in">വീഡിയോകൾ വേണമെങ്കിൽ</span></div></div>
+<div id="c28" class="clip " data-start="26.986" data-duration="1.034" data-track-index="5" style="z-index:5"><div class="cap"><span id="c28-in">ഇപ്പോൾ തന്നെ ഞങ്ങൾക്ക്</span></div></div>
+<div id="c29" class="clip " data-start="28.020" data-duration="0.470" data-track-index="5" style="z-index:5"><div class="cap"><span id="c29-in">DM ചെയ്യൂ!</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.717" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointR.png" alt="presenter"></div>
+<div id="p1" class="clip " data-start="1.717" data-duration="1.777" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose" src="assets/pose_pointL.png" alt="presenter"></div>
+<div id="p2" class="clip " data-start="3.494" data-duration="1.461" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose think" src="assets/pose_think.png" alt="presenter"></div>
+<div id="p3" class="clip " data-start="4.955" data-duration="8.003" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointR.png" alt="presenter"></div>
+<div id="p4" class="clip " data-start="12.958" data-duration="11.115" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointL.png" alt="presenter"></div>
+<div id="p5" class="clip " data-start="24.073" data-duration="4.417" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose think" src="assets/pose_think.png" alt="presenter"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="28.490" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="28.49" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#pvR",{scale:0.3,opacity:0},{scale:0.6667,opacity:1,duration:0.45,ease:"back.out(1.6)"},0.270);
+tl.to("#pvR",{opacity:0,duration:0.3,ease:"power1.in"},24.103);
+tl.fromTo("#pvL",{scale:0.3,opacity:0},{scale:0.6667,opacity:1,duration:0.45,ease:"back.out(1.6)"},1.737);
+tl.to("#pvL",{opacity:0,duration:0.3,ease:"power1.in"},24.103);
+tl.fromTo("#vidR",{scale:0.6667},{scale:1,duration:0.55,ease:"power2.inOut"},4.855);
+tl.to("#vidR",{scale:0.6667,duration:0.5,ease:"power2.inOut"},12.338);
+tl.fromTo("#vidL",{scale:0.6667},{scale:1,duration:0.55,ease:"power2.inOut"},12.858);
+tl.to("#vidL",{scale:0.6667,duration:0.5,ease:"power2.inOut"},23.503);
+tl.fromTo("#cta-in",{opacity:0,scale:0.9,y:20},{opacity:1,scale:1,y:0,duration:0.5,ease:"back.out(1.5)"},24.223);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.000);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.717);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.581);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.494);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.484);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.955);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.760);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.833);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.951);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.114);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.190);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.010);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.138);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.958);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},13.736);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},14.601);
+tl.fromTo("#c16-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.509);
+tl.fromTo("#c17-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},16.503);
+tl.fromTo("#c18-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},17.497);
+tl.fromTo("#c19-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.448);
+tl.fromTo("#c20-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},18.967);
+tl.fromTo("#c21-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},20.039);
+tl.fromTo("#c22-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.112);
+tl.fromTo("#c23-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},21.775);
+tl.fromTo("#c24-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},22.745);
+tl.fromTo("#c25-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.073);
+tl.fromTo("#c26-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},24.966);
+tl.fromTo("#c27-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.094);
+tl.fromTo("#c28-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},26.986);
+tl.fromTo("#c29-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},28.020);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.858,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.889,ease:"sine.inOut",yoyo:true,repeat:1},1.717);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.730,ease:"sine.inOut",yoyo:true,repeat:1},3.494);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:4.001,ease:"sine.inOut",yoyo:true,repeat:1},4.955);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:5.558,ease:"sine.inOut",yoyo:true,repeat:1},12.958);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:2.208,ease:"sine.inOut",yoyo:true,repeat:1},24.073);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
