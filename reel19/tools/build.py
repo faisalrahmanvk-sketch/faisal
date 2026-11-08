@@ -12,7 +12,7 @@ def caps(s, e, chunks):
         d=(e-s)*w[k]/tot; cap.append((t, t+d if k<len(chunks)-1 else e, x)); t+=d
 c=lambda n: tl[f"c{n}"]
 ST=lambda n: c(n)["start"]-0.03
-S2=c(4)["start"]-0.1; S3=c(10)["start"]-0.1; S4=c(16)["start"]-0.1; S5=c(23)["start"]-0.1
+S2=c(5)["start"]-0.1; S3=c(10)["start"]-0.1; S4=c(16)["start"]-0.1; S5=c(23)["start"]-0.1
 def pair(pfx, s, e, right, left, t_r, t_l, overlay=None):
     """right/left = (id, photo, label). Right pops at t_r, left at t_l."""
     def tile(i,side,img,lab):
@@ -35,7 +35,7 @@ def hl(on, off, at):
     js.append(f'tl.to("{off}",{{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"}},{at:.3f});')
 # ---- visuals
 pair("a", 0.0, S4+0.25, ("r","mbr.jpg","Sheikh Mohammed"), ("l","mbz.jpg","Sheikh Mohamed"), ST(1), ST(2))
-hl("#ar","#al", ST(4))      # scene 2: Sheikh Mohammed bin Rashid highlighted
+hl("#ar","#al", ST(5))      # scene 2: Sheikh Mohammed bin Rashid highlighted
 hl("#al","#ar", ST(10))     # scene 3: Sheikh Mohamed bin Zayed highlighted
 pair("b", S4, CARD+0.1, ("r","uae_emirates_map.jpg","Ruler"), ("l","uae_flag_photo.jpg","President"), ST(16), ST(17))
 hl("#br","#bl", ST(19))     # scene 4 explanation: Ruler (7 emirates map) highlighted
@@ -56,7 +56,7 @@ CAP={1:["ഇതാണ് Sheikh Mohammed."],2:["ഇതാണ് Sheikh Mohamed."
 23:["President ഒരു emirate-ന്റെ","മാത്രം അല്ല,","UAE എന്ന രാജ്യത്തിന്റെ","മുഴുവൻ തലവനാണ്."],
 24:["ആ 7 Rulers ചേർന്നാണ്","President-നെ","തിരഞ്ഞെടുക്കുന്നത്."],
 25:["ചുരുക്കി പറഞ്ഞാൽ:","Sheikh Mohammed","Dubai-യുടെ Ruler,","Sheikh Mohamed","UAE-യുടെ President!"]}
-KEEP=list(range(1,26))
+KEEP=[int(k["clip"][1:]) for k in json.load(open(R/"audio"/"timeline.json"))["clips"]]
 starts={}
 for i_,n in enumerate(KEEP): starts[n]=0.0 if i_==0 else c(n)["start"]-0.05
 ends={n:(starts[KEEP[i_+1]] if i_+1<len(KEEP) else CARD) for i_,n in enumerate(KEEP)}

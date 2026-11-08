@@ -17,11 +17,12 @@ for tgt in ENDS:
     k=min(range(len(st)),key=lambda i:abs(st[i]-tgt)); assert abs(st[k]-tgt)<0.25,(tgt,st[k])
     CH.append((a,st[k])); a=en[k]
 CH.append((a,T-0.05)); assert len(CH)==25
+DROP={4}; KEEP=[k for k in range(1,26) if k not in DROP]   # removed: 'പേര് ഏകദേശം ഒന്നാണ്, പക്ഷേ ആള് വേറെയാണ്!'
 SC={3,9,15,18,22}; SHORT={1,2,16,17}
 t=0.35; tl=[]; parts=[]
-for k,(a_,b_) in enumerate(CH,1):
-    g=0.55 if k in SC else (0.14 if k in SHORT else 0.25)
-    if k==25: g=0.0
+for idx,k in enumerate(KEEP):
+    a_,b_=CH[k-1]; g=0.55 if k in SC else (0.14 if k in SHORT else 0.25)
+    if idx==len(KEEP)-1: g=0.0
     out=A/"proc"/f"c{k}.wav"
     run(["-i",SRC,"-af",f"atrim=start={max(0,a_-0.12)}:end={b_+0.12},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)])
     d=dur(out); tl.append({"clip":f"c{k}","start":round(t,3),"end":round(t+d,3)}); parts.append((out,t)); t+=d+g
