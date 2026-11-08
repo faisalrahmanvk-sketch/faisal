@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "9650987a-5222-421f-9d53-c9f3d9358e6c",
-  "currentRevision": "656974e3-d3b5-4ef8-9344-f8fff45e63a4",
+  "currentRevision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
   "pendingChanges": false,
   "files": {
     "assets/follow_card.png": {
@@ -97,8 +97,8 @@
       "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "35c54762121797ab77a0372a50f3342ca85e2b93ace0bb89bffd939628893b46",
-      "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/35/35c54762121797ab77a0372a50f3342ca85e2b93ace0bb89bffd939628893b46"
+      "hash": "a3708eba369500551ca9e6c8b310638fa47d1912208e55a2acb186470de7dbd4",
+      "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/a3/a3708eba369500551ca9e6c8b310638fa47d1912208e55a2acb186470de7dbd4"
     },
     "meta.json": {
       "hash": "f3b86804f071ef2515734b9be90c6fb945019bc9d7d1558af83722e3679f7c58",
@@ -113,8 +113,8 @@
       "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/2e/2ebc72373a86d75b0f5e1488b47656d44db8664083e888ecb9da671166949b01"
     },
     "tools/build.py": {
-      "hash": "4797187bf546eac436b517dabf90de8faebba03ee4e94ac99b560221ad98e1ee",
-      "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/47/4797187bf546eac436b517dabf90de8faebba03ee4e94ac99b560221ad98e1ee"
+      "hash": "746dec0865952a8b0cee2cb5943a3f7d3da9f3780654c6389bb59629cc077831",
+      "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/74/746dec0865952a8b0cee2cb5943a3f7d3da9f3780654c6389bb59629cc077831"
     },
     "tools/dur.json": {
       "hash": "fa4de524cd4d28fe888028677a390ea71e93c0e183b6e623c87bd498f3fc630c",
@@ -147,6 +147,10 @@
     "out/reel20_v1_fast.mp4": {
       "hash": "26ce16c2fa8b715f01a1da809d9b636e76a2eb37990782b6dab3090e089e36ef",
       "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/26/26ce16c2fa8b715f01a1da809d9b636e76a2eb37990782b6dab3090e089e36ef"
+    },
+    "out/reel20_v2_with_card.mp4": {
+      "hash": "b4ac13d9928a40949811862dcff5f1beeb84990ae36d6f21bc55b432b6e546e5",
+      "content": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/b4/b4ac13d9928a40949811862dcff5f1beeb84990ae36d6f21bc55b432b6e546e5"
     }
   },
   "revisions": {
@@ -239,12 +243,35 @@
           "after": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/fa/fa4de524cd4d28fe888028677a390ea71e93c0e183b6e623c87bd498f3fc630c"
         }
       }
+    },
+    "6a7275b2-214b-4cce-81c1-72c1d48746cc": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794166985562,
+      "endedAt": 1794166985570,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/35/35c54762121797ab77a0372a50f3342ca85e2b93ace0bb89bffd939628893b46",
+          "after": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/a3/a3708eba369500551ca9e6c8b310638fa47d1912208e55a2acb186470de7dbd4"
+        },
+        "out/reel20_v2_with_card.mp4": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/b4/b4ac13d9928a40949811862dcff5f1beeb84990ae36d6f21bc55b432b6e546e5"
+        },
+        "tools/build.py": {
+          "before": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/47/4797187bf546eac436b517dabf90de8faebba03ee4e94ac99b560221ad98e1ee",
+          "after": "/root/.cache/hyperframes/history/9650987a-5222-421f-9d53-c9f3d9358e6c/blobs/74/746dec0865952a8b0cee2cb5943a3f7d3da9f3780654c6389bb59629cc077831"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "656974e3-d3b5-4ef8-9344-f8fff45e63a4",
-      "id": "e369dd02-130d-4372-b2da-c87bd45301c9"
+      "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+      "id": "a3d73ef9-2349-49e2-9e50-4b8919d3ba39"
     },
     "revisions": {
       "656974e3-d3b5-4ef8-9344-f8fff45e63a4": [
@@ -273,6 +300,36 @@
           "contentHash": "86e6f0aab0b74a261c00e69ddf49a4ba75e33b76fbd970356bfbd33c72f81587",
           "revision": "656974e3-d3b5-4ef8-9344-f8fff45e63a4",
           "inputFingerprint": "6594c68eb975aef923d3b31e4f88faa649342aa4c4b9bce767b711a2e3f2fe6f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "6a7275b2-214b-4cce-81c1-72c1d48746cc": [
+        {
+          "id": "a3d73ef9-2349-49e2-9e50-4b8919d3ba39",
+          "scope": "project",
+          "report": "/home/user/faisal/reel20/.hyperframes/artifacts/checks/a3d73ef9-2349-49e2-9e50-4b8919d3ba39.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 45000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto",
+              "includeUnmounted": false
+            }
+          },
+          "createdAt": 1794167004891,
+          "contentHash": "1911c815a25f20e45bb4956325511b6b9401167ef2e7ec43c2c9c26c7e99c641",
+          "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+          "inputFingerprint": "170c3ab6c220c2a03dd3dcda751ffe34b343f35ae5154bdc7ed9fa1f13e72b3c",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
@@ -367,10 +424,93 @@
   },
   "snapshots": {
     "latest": {
-      "revision": null,
-      "id": "b4ae2358-ead4-41f3-9bdb-e90eed4a40c0-10"
+      "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+      "id": "a584ec05-63a6-46a3-ab87-cf55c751ae0e-3"
     },
-    "revisions": {},
+    "revisions": {
+      "6a7275b2-214b-4cce-81c1-72c1d48746cc": [
+        {
+          "scope": "full",
+          "id": "a584ec05-63a6-46a3-ab87-cf55c751ae0e-0",
+          "image": "/home/user/faisal/reel20/.hyperframes/artifacts/snapshots/25501b59-d9b2-4aca-b340-1df7d6d99b8e/frame-00-at-27s.png",
+          "time": 27,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794167009776,
+          "contentHash": "ca70080843cc59f214196bc9ab1469ec23fa299ce1ffe94ba38433e69ae0ea4f",
+          "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+          "inputFingerprint": "170c3ab6c220c2a03dd3dcda751ffe34b343f35ae5154bdc7ed9fa1f13e72b3c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a584ec05-63a6-46a3-ab87-cf55c751ae0e-1",
+          "image": "/home/user/faisal/reel20/.hyperframes/artifacts/snapshots/25501b59-d9b2-4aca-b340-1df7d6d99b8e/frame-01-at-31s.png",
+          "time": 31,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794167009776,
+          "contentHash": "845764e062f14d3d8bda29f28b65cc615c0f4e643f36aceffdc9357d2bfafe91",
+          "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+          "inputFingerprint": "170c3ab6c220c2a03dd3dcda751ffe34b343f35ae5154bdc7ed9fa1f13e72b3c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a584ec05-63a6-46a3-ab87-cf55c751ae0e-2",
+          "image": "/home/user/faisal/reel20/.hyperframes/artifacts/snapshots/25501b59-d9b2-4aca-b340-1df7d6d99b8e/frame-02-at-33.5s.png",
+          "time": 33.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794167009777,
+          "contentHash": "ff4f8d2cb7bece9a535f21a41ea3f01ddf934450f145e6f045ab74ff20250e4b",
+          "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+          "inputFingerprint": "170c3ab6c220c2a03dd3dcda751ffe34b343f35ae5154bdc7ed9fa1f13e72b3c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a584ec05-63a6-46a3-ab87-cf55c751ae0e-3",
+          "image": "/home/user/faisal/reel20/.hyperframes/artifacts/snapshots/25501b59-d9b2-4aca-b340-1df7d6d99b8e/frame-03-at-34.26s.png",
+          "time": 34.26,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794167009777,
+          "contentHash": "f38ab926304f0f79e16e54ff4a073c95f0f1aae9c4705026977278999ca775cc",
+          "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+          "inputFingerprint": "170c3ab6c220c2a03dd3dcda751ffe34b343f35ae5154bdc7ed9fa1f13e72b3c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
     "unversioned": [
       {
         "scope": "full",
@@ -596,15 +736,15 @@
   },
   "renders": {
     "latest": {
-      "id": "e049aaf4-d554-418a-a603-c17b02e1b21a",
-      "completedAt": 1794163859609,
+      "id": "dba811b5-cb65-43d1-b9c2-2bc234a98942",
+      "completedAt": 1794167111847,
       "output": "/home/user/faisal/reel20/out/reel20.mp4",
       "status": "completed",
-      "revision": "656974e3-d3b5-4ef8-9344-f8fff45e63a4"
+      "revision": "6a7275b2-214b-4cce-81c1-72c1d48746cc"
     },
     "retainedRevisions": [
-      "656974e3-d3b5-4ef8-9344-f8fff45e63a4",
-      "ceb5ae7f-71ea-496b-8301-2b6cdb164b84"
+      "6a7275b2-214b-4cce-81c1-72c1d48746cc",
+      "656974e3-d3b5-4ef8-9344-f8fff45e63a4"
     ]
   },
   "pendingArtifactCleanup": []

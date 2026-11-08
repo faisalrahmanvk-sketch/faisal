@@ -30,9 +30,7 @@ def video(id_, src, x, origin, s, e):
     js.append(f'tl.to("#{id_}",{{scale:{SM},duration:0.5,ease:"power2.inOut"}},{e-0.52:.3f});')
 video("vidR","normal_ai.mp4",RX,"100% 0%",S2s,S2e)   # scene 2: Normal AI video (RIGHT)
 video("vidL","pro_ai.mp4",LX,"0% 0%",S3s,S3e)        # scene 3: Professional Creative AI video (LEFT)
-# ---- final CTA: the Follow card (existing asset)
-clip("cta", S4s+0.2, DUR, '<img id="cta-in" class="cta" src="assets/follow_card.png" alt="Follow / DM">', z=6)
-js.append(f'tl.fromTo("#cta-in",{{opacity:0,scale:0.9,y:20}},{{opacity:1,scale:1,y:0,duration:0.5,ease:"back.out(1.5)"}},{S4s+0.2:.3f});')
+# ---- final CTA: no Follow card (removed on request) - presenter faces the camera, previews fade out
 # ---- subtitles (match the spoken Malayalam)
 CAP={1:["ഇതാണ് സാധാരണ AI വീഡിയോ."],2:["ഇതാണ് Professional","Creative AI വീഡിയോ."],3:["എന്താണ് ഇവ തമ്മിലുള്ള","വ്യത്യാസം?"],
 4:["സാധാരണ AI വീഡിയോകൾ","കൂടുതലായും Free AI Tools","ഉപയോഗിച്ച് തയ്യാറാക്കുന്ന","Entertainment Content ആണ്."],
