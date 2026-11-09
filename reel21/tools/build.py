@@ -37,7 +37,7 @@ def hl(on, off, at):
 pair("a", 0.0, S4+0.25, ("r","plane.jpg","Etihad Airways"), ("l","rail.jpg","Etihad Rail"), ST(1), ST(2))
 hl("#ar","#al", ST(4))      # scene 2: Etihad Airways (plane) highlighted
 hl("#al","#ar", ST(8))      # scene 3: Etihad Rail highlighted
-pair("b", S4, CARD+0.1, ("r","rail.jpg","Etihad Rail"), ("l","metro.jpg","Dubai Metro"), ST(15), ST(16))
+pair("b", S4, DUR+0.1, ("r","rail.jpg","Etihad Rail"), ("l","metro.jpg","Dubai Metro"), ST(15), ST(16))
 hl("#br","#bl", ST(18))     # scene 4 explanation: Etihad Rail highlighted
 hl("#bl","#br", ST(21))     # scene 5: Dubai Metro highlighted
 # ---- captions (one block per sentence)
@@ -62,7 +62,7 @@ CAP={1:["ഇതാണ് Etihad Airways."],2:["ഇതാണ് Etihad Rail."],3:
 KEEP=list(range(1,25))
 starts={}
 for i_,n in enumerate(KEEP): starts[n]=0.0 if i_==0 else c(n)["start"]-0.05
-ends={n:(starts[KEEP[i_+1]] if i_+1<len(KEEP) else CARD) for i_,n in enumerate(KEEP)}
+ends={n:(starts[KEEP[i_+1]] if i_+1<len(KEEP) else DUR) for i_,n in enumerate(KEEP)}
 for n in KEEP: caps(starts[n], ends[n], CAP[n])
 # ---- character poses (first item = right, second = left)
 pose_of={n:"R" for n in range(1,25)}
@@ -82,9 +82,7 @@ PF={"L":"pose_pointL.png","R":"pose_pointR.png","T":"pose_think.png"}
 for i,(s,e,p) in enumerate(poses):
     clip(f"p{i}", s, e, f'<img id="p{i}-in" class="pose{" think" if p=="T" else ""}" src="assets/{PF[p]}" alt="character">', z=2)
     js.append(f'tl.fromTo("#p{i}-in",{{y:0}},{{y:-9,duration:{(e-s)/2:.3f},ease:"sine.inOut",yoyo:true,repeat:1}},{s:.3f});')
-clip("endcard", CARD, DUR, '<img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai">', z=6)
-js.append(f'tl.fromTo("#endcard-in",{{opacity:0,scale:1.05}},{{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"}},{CARD});')
-clip("wm", 0, CARD, '<div class="wm">@fyze.ai</div>', z=4)
+clip("wm", 0, DUR, '<div class="wm">@fyze.ai</div>', z=4)
 json.dump(clicks, open(R/"tools"/"clicks.json","w"))
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
 CSS += """

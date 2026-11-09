@@ -40,7 +40,7 @@ bgm*= (1-0.6*np.clip(env,0,1))*0.20
 # ---- SFX events
 sfx=np.zeros(N)
 for tt in json.load(open(R/"tools"/"clicks.json")): add(sfx,click(),max(0.0,tt),0.8)   # one click per icon/logo pop
-add(sfx,click(),CARD,1.0)   # follow card: uploaded click only
+# (no end-card click: the promo video is appended after this part)
 VG=float(os.environ.get('REEL_VOICE_GAIN','1.0'))   # new videos: REEL_VOICE_GAIN=1.45 (~+3 dB)
 mix=np.tanh((v*VG+sfx*0.6)*1.0) if VG!=1.0 else v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92
 mix=mix[:int(DUR*SR)]

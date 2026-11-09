@@ -1,0 +1,2422 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 69,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 4 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 5 has 51 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 2 has 10 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"pair-a\"> is a timeline element that contains nested <div id=\"ar\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#pair-a",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"pair-a\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"pair-b\"> is a timeline element that contains nested <div id=\"br\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#pair-b",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"pair-b\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c0\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c0",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c1\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c3",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c4\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c4",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c5\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c5",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c6\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c6",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c7\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c7",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c8\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c8",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c9\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c9",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c9\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c10\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c10",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c10\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c11\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c11",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c11\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c12\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c12",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c12\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c13\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c13",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c13\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c14\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c14",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c14\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c15\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c15",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c15\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c16\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c16",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c16\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c17\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c17",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c17\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c18\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c18",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c18\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c19\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c19",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c19\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c20\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c20",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c20\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c21\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c21",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c21\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c22\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c22",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c22\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c23\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c23",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c23\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c24\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c24",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c24\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c25\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c25",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c25\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c26\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c26",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c26\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c27\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c27",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c27\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c28\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c28",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c28\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c29\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c29",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c29\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c30\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c30",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c30\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c31\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c31",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c31\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c32\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c32",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c32\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c33\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c33",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c33\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c34\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c34",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c34\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c35\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c35",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c35\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c36\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c36",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c36\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c37\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c37",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c37\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c38\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c38",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c38\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c39\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c39",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c39\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c40\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c40",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c40\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c41\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c41",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c41\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c42\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c42",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c42\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c43\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c43",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c43\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c44\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c44",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c44\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c45\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c45",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c45\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c46\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c46",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c46\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c47\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c47",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c47\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c48\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c48",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c48\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c49\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c49",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c49\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"c50\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#c50",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"c50\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p0\"> is a timeline element that contains nested <img id=\"p0-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p0",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p0\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p1\"> is a timeline element that contains nested <img id=\"p1-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p2\"> is a timeline element that contains nested <img id=\"p2-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p3\"> is a timeline element that contains nested <img id=\"p3-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p3",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p4\"> is a timeline element that contains nested <img id=\"p4-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p4",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p5\"> is a timeline element that contains nested <img id=\"p5-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p5",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p6\"> is a timeline element that contains nested <img id=\"p6-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p6",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p7\"> is a timeline element that contains nested <img id=\"p7-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p7",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p8\"> is a timeline element that contains nested <img id=\"p8-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p8",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"p9\"> is a timeline element that contains nested <img id=\"p9-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#p9",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"p9\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"wm\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#wm",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"wm\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"pair-b\"> runs from 34.6s to 61.67s, past the root composition's data-duration of 61.57s, so it is cut off in previews, posters and renders.",
+        "selector": "#pair-b",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/faisal/reel21/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 61.67, or make <div id=\"pair-b\"> end at or before 61.57s."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 61.57,
+    "samples": [
+      3.421,
+      10.262,
+      17.103,
+      23.944,
+      30.785,
+      37.626,
+      44.467,
+      51.308,
+      58.149
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      3.421,
+      17.103,
+      30.785,
+      44.467,
+      58.149
+    ],
+    "checked": 20,
+    "passed": 20
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 14,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"2003-ൽ ആണ്\" (3 words) is on screen 0.73 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "2003-ൽ ആണ്",
+        "selector": "#c5-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 333.48,
+          "y": 759.58,
+          "width": 413.02,
+          "height": 73
+        },
+        "time": 6.807,
+        "words": 3,
+        "seconds": 0.733,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 6.494,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 6.619,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 6.744,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 6.869,
+            "opacity": 0.92,
+            "heightPx": 73
+          },
+          {
+            "time": 6.994,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 7.119,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 7.244,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 7.368,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 7.493,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 7.618,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 7.743,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 7.868,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Airline-മായി ഇതിന്\" (3 words) is on screen 0.97 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Airline-മായി ഇതിന്",
+        "selector": "#c14-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 267.5,
+          "y": 765.36,
+          "width": 544.98,
+          "height": 73
+        },
+        "time": 17.968,
+        "words": 3,
+        "seconds": 0.968,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 17.609,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17.734,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17.859,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 17.984,
+            "opacity": 0.6,
+            "heightPx": 73
+          },
+          {
+            "time": 18.109,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.234,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.359,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.483,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.608,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.733,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.858,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 18.983,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 19.108,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 19.233,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"വേണ്ടിയാണ് ഈ train\" (3 words) is on screen 0.83 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "വേണ്ടിയാണ് ഈ train",
+        "selector": "#c17-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 235.91,
+          "y": 759.84,
+          "width": 608.18,
+          "height": 73
+        },
+        "time": 21.067,
+        "words": 3,
+        "seconds": 0.835,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 20.731,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 20.856,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 20.981,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 21.106,
+            "opacity": 0.91,
+            "heightPx": 73
+          },
+          {
+            "time": 21.231,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.356,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.481,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.606,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.731,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.855,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 21.98,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 22.105,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 22.23,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Saudi border മുതൽ\" (3 words) is on screen 0.90 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Saudi border മുതൽ",
+        "selector": "#c22-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 267.8,
+          "y": 759.56,
+          "width": 544.4000000000001,
+          "height": 73
+        },
+        "time": 25.641,
+        "words": 3,
+        "seconds": 0.897,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 25.352,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 25.477,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 25.602,
+            "opacity": 0.07,
+            "heightPx": 73
+          },
+          {
+            "time": 25.727,
+            "opacity": 0.92,
+            "heightPx": 73
+          },
+          {
+            "time": 25.852,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 25.977,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 26.102,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 26.227,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 26.351,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 26.476,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 26.601,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 26.726,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 26.851,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"train line ഉണ്ട്.\" (3 words) is on screen 0.90 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "train line ഉണ്ട്.",
+        "selector": "#c24-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 346.86,
+          "y": 766.14,
+          "width": 386.28,
+          "height": 73
+        },
+        "time": 27.203,
+        "words": 3,
+        "seconds": 0.897,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 26.851,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 26.976,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 27.101,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 27.226,
+            "opacity": 0.56,
+            "heightPx": 73
+          },
+          {
+            "time": 27.351,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 27.475,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 27.6,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 27.725,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 27.85,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 27.975,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 28.1,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.225,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.35,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Train-ന് മണിക്കൂറിൽ 200\" (4 words) is on screen 1.19 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Train-ന് മണിക്കൂറിൽ 200",
+        "selector": "#c25-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 186.8,
+          "y": 758.64,
+          "width": 706.4000000000001,
+          "height": 73
+        },
+        "time": 28.139,
+        "words": 4,
+        "seconds": 1.194,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 27.85,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 27.975,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 28.1,
+            "opacity": 0.4,
+            "heightPx": 73
+          },
+          {
+            "time": 28.225,
+            "opacity": 0.98,
+            "heightPx": 73
+          },
+          {
+            "time": 28.35,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 28.475,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 28.599,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 28.849,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 28.974,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.099,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.224,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.349,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.474,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.599,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"കിലോമീറ്റർ വരെ speed-ൽ\" (4 words) is on screen 1.16 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "കിലോമീറ്റർ വരെ speed-ൽ",
+        "selector": "#c26-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 163.81,
+          "y": 758.33,
+          "width": 752.3600000000001,
+          "height": 73
+        },
+        "time": 29.372,
+        "words": 4,
+        "seconds": 1.163,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 29.099,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.224,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.349,
+            "opacity": 0.19,
+            "heightPx": 73
+          },
+          {
+            "time": 29.474,
+            "opacity": 0.99,
+            "heightPx": 73
+          },
+          {
+            "time": 29.599,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.723,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.848,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.098,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.223,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.348,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.473,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.598,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 30.723,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 30.847,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"ഒരു മണിക്കൂറിൽ താഴെ\" (3 words) is on screen 1.00 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "ഒരു മണിക്കൂറിൽ താഴെ",
+        "selector": "#c29-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 206.13,
+          "y": 760.03,
+          "width": 667.75,
+          "height": 73
+        },
+        "time": 33.173,
+        "words": 3,
+        "seconds": 0.999,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 32.846,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 32.971,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 33.095,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 33.22,
+            "opacity": 0.9,
+            "heightPx": 73
+          },
+          {
+            "time": 33.345,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 33.47,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 33.595,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 33.72,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 33.845,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 33.97,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 34.095,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 34.219,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 34.344,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 34.469,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Etihad Rail ഒരു emirate-ൽ നിന്ന്\" (6 words) is on screen 1.47 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Etihad Rail ഒരു emirate-ൽ നിന്ന്",
+        "selector": "#c34-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 106.84,
+          "y": 760.03,
+          "width": 866.3,
+          "height": 73
+        },
+        "time": 38.169,
+        "words": 6,
+        "seconds": 1.468,
+        "floorSeconds": 1.725,
+        "measured": [
+          {
+            "time": 37.841,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 37.966,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 38.091,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 38.216,
+            "opacity": 0.9,
+            "heightPx": 73
+          },
+          {
+            "time": 38.341,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 38.466,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 38.591,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.215,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.34,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.465,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.59,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.715,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 39.839,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 39.964,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"മറ്റൊരു emirate-ലേക്ക്\" (3 words) is on screen 1.00 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "മറ്റൊരു emirate-ലേക്ക്",
+        "selector": "#c35-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 218.72,
+          "y": 761.48,
+          "width": 642.55,
+          "height": 73
+        },
+        "time": 39.668,
+        "words": 3,
+        "seconds": 0.999,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 39.34,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 39.465,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 39.59,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 39.715,
+            "opacity": 0.82,
+            "heightPx": 73
+          },
+          {
+            "time": 39.839,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 39.964,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.089,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.214,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.339,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.464,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.589,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.714,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 40.839,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 40.963,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"പോകുന്ന train ആണ്.\" (3 words) is on screen 0.80 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "പോകുന്ന train ആണ്.",
+        "selector": "#c36-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 235.97,
+          "y": 758.21,
+          "width": 608.05,
+          "height": 73
+        },
+        "time": 40.737,
+        "words": 3,
+        "seconds": 0.804,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 40.464,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 40.589,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 40.714,
+            "opacity": 0.47,
+            "heightPx": 73
+          },
+          {
+            "time": 40.839,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 40.963,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 41.088,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 41.213,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 41.338,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 41.463,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 41.588,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 41.713,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 41.838,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"long-distance train പോലെ.\" (4 words) is on screen 1.16 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "long-distance train പോലെ.",
+        "selector": "#c38-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 163.47,
+          "y": 765.09,
+          "width": 753.06,
+          "height": 73
+        },
+        "time": 42.337,
+        "words": 4,
+        "seconds": 1.163,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 41.963,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 42.087,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 42.212,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 42.337,
+            "opacity": 0.62,
+            "heightPx": 73
+          },
+          {
+            "time": 42.462,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 42.587,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 42.712,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 43.087,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 43.211,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 43.336,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 43.461,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 43.586,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 43.711,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 43.836,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"മാത്രം ഓടുന്ന train ആണ്.\" (4 words) is on screen 1.23 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "മാത്രം ഓടുന്ന train ആണ്.",
+        "selector": "#c42-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 178.25,
+          "y": 765.52,
+          "width": 723.5,
+          "height": 73
+        },
+        "time": 48.074,
+        "words": 4,
+        "seconds": 1.233,
+        "floorSeconds": 1.275,
+        "measured": [
+          {
+            "time": 47.707,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 47.832,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 47.957,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 48.082,
+            "opacity": 0.59,
+            "heightPx": 73
+          },
+          {
+            "time": 48.207,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 48.332,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 48.457,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 48.831,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 48.956,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 49.081,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 49.206,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 49.331,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 49.456,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 49.581,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"യാത്രകൾ നടന്നു.\" (2 words) is on screen 0.94 s (±0.06 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "യാത്രകൾ നടന്നു.",
+        "selector": "#c50-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 295.09,
+          "y": 758.92,
+          "width": 489.82,
+          "height": 73
+        },
+        "time": 60.696,
+        "words": 2,
+        "seconds": 0.937,
+        "floorSeconds": 2,
+        "measured": [
+          {
+            "time": 60.321,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 60.446,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 60.571,
+            "opacity": 0.28,
+            "heightPx": 73
+          },
+          {
+            "time": 60.696,
+            "opacity": 0.96,
+            "heightPx": 73
+          },
+          {
+            "time": 60.821,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 60.946,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 61.07,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 61.195,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 61.32,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 61.445,
+            "opacity": 1,
+            "heightPx": 73
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 493
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
