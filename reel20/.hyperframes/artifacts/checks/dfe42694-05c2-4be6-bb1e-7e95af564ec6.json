@@ -59,8 +59,8 @@
       {
         "code": "nested_structure_needs_subcomposition",
         "severity": "warning",
-        "message": "<div id=\"cta\"> is a timeline element that contains nested <img id=\"cta-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
-        "selector": "#cta",
+        "message": "<div id=\"endcard\"> is a timeline element that contains nested <img id=\"endcard-in\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#endcard",
         "dataAttributes": {},
         "sourceFile": "/home/user/faisal/reel20/index.html",
         "bbox": {
@@ -70,7 +70,7 @@
           "height": 0
         },
         "time": 0,
-        "fixHint": "Move <div id=\"cta\"> and its contents into a sub-composition file and mount it with data-composition-src."
+        "fixHint": "Move <div id=\"endcard\"> and its contents into a sub-composition file and mount it with data-composition-src."
       },
       {
         "code": "nested_structure_needs_subcomposition",
@@ -680,17 +680,17 @@
     "warningCount": 0,
     "infoCount": 0,
     "findings": [],
-    "duration": 34.51,
+    "duration": 36.76,
     "samples": [
-      1.917,
-      5.752,
-      9.586,
-      13.421,
-      17.255,
-      21.089,
-      24.924,
-      28.758,
-      32.593
+      2.042,
+      6.127,
+      10.211,
+      14.296,
+      18.38,
+      22.464,
+      26.549,
+      30.633,
+      34.718
     ],
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
@@ -715,19 +715,19 @@
     "findings": [],
     "enabled": true,
     "samples": [
-      1.917,
-      9.586,
-      17.255,
-      24.924,
-      32.593
+      2.042,
+      10.211,
+      18.38,
+      26.549,
+      34.718
     ],
-    "checked": 10,
-    "passed": 10
+    "checked": 8,
+    "passed": 8
   },
   "craft": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 4,
+    "warningCount": 5,
     "infoCount": 0,
     "findings": [
       {
@@ -744,73 +744,73 @@
           "width": 782.14,
           "height": 73
         },
-        "time": 6.003,
+        "time": 6.004,
         "words": 3,
-        "seconds": 0.934,
+        "seconds": 0.935,
         "floorSeconds": 1.05,
         "measured": [
           {
-            "time": 5.731,
+            "time": 5.732,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 5.855,
+            "time": 5.857,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 5.98,
+            "time": 5.981,
             "opacity": 0.43,
             "heightPx": 73
           },
           {
-            "time": 6.105,
+            "time": 6.106,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.229,
+            "time": 6.231,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.354,
+            "time": 6.355,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.478,
+            "time": 6.48,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.603,
+            "time": 6.604,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.728,
+            "time": 6.729,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.852,
+            "time": 6.854,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 6.977,
+            "time": 6.978,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 7.101,
+            "time": 7.103,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 7.226,
+            "time": 7.227,
             "opacity": null,
             "heightPx": null
           }
@@ -830,73 +830,73 @@
           "width": 549.3300000000002,
           "height": 73
         },
-        "time": 15.737,
+        "time": 15.74,
         "words": 3,
-        "seconds": 0.903,
+        "seconds": 0.896,
         "floorSeconds": 1.05,
         "measured": [
           {
-            "time": 15.449,
+            "time": 15.452,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 15.573,
+            "time": 15.576,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 15.698,
-            "opacity": null,
-            "heightPx": null
+            "time": 15.701,
+            "opacity": 0.42,
+            "heightPx": 73
           },
           {
-            "time": 15.822,
+            "time": 15.825,
             "opacity": 0.98,
             "heightPx": 73
           },
           {
-            "time": 15.947,
+            "time": 15.95,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.071,
+            "time": 16.075,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.196,
+            "time": 16.199,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.321,
+            "time": 16.324,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.445,
+            "time": 16.449,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.57,
+            "time": 16.573,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 16.694,
+            "time": 16.698,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 16.819,
+            "time": 16.822,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 16.944,
+            "time": 16.947,
             "opacity": null,
             "heightPx": null
           }
@@ -916,78 +916,78 @@
           "width": 588.5,
           "height": 73
         },
-        "time": 17.738,
+        "time": 17.734,
         "words": 4,
-        "seconds": 1.066,
+        "seconds": 1.067,
         "floorSeconds": 1.275,
         "measured": [
           {
-            "time": 17.442,
+            "time": 17.445,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 17.566,
+            "time": 17.57,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 17.691,
+            "time": 17.695,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 17.816,
+            "time": 17.819,
             "opacity": 0.95,
             "heightPx": 73
           },
           {
-            "time": 17.94,
+            "time": 17.944,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.065,
+            "time": 18.068,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.189,
+            "time": 18.193,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.314,
+            "time": 18.318,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.439,
+            "time": 18.442,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.563,
+            "time": 18.567,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.688,
+            "time": 18.692,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 18.812,
+            "time": 18.816,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 18.937,
+            "time": 18.941,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 19.061,
+            "time": 19.065,
             "opacity": null,
             "heightPx": null
           }
@@ -996,63 +996,164 @@
       {
         "code": "line_unread",
         "severity": "warning",
-        "message": "The film's last line \"DM ചെയ്യൂ!\" (2 words) is on screen 0.51 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "message": "\"നിങ്ങളുടെ Brand-നും\" (3 words) is on screen 0.97 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "നിങ്ങളുടെ Brand-നും",
+        "selector": "#c25-in",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 241.42,
+          "y": 913.22,
+          "width": 597.16,
+          "height": 73
+        },
+        "time": 29.306,
+        "words": 3,
+        "seconds": 0.966,
+        "floorSeconds": 1.05,
+        "measured": [
+          {
+            "time": 29.034,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.159,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 29.283,
+            "opacity": 0.41,
+            "heightPx": 73
+          },
+          {
+            "time": 29.408,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.533,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.657,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.782,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 29.906,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.031,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.156,
+            "opacity": 1,
+            "heightPx": 73
+          },
+          {
+            "time": 30.28,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 30.405,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 30.529,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"DM ചെയ്യൂ!\" (2 words) is on screen 0.50 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
         "text": "DM ചെയ്യൂ!",
         "selector": "#c29-in",
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
           "x": 392.72,
-          "y": 919.83,
+          "y": 921.55,
           "width": 294.54999999999995,
           "height": 73
         },
-        "time": 34.004,
+        "time": 33.769,
         "words": 2,
-        "seconds": 0.51,
+        "seconds": 0.499,
         "floorSeconds": 2,
         "measured": [
           {
-            "time": 33.638,
+            "time": 33.396,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 33.762,
+            "time": 33.52,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 33.887,
+            "time": 33.645,
             "opacity": null,
             "heightPx": null
           },
           {
-            "time": 34.012,
-            "opacity": 0.63,
+            "time": 33.769,
+            "opacity": 0.54,
             "heightPx": 73
           },
           {
-            "time": 34.136,
+            "time": 33.894,
+            "opacity": 0.99,
+            "heightPx": 73
+          },
+          {
+            "time": 34.019,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 34.261,
+            "time": 34.143,
             "opacity": 1,
             "heightPx": 73
           },
           {
-            "time": 34.385,
-            "opacity": 1,
-            "heightPx": 73
+            "time": 34.268,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 34.392,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 34.517,
+            "opacity": null,
+            "heightPx": null
           }
         ]
       }
     ],
     "enabled": true,
     "step": 0.125,
-    "samples": 277
+    "samples": 295
   },
   "audio": {
     "ok": true,
