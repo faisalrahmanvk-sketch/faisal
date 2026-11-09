@@ -21,6 +21,8 @@ def still(id_, src, x, origin, pop_at, end_at):
     h.append(f'<img id="{id_}" class="clip pv" src="assets/{src}" data-start="{pop_at:.3f}" data-duration="{end_at-pop_at:.3f}" data-track-index="3" style="z-index:3;left:{x}px;top:{TOP}px;transform-origin:{origin}" alt="">')
     js.append(f'tl.fromTo("#{id_}",{{scale:0.3,opacity:0}},{{scale:{SM},opacity:1,duration:0.45,ease:"back.out(1.6)"}},{pop_at:.3f});')
     js.append(f'tl.to("#{id_}",{{opacity:0,duration:0.3,ease:"power1.in"}},{end_at-0.32:.3f});')
+CLICKS=[round(c(1)["start"]-0.03+0.02,3), round(c(2)["start"]-0.03+0.02,3), round(S4s+0.4+0.02,3)]
+json.dump(CLICKS, open(R/"tools"/"clicks.json","w"))
 still("pvR","normal_still.jpg",RX,"100% 0%",c(1)["start"]-0.03,S4s+0.4)
 still("pvL","pro_still.jpg",LX,"0% 0%",c(2)["start"]-0.03,S4s+0.4)
 # ---- the ORIGINAL videos, muted, enlarged only while they are being discussed
@@ -30,9 +32,10 @@ def video(id_, src, x, origin, s, e):
     js.append(f'tl.to("#{id_}",{{scale:{SM},duration:0.5,ease:"power2.inOut"}},{e-0.52:.3f});')
 video("vidR","normal_ai.mp4",RX,"100% 0%",S2s,S2e)   # scene 2: Normal AI video (RIGHT)
 video("vidL","pro_ai.mp4",LX,"0% 0%",S3s,S3e)        # scene 3: Professional Creative AI video (LEFT)
-# ---- final CTA: presenter faces the camera, previews fade out, then the usual Follow card (with click) at the end
-clip("endcard", CARD, DUR, '<img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai">', z=7)
-js.append(f'tl.fromTo("#endcard-in",{{opacity:0,scale:1.05}},{{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"}},{CARD:.3f});')
+# ---- final CTA: when the two preview videos are removed, the Follow card takes their place at the TOP (with a click); presenter stays
+CT=S4s+0.4          # = moment the previews fade out
+clip("cta", CT, DUR, '<img id="cta-in" class="cta" src="assets/follow_card.png" alt="Follow fyze.ai">', z=6)
+js.append(f'tl.fromTo("#cta-in",{{opacity:0,scale:0.9,y:-20}},{{opacity:1,scale:1,y:0,duration:0.5,ease:"back.out(1.5)"}},{CT:.3f});')
 # ---- subtitles (match the spoken Malayalam)
 CAP={1:["ഇതാണ് സാധാരണ AI വീഡിയോ."],2:["ഇതാണ് Professional","Creative AI വീഡിയോ."],3:["എന്താണ് ഇവ തമ്മിലുള്ള","വ്യത്യാസം?"],
 4:["സാധാരണ AI വീഡിയോകൾ","കൂടുതലായും Free AI Tools","ഉപയോഗിച്ച് തയ്യാറാക്കുന്ന","Entertainment Content ആണ്."],
@@ -41,10 +44,10 @@ CAP={1:["ഇതാണ് സാധാരണ AI വീഡിയോ."],2:["ഇത�
 7:["നിങ്ങളുടെ Products-ഉം","Services-ഉം ആകർഷകമായി","അവതരിപ്പിച്ച്","Brand Promotion-നും","Marketing-നും ഉപയോഗിക്കാം."],
 8:["നിങ്ങളുടെ Brand-നും","ഇതുപോലെയുള്ള Creative AI","വീഡിയോകൾ വേണമെങ്കിൽ","ഇപ്പോൾ തന്നെ ഞങ്ങൾക്ക്","DM ചെയ്യൂ!"]}
 starts={n:(0.0 if n==1 else c(n)["start"]-0.05) for n in range(1,9)}
-ends={n:(starts[n+1] if n<8 else CARD) for n in range(1,9)}
+ends={n:(starts[n+1] if n<8 else DUR) for n in range(1,9)}
 for n in range(1,9): caps(starts[n], ends[n], CAP[n])
 # ---- presenter: looks RIGHT for the normal AI video, LEFT for the professional one, camera for question + CTA
-poses=[(starts[1],starts[2],"R"),(starts[2],starts[3],"L"),(starts[3],starts[4],"T"),(starts[4],starts[6],"R"),(starts[6],starts[8],"L"),(starts[8],CARD,"T")]
+poses=[(starts[1],starts[2],"R"),(starts[2],starts[3],"L"),(starts[3],starts[4],"T"),(starts[4],starts[6],"R"),(starts[6],starts[8],"L"),(starts[8],DUR,"T")]
 for i,(s,e,t) in enumerate(cap):
     clip(f"c{i}", s, e, f'<div class="cap"><span id="c{i}-in">{html.escape(t)}</span></div>', z=5)
     js.append(f'tl.fromTo("#c{i}-in",{{y:18,opacity:0}},{{y:0,opacity:1,duration:0.18,ease:"power2.out"}},{s:.3f});')
@@ -52,7 +55,7 @@ PF={"L":"pose_pointL.png","R":"pose_pointR.png","T":"pose_think.png"}
 for i,(s,e,p) in enumerate(poses):
     clip(f"p{i}", s, e, f'<img id="p{i}-in" class="pose{" think" if p=="T" else ""}" src="assets/{PF[p]}" alt="presenter">', z=2)
     js.append(f'tl.fromTo("#p{i}-in",{{y:0}},{{y:-9,duration:{(e-s)/2:.3f},ease:"sine.inOut",yoyo:true,repeat:1}},{s:.3f});')
-clip("wm", 0, CARD, '<div class="wm">@fyze.ai</div>', z=4)
+clip("wm", 0, DUR, '<div class="wm">@fyze.ai</div>', z=4)
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
 CSS += """
 .cap{top:885px;height:130px}

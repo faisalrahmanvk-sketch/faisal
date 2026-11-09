@@ -28,5 +28,5 @@ for i,(p,s_) in enumerate(parts):
 fl.append("".join(f"[a{i}]" for i in range(len(parts)))+f"amix=inputs={len(parts)}:normalize=0,apad=pad_dur=1[o]")
 run([*ins,"-filter_complex",";".join(fl),"-map","[o]","-t",str(total),"-ar","44100",str(A/"voice_all.wav")])
 json.dump({"total":total,"clips":tl},open(A/"timeline.json","w"),indent=1)
-end=tl[-1]["end"]; card=round(end+0.45,2); json.dump({"dur":round(card+2.5,2),"end":round(end,2),"card":card},open(R/"tools"/"dur.json","w"))
+end=tl[-1]["end"]; card=round(end+0.45,2); json.dump({"dur":round(end+2.6,2),"end":round(end,2),"card":card},open(R/"tools"/"dur.json","w"))
 print("voice end",round(end,2),"card at",card,"video length",round(card+2.5,2)); [print(c) for c in tl]
