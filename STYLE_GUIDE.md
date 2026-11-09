@@ -35,3 +35,11 @@ Never use ffmpeg output `-ss/-t` together with `atempo`: they apply AFTER the te
 ## Instagram caption format (approved)
 Short only: one Malayalam hook line with an emoji, then "Follow @fyze.ai 📌", then one line of plain keywords (comma-separated, no hashtags, no bullet explanations).
 Example (reel 17): "🌍 GCC, Gulf, Middle East… ഇതെല്ലാം ഒന്നാണെന്ന് കരുതിയോ? 😳" / "Follow @fyze.ai 📌" / "GCC, UAE, Gulf Countries, Middle East, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain, Iraq, Iran"
+
+## SAFE SIDE MARGINS (approved, applies to every new reel from now on)
+Uploads get cropped on both sides (16:9 / fit-to-phone), so nothing important may touch the left/right edges.
+- Top photo pair: each tile **400px wide x 298px high**, left tile `left:110px`, right tile `left:570px` (>=100px clear white on both sides). Highlighted tile scales to 1.07, dimmed one to 0.9 (still inside the margins).
+- Single big photo (only if a script really needs one): max **760px wide** (`left:160px`).
+- Captions: `.cap{left:120px;width:840px}`.
+- Reference implementation: `TEMPLATE_build_pair_reel.py` (CSS block at the bottom). Start new reels from it, not from the older reels' 470px tiles.
+- Covers: keep headline + photos inside the middle ~900px as before.
