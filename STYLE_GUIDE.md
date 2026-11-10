@@ -38,7 +38,7 @@ Example (reel 17): "🌍 GCC, Gulf, Middle East… ഇതെല്ലാം ഒ�
 
 ## SAFE SIDE MARGINS (approved, applies to every new reel from now on)
 Uploads get cropped on both sides (16:9 / fit-to-phone), so nothing important may touch the left/right edges.
-- Top photo pair: each tile **400px wide x 298px high**, left tile `left:110px`, right tile `left:570px` (>=100px clear white on both sides). Highlighted tile scales to 1.07, dimmed one to 0.9 (still inside the margins).
+- Top photo pair (updated: user said 400px was too small): each tile **430px wide x 350px high**, left tile `left:95px`, right tile `left:555px` (>=100px clear white on both sides). Highlighted tile scales to 1.07, dimmed one to 0.9 (still inside the margins).
 - Single big photo (only if a script really needs one): max **760px wide** (`left:160px`).
 - Captions: `.cap{left:120px;width:840px}`.
 - Reference implementation: `TEMPLATE_build_pair_reel.py` (CSS block at the bottom). Start new reels from it, not from the older reels' 470px tiles.

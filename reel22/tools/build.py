@@ -99,10 +99,10 @@ json.dump(clicks, open(R/"tools"/"clicks.json","w"))
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
 CSS += """
 /* SAFE MARGINS (approved): photos stay >=100px away from both edges so cropped / 16:9 / fit-to-phone uploads never cut them */
-.tile{position:absolute;top:215px;width:400px;text-align:center}
-.tile.l{left:110px}.tile.r{left:570px}
-.tl{font-weight:800;font-size:38px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
-.tile img{width:400px;height:298px;object-fit:cover;border-radius:26px;box-shadow:0 12px 34px rgba(0,0,0,.22);border:2px solid #e5e7eb;display:block}
+.tile{position:absolute;top:190px;width:430px;text-align:center}
+.tile.l{left:95px}.tile.r{left:555px}
+.tl{font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
+.tile img{width:430px;height:350px;object-fit:cover;border-radius:26px;box-shadow:0 12px 34px rgba(0,0,0,.22);border:2px solid #e5e7eb;display:block}
 .wrap{position:relative}
 .ov{position:absolute;left:0;top:0;opacity:0}
 .ph{position:absolute;left:160px;top:90px;width:760px;height:570px}
