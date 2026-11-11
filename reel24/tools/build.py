@@ -47,6 +47,9 @@ h.append(f'<video id="meme" class="clip meme" src="assets/meme.mp4" playsinline 
 js.append(f'tl.fromTo("#meme",{{scale:0.5,opacity:0,y:-30}},{{scale:1,opacity:1,y:0,duration:0.3,ease:"back.out(1.6)"}},{MS:.3f});')
 js.append(f'tl.to("#meme",{{opacity:0,scale:0.9,duration:0.18}},{ME-0.2:.3f});')
 json.dump({"start":round(MS,3),"end":round(ME,3)}, open(R/"tools"/"meme.json","w"))
+# while the clip plays, only the clip is on screen: both photos fade out, then come back when the clip is gone
+js.append(f'tl.to("#pair-b",{{opacity:0,duration:0.2,ease:"power1.in"}},{MS-0.05:.3f});')
+js.append(f'tl.to("#pair-b",{{opacity:1,duration:0.3,ease:"power1.out"}},{ME:.3f});')
 # ---- captions (one block per sentence)
 CAP={1:["ഇതാണ് Sherubhai."],2:["ലോകത്തിലെ തന്നെ ഏറ്റവും","വലിയ കോടീശ്വരനാണ്!"],
 3:["അതെ, Ambani-യെക്കാൾ","പണക്കാരനാണ് നമ്മുടെ Sherubhai."],
