@@ -42,7 +42,7 @@ sfx=np.zeros(N)
 for tt in json.load(open(R/"tools"/"clicks.json")): add(sfx,click(),max(0.0,tt),0.8)   # one click per icon/logo pop
 add(sfx,click(),CARD,1.0)   # follow card: uploaded click only
 _m=json.load(open(R/"tools"/"meme.json"))          # duck the narration while the meme clip (with its own audio) plays
-g=np.ones(N); g[int(max(0,_m["start"]-0.05)*SR):int(_m["end"]*SR)]=0.3
+g=np.ones(N); g[int(max(0,_m["start"]-0.05)*SR):int(_m["end"]*SR)]=0.0
 g=np.convolve(g,np.ones(int(0.08*SR))/int(0.08*SR),"same"); v=v*g
 VG=float(os.environ.get('REEL_VOICE_GAIN','1.0'))   # new videos: REEL_VOICE_GAIN=1.45 (~+3 dB)
 mix=np.tanh((v*VG+sfx*0.6)*1.0) if VG!=1.0 else v+sfx*0.6   # BGM removed on request; mix=np.tanh(mix*1.1)*0.92

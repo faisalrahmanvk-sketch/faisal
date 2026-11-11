@@ -34,17 +34,15 @@ def hl(on, off, at):
     js.append(f'tl.to("{on}",{{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"}},{at:.3f});')
     js.append(f'tl.to("{off}",{{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"}},{at:.3f});')
 # ---- visuals
-def solo(id_, img, s, e, click=True):
-    clip(f"sq-{id_}", s, e, f'<div class="sq"><img id="sq-{id_}-in" src="assets/{img}" alt="{id_}"></div>', z=3)
-    js.append(f'tl.fromTo("#sq-{id_}-in",{{scale:0.4,opacity:0,y:30}},{{scale:1,opacity:1,y:0,duration:0.45,ease:"back.out(1.6)"}},{max(0,s):.3f});')
-    js.append(f'tl.to("#sq-{id_}-in",{{opacity:0,scale:0.92,duration:0.2}},{e-0.22:.3f});')
-    if click: clicks.append(round(max(0,s)+0.02,3))
+# both photos on top from the very start (usual layout): Sherubhai right, Ambani left
 T1=c(1)["start"]-0.03
-solo("sherubhai","lion_sq.jpg",T1,S3)                 # scenes 1-2: Sherubhai only
-solo("ambani","ambani_sq.jpg",S3,S4+0.25)             # scene 3: Ambani only
-pair("b", S4, CARD+0.1, ("r","lion_tile.jpg","Sherubhai"), ("l","ambani_tile.jpg","Ambani"), ST(7), ST(7)+0.5)   # scene 4: both together
+pair("b", 0.0, CARD+0.1, ("r","lion_tile.jpg","Sherubhai"), ("l","ambani_tile.jpg","Ambani"), T1, T1+0.3)
+hl("#br","#bl", c(1)["start"]+0.9)                    # scenes 1-2: Sherubhai highlighted (no extra click)
+clicks.pop()
+hl("#bl","#br", S3)                                   # scene 3: Ambani highlighted
+js.append(f'tl.to("#br",{{scale:1,opacity:1,duration:0.35}},{S4:.3f});tl.to("#bl",{{scale:1,opacity:1,duration:0.35}},{S4:.3f});')   # scene 4: both together, equal
 # ---- meme pop-up on the line "ലോകത്തിലെ തന്നെ ഏറ്റവും വലിയ കോടീശ്വരനാണ്": original clip + its own audio, no click
-MS=c(2)["end"]-0.8; MD=1.537; ME=MS+MD
+MS=c(2)["end"]+0.1; MD=1.537; ME=MS+MD   # voice stops, clip plays (own audio, no click), then the voice continues
 h.append(f'<video id="meme" class="clip meme" src="assets/meme.mp4" playsinline data-has-audio="true" data-start="{MS:.3f}" data-duration="{MD:.3f}" data-media-start="0" data-volume="1" data-track-index="6" style="z-index:6"></video>')
 js.append(f'tl.fromTo("#meme",{{scale:0.5,opacity:0,y:-30}},{{scale:1,opacity:1,y:0,duration:0.3,ease:"back.out(1.6)"}},{MS:.3f});')
 js.append(f'tl.to("#meme",{{opacity:0,scale:0.9,duration:0.18}},{ME-0.2:.3f});')
@@ -55,7 +53,7 @@ CAP={1:["ഇതാണ് Sherubhai."],2:["ലോകത്തിലെ തന്�
 4:["Sherubhai-യുടെ ഒരു മാസത്തെ","വരുമാനം എന്ന് പറയുന്നത്","One Million Gok Gok Had Had","Million Trillion Billion","ലക്ഷം കോടി രൂപയാണ്!"],
 5:["ഇനി ഇത് Ambani."],
 6:["Ambani-യുടെ വരുമാനം","എത്രയാണെങ്കിലും","നിങ്ങൾ ജോലിക്ക് പോകാതെ","വീട്ടിലിരുന്നാൽ","നിങ്ങൾക്ക് കാശൊന്നും കിട്ടില്ല."],
-7:["അതുകൊണ്ട് Sherubhai-യെപ്പോലെ","കോടീശ്വരനാകണമെന്ന് പറഞ്ഞ്","ജോലി ചെയ്യാതെ നടക്കരുത്."],
+7:["അതുകൊണ്ട് Sherubhai-യെപ്പോലെ","കോടീശ്വരനാകണമെന്ന് പറഞ്ഞ്","ജോലി ചെയ്യാതെ"],
 8:["നിങ്ങളുടെ ചങ്കിനെ","Mention ചെയ്യൂ!"]}
 KEEP=list(range(1,9))
 starts={}

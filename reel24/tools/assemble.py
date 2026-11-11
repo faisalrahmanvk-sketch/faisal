@@ -16,7 +16,8 @@ for tgt in ENDS:
     k=min(range(len(st)),key=lambda i:abs(st[i]-tgt)); assert abs(st[k]-tgt)<0.25,(tgt,st[k])
     CH.append((a,st[k])); a=en[k]
 CH.append((a,T-0.05)); assert len(CH)==8
-G={1:0.14,2:1.25,3:0.25,4:0.55,5:0.14,6:0.55,7:0.25,8:0.0}   # gap after chunk 2 leaves room for the 1.5 s meme clip
+CH[6]=(CH[6][0],29.05)     # removed on request: the last word 'നടക്കരുത്' (29.1-30.5 s) is cut from the voice
+G={1:0.14,2:1.95,3:0.25,4:0.55,5:0.14,6:0.55,7:0.25,8:0.0}   # gap after chunk 2 leaves room for the 1.5 s meme clip
 t=0.35; tl=[]; parts=[]
 for k,(a_,b_) in enumerate(CH,1):
     out=A/"proc"/f"c{k}.wav"
