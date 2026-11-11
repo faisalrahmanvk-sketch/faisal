@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><style>
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;box-sizing:border-box}
+body{width:1080px;height:1920px;background:#fff;font-family:"PopFz",sans-serif;position:relative;overflow:hidden;color:#0b0b14}
+.glow{position:absolute;left:-250px;top:700px;width:1580px;height:1200px;background:radial-gradient(closest-side,#e6ecff,#fff 78%)}
+.pill{position:absolute;left:0;top:220px;width:1080px;display:flex;justify-content:center}
+.pill span{background:#2330c9;color:#fff;font-weight:800;font-size:44px;padding:12px 44px;border-radius:60px;letter-spacing:1.5px}
+.t{position:absolute;left:0;width:1080px;height:130px;line-height:130px;text-align:center;font-weight:800;letter-spacing:-3px;white-space:nowrap;font-size:124px}
+.t1{top:340px;color:#c8102e}
+.t3{top:670px;color:#0a8f4a}
+/* VS: exactly centred between the two titles (gap 470..670 -> centre y=570), no box */
+.vs{position:absolute;left:0;top:500px;width:1080px;height:140px;display:flex;align-items:center;justify-content:center;gap:34px}
+.vs i{display:block;width:230px;height:6px;border-radius:3px;background:linear-gradient(90deg,rgba(35,48,201,0),#2330c9)}
+.vs i.r{background:linear-gradient(270deg,rgba(35,48,201,0),#2330c9)}
+.vs b{font-weight:800;font-size:112px;line-height:140px;letter-spacing:-2px;font-style:italic;background:linear-gradient(180deg,#2330c9,#7a5cff);-webkit-background-clip:text;color:transparent}
+.cell{position:absolute;top:900px;width:440px;height:340px;border-radius:30px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.28);border:8px solid #fff}
+.cell img{width:100%;height:100%;object-fit:cover;display:block}
+.cell.l{left:100px;transform:rotate(-4deg)}.cell.r{right:100px;transform:rotate(4deg)}
+.char{position:absolute;left:50%;transform:translateX(-50%);top:1300px;height:520px}
+.wm{position:absolute;left:0;bottom:60px;width:1080px;text-align:center;font-weight:700;font-size:42px;color:#374151}
+</style></head><body>
+<div class="glow"></div>
+<div class="pill"><span>WHAT'S THE DIFFERENCE?</span></div>
+<div class="t t1">Big Ticket</div>
+<div class="vs"><i></i><b>VS</b><i class="r"></i></div>
+<div class="t t3">Onam Bumper</div>
+<div class="cell l"><img src="assets/bigticket.jpg" alt=""></div>
+<div class="cell r"><img src="assets/onam.jpg" alt=""></div>
+<img class="char" src="assets/pose_think.png" alt="">
+<div class="wm">@fyze.ai</div>
+</body></html>
