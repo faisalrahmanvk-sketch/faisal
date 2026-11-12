@@ -37,7 +37,7 @@ def hl(on, off, at):
 pair("a", 0.0, S4+0.25, ("r","ai_tile.jpg","Air India"), ("l","aix_tile.jpg","Air India Express"), ST(1), ST(2))
 hl("#ar","#al", ST(4))      # scene 2: Air India highlighted
 hl("#al","#ar", ST(9))      # scene 3: Air India Express highlighted
-pair("b", S4, S6+0.25, ("r","vistara_tile.jpg","Vistara"), ("l","airasia_tile.jpg","AirAsia India"), ST(15), ST(16))
+pair("b", S4, S6, ("r","vistara_tile.jpg","Vistara"), ("l","airasia_tile.jpg","AirAsia India"), ST(15), ST(16))
 hl("#br","#bl", ST(18))     # scene 4 explanation: Vistara highlighted
 hl("#bl","#br", ST(21))     # scene 5: AirAsia India highlighted
 # ---- scene 6: all four in a 2x2 grid, highlighted one by one while the presenter points, then the camera
@@ -56,23 +56,15 @@ for k in range(4):                                  # highlight one at a time
     js.append(f'tl.to("#gc{k}",{{scale:1.06,opacity:1,duration:0.3}},{t1:.3f});tl.to("{others}",{{scale:0.92,opacity:0.5,duration:0.3}},{t1:.3f});')
 js.append(f'tl.to("#gc0,#gc1,#gc2,#gc3",{{scale:1,opacity:1,duration:0.4}},{S6+0.7+GD*0.62:.3f});')   # camera moment: all equal
 # ---- captions (one block per sentence)
-CAP={1:["ഇതാണ് Air India."],2:["ഇതാണ് Air India Express."],3:["എന്താണ് വ്യത്യാസം?"],
-4:["Air India India-യുടെ","national airline ആണ്."],5:["1932-ൽ JRD Tata","‘Tata Airlines’ എന്ന പേരിലാണ്","ഇത് തുടങ്ങിയത്."],6:["പിന്നീട് government","ഏറ്റെടുത്തു."],
-7:["2022-ൽ, 69 വർഷത്തിന് ശേഷം,","Air India വീണ്ടും Tata-യുടെ","കയ്യിൽ തിരിച്ചെത്തി!"],8:["ഇതൊരു full-service","airline ആണ്."],
-9:["Air India Express,","Air India-യുടെ തന്നെ","budget airline ആണ്."],10:["Owner ഒന്നുതന്നെ, Tata."],11:["2005-ൽ ആണ് ഇത്","തുടങ്ങിയത്."],
-12:["Gulf flights ആണ് ഇതിന്റെ","പ്രധാന ശക്തി."],13:["പക്ഷേ ഒരു","twist ഉണ്ട്!"],
-14:["10 വർഷത്തോളം Air India Express-ന്റെ","headquarters നമ്മുടെ","Kochi-യിൽ ആയിരുന്നു!"],
-15:["ഇതാണ് Vistara."],16:["ഇതാണ് AirAsia India."],17:["എന്താണ് വ്യത്യാസം?"],
-18:["Vistara Tata-യുടെയും","Singapore Airlines-ന്റെയും","airline ആയിരുന്നു."],19:["2024 November-ൽ Vistara,","Air India-യിൽ ലയിച്ചു."],
-20:["ഇപ്പോൾ Vistara എന്ന പേരിൽ","flights ഇല്ല!"],
-21:["AirAsia India-യും","Tata വാങ്ങി."],22:["2024-ൽ അത് Air India Express-ൽ","ലയിച്ചു."],
-23:["ചുരുക്കി പറഞ്ഞാൽ,","Tata-ക്ക് ഇപ്പോൾ രണ്ട്","airlines ആണ് ഉള്ളത്."],24:["Full-service-ന് Air India,","budget-ന് Air India Express!"],
-25:["നിങ്ങളുടെ favourite flight","ഏതാണ് എന്ന് comment ചെയ്യൂ!"]}
+import sys; sys.path.insert(0,str(R/'tools')); from captions import CAP
 KEEP=list(range(1,26))
 starts={}
 for i_,n in enumerate(KEEP): starts[n]=0.0 if i_==0 else c(n)["start"]-0.05
 ends={n:(starts[KEEP[i_+1]] if i_+1<len(KEEP) else CARD) for i_,n in enumerate(KEEP)}
-for n in KEEP: caps(starts[n], ends[n], CAP[n])
+_ch=json.load(open(R/"audio"/"timeline.json"))["chunks"]
+for i_,ch_ in enumerate(_ch):                                   # one caption per phrase, timed to the voice
+    s_=ch_["start"]+0.03; e_=(_ch[i_+1]["start"]+0.03) if i_+1<len(_ch) else CARD
+    cap.append((s_, e_, CAP[ch_["sent"]][ch_["k"]]))
 # ---- character poses (first item = right, second = left)
 pose_of={n:"R" for n in range(1,26)}
 pose_of[2]="L"; pose_of[3]="T"
@@ -106,15 +98,16 @@ CSS += """
 .tile{position:absolute;top:190px;width:430px;text-align:center}
 .tile.l{left:95px}.tile.r{left:555px}
 .tl{font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
-.tile img{width:430px;height:350px;object-fit:cover;border-radius:26px;box-shadow:0 12px 34px rgba(0,0,0,.22);border:2px solid #e5e7eb;display:block}
+.tile .wrap{width:430px;height:350px;display:flex;align-items:center;justify-content:center}
+.tile img{max-width:430px;max-height:350px;width:auto;height:auto;border-radius:22px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:block}
 .wrap{position:relative}
 .ov{position:absolute;left:0;top:0;opacity:0}
 .ph{position:absolute;left:160px;top:90px;width:760px;height:570px}
 .ph img{width:760px;height:570px;object-fit:cover;border-radius:30px;box-shadow:0 16px 44px rgba(0,0,0,.25);border:2px solid #e5e7eb;display:block}
 .cap{left:120px;width:840px}
 .grid{position:absolute;left:120px;top:50px;width:840px;display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
-.gc{width:408px;height:296px;border-radius:26px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.24);border:2px solid #e5e7eb}
-.gc img{width:100%;height:100%;object-fit:cover;display:block}
+.gc{width:408px;height:296px;display:flex;align-items:center;justify-content:center}
+.gc img{max-width:408px;max-height:296px;width:auto;height:auto;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.24);display:block}
 .board{position:absolute;left:110px;top:70px;width:860px}
 .bt{font-weight:800;font-size:40px;text-align:center;color:#475569;margin-bottom:14px}
 .row{display:flex;align-items:center;justify-content:space-between;background:#fff;border:3px solid #e5e7eb;border-radius:30px;padding:12px 36px;margin-bottom:16px;box-shadow:0 14px 36px rgba(0,0,0,.14)}

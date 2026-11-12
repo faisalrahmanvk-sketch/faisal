@@ -43,3 +43,7 @@ Uploads get cropped on both sides (16:9 / fit-to-phone), so nothing important ma
 - Captions: `.cap{left:120px;width:840px}`.
 - Reference implementation: `TEMPLATE_build_pair_reel.py` (CSS block at the bottom). Start new reels from it, not from the older reels' 470px tiles.
 - Covers: keep headline + photos inside the middle ~900px as before.
+
+## Subtitle sync + whole images (approved after reel 26 feedback)
+- Never time captions by text length. Align them to the real pauses of the voice recording (tools/assemble.py of reel26: two-stage DP, syllable-rate model with `tools/syl.py`; captions in `tools/captions.py`, per-phrase times in `audio/timeline.json["chunks"]`).
+- Show every top photo WHOLE (object-fit: contain inside the 430x350 box); only crop watermark strips. Do not crop photos to fill the box.
