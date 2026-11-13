@@ -1,0 +1,17 @@
+# caption phrases per sentence (one list per sentence, in speaking order)
+CAP={1:["ഇതാണ് Boeing."],2:["ഇതാണ് Airbus."],3:["എന്താണ് വ്യത്യാസം?"],
+4:["Boeing-ഉം Airbus-ഉം airlines അല്ല,","planes ഉണ്ടാക്കുന്ന","companies ആണ്!"],
+5:["Boeing ഒരു American","company ആണ്."],6:["1916-ൽ Seattle-ൽ ആണ്","ഇത് തുടങ്ങിയത്."],
+7:["Air India Express-ന്റെ","planes-ൽ കൂടുതലും","Boeing 737 ആണ്."],
+8:["Airbus ഒരു European","company ആണ്."],
+9:["1970-ൽ France, Germany,","Britain, Spain എന്നീ രാജ്യങ്ങൾ","ചേർന്നാണ് ഇത് തുടങ്ങിയത്."],
+10:["Headquarters France-ലാണ്."],11:["പക്ഷേ ഒരു","twist ഉണ്ട്!"],12:["ഒരേ airline-ൽ","രണ്ടും ഉണ്ടാകാം."],
+13:["Air India Express-ൽ","Boeing-ഉം Airbus-ഉം ഉണ്ട്!"],
+14:["ഇതാണ് A380."],15:["ഇതാണ് Boeing 777."],16:["എന്താണ് വ്യത്യാസം?"],
+17:["A380 ലോകത്തിലെ ഏറ്റവും വലിയ","passenger plane ആണ്."],18:["രണ്ട് നിലകൾ ഉണ്ട്,","4 engines-ഉം."],
+19:["ആകെ 251 എണ്ണം മാത്രമേ","ഉണ്ടാക്കിയിട്ടുള്ളൂ,","2021-ൽ production നിർത്തി."],
+20:["ഇന്ന് ലോകത്തുള്ള A380-കളിൽ","പകുതിയിലധികവും","Emirates-ന്റെ കയ്യിലാണ്!"],
+21:["Boeing 777-ന് ഒരു നില മാത്രം,","2 engines."],22:["Emirates-ന്റെ കയ്യിൽ","100-ലധികം 777 ഉണ്ട്."],
+23:["India-യിൽ A380 വരുന്നത്","Mumbai, Bengaluru, Delhi","എന്നിവിടങ്ങളിലേക്ക് മാത്രമാണ്."],
+24:["Kerala-ത്തിലേക്ക് ഇതുവരെ","A380 വന്നിട്ടില്ല!"],
+25:["നിങ്ങൾ യാത്ര ചെയ്തിട്ടുള്ളത്","ഏത് plane-ൽ ആണ്?","Comment ചെയ്യൂ!"]}
