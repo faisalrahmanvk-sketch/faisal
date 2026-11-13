@@ -40,16 +40,17 @@ hl("#al","#ar", ST(8))      # scene 3: Airbus highlighted
 pair("b", S4, S6, ("r","a380_tile.jpg","A380"), ("l","b777_tile.jpg","Boeing 777"), ST(14), ST(15))
 hl("#br","#bl", ST(17))     # scene 4 explanation: A380 highlighted
 hl("#bl","#br", ST(21))     # scene 5: Boeing 777 highlighted
+hl("#br","#bl", ST(23))     # sentences 23-24 talk about the A380 in India -> A380 (right) highlighted again
 # ---- scene 6: all four in a 2x2 grid, highlighted one by one while the presenter points, then the camera
 GD=CARD-S6
 cells=[("boeing_grid.jpg","Boeing"),("airbus_grid.jpg","Airbus"),("a380_grid.jpg","A380"),("b777_grid.jpg","Boeing 777")]
 cellhtml="".join(f'<div id="gc{k}" class="gc"><img src="assets/{im}" alt="{html.escape(lb)}"></div>' for k,(im,lb) in enumerate(cells))
 clip("grid", S6, CARD+0.1, f'<div class="grid">{cellhtml}</div>', z=3)
 js.append('gsap.set("#gc0,#gc1,#gc2,#gc3",{opacity:0});')
-for k in range(4):
-    t0=S6+0.05+k*0.12
+for k in range(4):                                  # all four pop up together
+    t0=S6+0.05
     js.append(f'tl.fromTo("#gc{k}",{{scale:0.4,opacity:0}},{{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"}},{t0:.3f});')
-    clicks.append(round(t0+0.02,3))
+clicks.append(round(S6+0.05+0.02,3))               # a single click for the whole grid
 for k in range(4):                                  # highlight one at a time
     t1=S6+0.7+k*(GD*0.62/4)
     others=",".join(f"#gc{m}" for m in range(4) if m!=k)
@@ -70,7 +71,8 @@ pose_of={n:"R" for n in range(1,26)}
 pose_of[2]="L"; pose_of[3]="T"
 for n in range(8,14): pose_of[n]="L"          # Airbus (left)
 pose_of[15]="L"; pose_of[16]="T"
-for n in range(21,25): pose_of[n]="L"         # Boeing 777 (left)
+for n in (21,22): pose_of[n]="L"             # Boeing 777 (left)
+for n in (23,24): pose_of[n]="R"             # India / Bengaluru / Kerala A380 lines -> point at the A380 (right)
 seg=[]; cur=None
 for n in KEEP:
     if cur and cur[2]==pose_of[n]: cur[1]=ends[n]

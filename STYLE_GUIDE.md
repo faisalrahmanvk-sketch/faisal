@@ -47,3 +47,6 @@ Uploads get cropped on both sides (16:9 / fit-to-phone), so nothing important ma
 ## Subtitle sync + whole images (approved after reel 26 feedback)
 - Never time captions by text length. Align them to the real pauses of the voice recording (tools/assemble.py of reel26: two-stage DP, syllable-rate model with `tools/syl.py`; captions in `tools/captions.py`, per-phrase times in `audio/timeline.json["chunks"]`).
 - Show every top photo WHOLE (object-fit: contain inside the 430x350 box); only crop watermark strips. Do not crop photos to fill the box.
+
+## Ending 2x2 grid (approved after reel 27 feedback)
+All four images pop up TOGETHER with ONE click (not four staggered clicks); then they are highlighted one by one while the presenter points at each.
