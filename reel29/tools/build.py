@@ -32,7 +32,7 @@ def hl(on, off, at):
     clicks.append(round(at+0.02,3))
     js.append(f'tl.to("{on}",{{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"}},{at:.3f});')
     js.append(f'tl.to("{off}",{{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"}},{at:.3f});')
-S4=c(13)["start"]-0.1; S6=c(22)["start"]-0.1
+S4=c(13)["start"]-0.1
 # ---- scenes 1-3: Fazza (RIGHT, named first) + Sheikh Mohammed (LEFT)
 pair("a", 0.0, S4+0.02, ("r","fazza_tile.jpg","Fazza"), ("l","mohammed_tile.jpg","Sheikh Mohammed"), ST(1), ST(2))
 hl("#ar","#al", ST(4))      # scene 2: Fazza highlighted
@@ -42,24 +42,21 @@ pair("b", S4, CARD+0.1, ("r","fazza_tile.jpg","Crown Prince"), ("l","mohammed_ti
 hl("#br","#bl", ST(16))     # Crown Prince explanation: Fazza highlighted
 hl("#bl","#br", ST(19))     # scene 5: Ruler highlighted
 hl("#br","#bl", ST(21))     # "മകൻ Fazza ... Crown Prince" -> Fazza again
-# ---- scene 6 (birthday): only Fazza stays - Sheikh Mohammed fades out and Fazza moves to the centre
-js.append(f'tl.to("#bl",{{opacity:0,duration:0.35,ease:"power1.in"}},{S6:.3f});')
-js.append(f'tl.to("#br",{{x:-230,scale:1.12,opacity:1,duration:0.6,ease:"power2.inOut"}},{S6:.3f});')
 import sys; sys.path.insert(0,str(R/'tools')); from captions import CAP
 _ch=json.load(open(R/"audio"/"timeline.json"))["chunks"]
 for i_,ch_ in enumerate(_ch):                                   # one caption per phrase, timed to the voice
     s_=ch_["start"]+0.03; e_=(_ch[i_+1]["start"]+0.03) if i_+1<len(_ch) else CARD
     cap.append((s_, e_, CAP[ch_["sent"]][ch_["k"]]))
 # ---- presenter poses: Fazza = right, Sheikh Mohammed = left, camera for the question and the birthday ending
-pz={1:"R",2:"L",3:"T",13:"R",14:"L",15:"T",22:"T",23:"T",24:"T"}
+pz={1:"R",2:"L",3:"T",13:"R",14:"L",15:"T"}
 for n in range(4,9): pz[n]="R"
 for n in range(9,13): pz[n]="L"
 for n in range(16,19): pz[n]="R"
 for n in (19,20): pz[n]="L"
 pz[21]="R"
 poses=[]; prev=None
-for n in range(1,25):
-    s_=0.0 if n==1 else c(n)["start"]-0.05; e_=CARD if n==24 else c(n+1)["start"]-0.05
+for n in range(1,22):
+    s_=0.0 if n==1 else c(n)["start"]-0.05; e_=CARD if n==21 else c(n+1)["start"]-0.05
     if prev and prev[2]==pz[n]: prev[1]=e_
     else: prev=[s_,e_,pz[n]]; poses.append(prev)
 poses=[tuple(x) for x in poses]
@@ -77,11 +74,11 @@ json.dump(clicks, open(R/"tools"/"clicks.json","w"))
 CSS = open(R.parent/"reel"/"hf"/"tools"/"build.py", encoding="utf-8").read().split('CSS = """')[1].split('"""')[0]
 CSS += """
 /* SAFE MARGINS (approved): photos stay >=100px away from both edges so cropped / 16:9 / fit-to-phone uploads never cut them */
-.tile{position:absolute;top:190px;width:430px;text-align:center}
-.tile.l{left:95px}.tile.r{left:555px}
-.tl{font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
-.tile .wrap{width:430px;height:350px;display:flex;align-items:center;justify-content:center}
-.tile img{max-width:430px;max-height:350px;width:auto;height:auto;border-radius:22px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:block}
+.tile{position:absolute;top:70px;width:460px;text-align:center}
+.tile.l{left:70px}.tile.r{left:550px}
+.tl{display:none;font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
+.tile .wrap{width:460px;height:600px;display:flex;align-items:center;justify-content:center}
+.tile img{max-width:460px;max-height:600px;width:auto;height:auto;border-radius:22px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:block}
 .wrap{position:relative}
 .ov{position:absolute;left:0;top:0;opacity:0}
 .ph{position:absolute;left:160px;top:90px;width:760px;height:570px}

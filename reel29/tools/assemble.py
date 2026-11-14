@@ -67,9 +67,11 @@ for n_,sn in enumerate(SN):
         cum+=w[i]; end=b_ if i==len(txts)-1 else time_at_speech(a_,b_,cum/tot)
         segs.append((prev,end)); prev=end
     ph[sn]=segs
-SC={3,8,12,15,18,21}; SHORT={1,2,13,14}
+SC={3,8,12,15,18}; SHORT={1,2,13,14}
+DROP={22,23,24}   # scene 6 (birthday / comment) removed on request: not cut into the video, voice or captions
 t=0.35; tl=[]; chunks=[]; parts=[]
 for n_,sn in enumerate(SN):
+    if sn in DROP: continue
     a_,b_=sa[n_],sb[n_]
     out=A/"proc"/f"c{sn}.wav"
     run(["-i",SRC,"-af",f"atrim=start={max(0,a_-0.08)}:end={b_+0.08},asetpts=PTS-STARTPTS,{TRIM},atempo={SPEED}","-ar","44100","-ac","1",str(out)])
@@ -78,7 +80,7 @@ for n_,sn in enumerate(SN):
         cs=t+max(0,(ps-a_))/SPEED; ce=t+min(d,(pe-a_)/SPEED)
         chunks.append({"sent":sn,"k":k,"start":round(cs,3),"end":round(ce,3)})
     g=0.55 if sn in SC else (0.14 if sn in SHORT else 0.25)
-    if sn==SN[-1]: g=0.0
+    if sn==max(k for k in SN if k not in DROP): g=0.0
     t+=d+g
 total=round(t,2); ins=[]; fl=[]
 for i,(p,s_) in enumerate(parts):
