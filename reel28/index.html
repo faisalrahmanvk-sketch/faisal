@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:"NotoMal";font-weight:800;src:url("assets/fonts/mal800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:800;src:url("assets/fonts/pop800.woff2") format("woff2")}
+@font-face{font-family:"PopFz";font-weight:700;src:url("assets/fonts/pop700.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#root{position:absolute;inset:0;background:#fff;font-family:"PopFz","NotoMal",sans-serif;color:#0b0b0b}
+.tool{position:absolute;left:0;top:215px;width:1080px;height:520px;display:flex;justify-content:center}
+.toolin{display:flex;flex-direction:column;align-items:center;gap:34px;width:360px}
+.lbl{font-weight:700;font-size:46px;letter-spacing:-0.5px;white-space:nowrap}
+.logo{width:300px;height:300px;display:flex;align-items:center;justify-content:center}
+.logo img{width:300px;height:300px;object-fit:contain;border-radius:36px}
+.ph{width:300px;height:300px;border-radius:66px;background:#f1f3f5;border:5px solid #e3e6ea;display:flex;align-items:center;justify-content:center;text-align:center;padding:26px;font-weight:800;font-size:54px;line-height:1.1}
+.cap{position:absolute;left:60px;top:700px;width:960px;height:190px;display:flex;align-items:center;justify-content:center;text-align:center}
+.cap span{display:block;font-weight:800;font-size:52px;line-height:1.3;letter-spacing:-0.5px}
+.pose{position:absolute;left:50%;margin-left:-161px;top:985px;height:700px;width:auto}
+.pose.think{margin-left:-123px}
+.endimg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+.wm{position:absolute;left:0;top:1722px;width:1080px;text-align:center;font-weight:700;font-size:38px;letter-spacing:0.5px;color:#000;opacity:0.7}
+
+/* SAFE MARGINS (approved): photos stay >=100px away from both edges so cropped / 16:9 / fit-to-phone uploads never cut them */
+.tile{position:absolute;top:190px;width:430px;text-align:center}
+.tile.l{left:95px}.tile.r{left:555px}
+.tl{font-weight:800;font-size:42px;margin-bottom:12px;letter-spacing:-0.5px;white-space:nowrap}
+.tile .wrap{width:430px;height:350px;display:flex;align-items:center;justify-content:center}
+.tile img{max-width:430px;max-height:350px;width:auto;height:auto;border-radius:22px;box-shadow:0 12px 34px rgba(0,0,0,.22);display:block}
+.wrap{position:relative}
+.ov{position:absolute;left:0;top:0;opacity:0}
+.ph{position:absolute;left:160px;top:90px;width:760px;height:570px}
+.ph img{width:760px;height:570px;object-fit:cover;border-radius:30px;box-shadow:0 16px 44px rgba(0,0,0,.25);border:2px solid #e5e7eb;display:block}
+.cap{left:120px;width:840px}
+.logos{position:relative;left:100px;top:60px;width:880px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px 20px}
+.lg{width:270px;height:200px;display:flex;align-items:center;justify-content:center}
+.lg img{max-width:270px;max-height:200px;width:auto;height:auto;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.22)}
+.grid{position:absolute;left:120px;top:50px;width:840px;display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.gc{width:408px;height:296px;display:flex;align-items:center;justify-content:center}
+.gc img{max-width:408px;max-height:296px;width:auto;height:auto;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.24);display:block}
+.board{position:absolute;left:110px;top:70px;width:860px}
+.bt{font-weight:800;font-size:40px;text-align:center;color:#475569;margin-bottom:14px}
+.row{display:flex;align-items:center;justify-content:space-between;background:#fff;border:3px solid #e5e7eb;border-radius:30px;padding:12px 36px;margin-bottom:16px;box-shadow:0 14px 36px rgba(0,0,0,.14)}
+.rl b{display:block;font-weight:800;font-size:46px;color:#0b0b14}
+.rl span{font-weight:700;font-size:30px;color:#64748b}
+.rp{font-weight:800;font-size:78px;letter-spacing:-2px}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="18.56" data-width="1080" data-height="1920">
+<div id="logos" class="clip " data-start="0.000" data-duration="3.157" data-track-index="3" style="z-index:3"><div class="logos"><div id="lg0" class="lg"><img src="assets/airindia.jpg" alt="Air India"></div><div id="lg1" class="lg"><img src="assets/etihad.jpg" alt="Etihad"></div><div id="lg2" class="lg"><img src="assets/qatar_airways.jpg" alt="Qatar Airways"></div><div id="lg3" class="lg"><img src="assets/saudia.jpg" alt="Saudia"></div><div id="lg4" class="lg"><img src="assets/sia.jpg" alt="Singapore Airlines"></div></div></div>
+<div id="pair-s0" class="clip " data-start="2.957" data-duration="1.653" data-track-index="3" style="z-index:3"><div id="s0r" class="tile r"><div class="tl">India</div><div class="wrap"><img src="assets/india_flag.jpg" alt="India"></div></div><div id="s0l" class="tile l"><div class="tl">Air India</div><div class="wrap"><img src="assets/airindia.jpg" alt="Air India"></div></div></div>
+<div id="pair-s1" class="clip " data-start="4.610" data-duration="1.989" data-track-index="3" style="z-index:3"><div id="s1r" class="tile r"><div class="tl">UAE</div><div class="wrap"><img src="assets/uae_flag.jpg" alt="UAE"></div></div><div id="s1l" class="tile l"><div class="tl">Etihad</div><div class="wrap"><img src="assets/etihad.jpg" alt="Etihad"></div></div></div>
+<div id="pair-s2" class="clip " data-start="6.599" data-duration="1.981" data-track-index="3" style="z-index:3"><div id="s2r" class="tile r"><div class="tl">Qatar</div><div class="wrap"><img src="assets/qatar_flag.jpg" alt="Qatar"></div></div><div id="s2l" class="tile l"><div class="tl">Qatar Airways</div><div class="wrap"><img src="assets/qatar_airways.jpg" alt="Qatar Airways"></div></div></div>
+<div id="pair-s3" class="clip " data-start="8.580" data-duration="1.850" data-track-index="3" style="z-index:3"><div id="s3r" class="tile r"><div class="tl">Saudi Arabia</div><div class="wrap"><img src="assets/saudi_flag.jpg" alt="Saudi Arabia"></div></div><div id="s3l" class="tile l"><div class="tl">Saudia</div><div class="wrap"><img src="assets/saudia.jpg" alt="Saudia"></div></div></div>
+<div id="pair-s4" class="clip " data-start="10.430" data-duration="5.730" data-track-index="3" style="z-index:3"><div id="s4r" class="tile r"><div class="tl">Singapore</div><div class="wrap"><img src="assets/sg_flag.jpg" alt="Singapore"></div></div><div id="s4l" class="tile l"><div class="tl">Singapore Airlines</div><div class="wrap"><img src="assets/sia.jpg" alt="Singapore Airlines"></div></div></div>
+<div id="c0" class="clip " data-start="0.380" data-duration="0.889" data-track-index="5" style="z-index:5"><div class="cap"><span id="c0-in">ഓരോ രാജ്യത്തിന്റെയും</span></div></div>
+<div id="c1" class="clip " data-start="1.269" data-duration="1.090" data-track-index="5" style="z-index:5"><div class="cap"><span id="c1-in">official airline ഏതാണെന്ന്</span></div></div>
+<div id="c2" class="clip " data-start="2.359" data-duration="0.728" data-track-index="5" style="z-index:5"><div class="cap"><span id="c2-in">അറിയാമോ?</span></div></div>
+<div id="c3" class="clip " data-start="3.087" data-duration="0.718" data-track-index="5" style="z-index:5"><div class="cap"><span id="c3-in">Air India.</span></div></div>
+<div id="c4" class="clip " data-start="3.805" data-duration="0.935" data-track-index="5" style="z-index:5"><div class="cap"><span id="c4-in">India.</span></div></div>
+<div id="c5" class="clip " data-start="4.740" data-duration="0.782" data-track-index="5" style="z-index:5"><div class="cap"><span id="c5-in">Etihad.</span></div></div>
+<div id="c6" class="clip " data-start="5.522" data-duration="1.207" data-track-index="5" style="z-index:5"><div class="cap"><span id="c6-in">UAE.</span></div></div>
+<div id="c7" class="clip " data-start="6.729" data-duration="1.100" data-track-index="5" style="z-index:5"><div class="cap"><span id="c7-in">Qatar Airways.</span></div></div>
+<div id="c8" class="clip " data-start="7.829" data-duration="0.881" data-track-index="5" style="z-index:5"><div class="cap"><span id="c8-in">Qatar.</span></div></div>
+<div id="c9" class="clip " data-start="8.710" data-duration="0.821" data-track-index="5" style="z-index:5"><div class="cap"><span id="c9-in">Saudia.</span></div></div>
+<div id="c10" class="clip " data-start="9.531" data-duration="1.029" data-track-index="5" style="z-index:5"><div class="cap"><span id="c10-in">Saudi Arabia.</span></div></div>
+<div id="c11" class="clip " data-start="10.560" data-duration="1.219" data-track-index="5" style="z-index:5"><div class="cap"><span id="c11-in">Singapore Airlines.</span></div></div>
+<div id="c12" class="clip " data-start="11.779" data-duration="0.790" data-track-index="5" style="z-index:5"><div class="cap"><span id="c12-in">Singapore.</span></div></div>
+<div id="c13" class="clip " data-start="12.569" data-duration="1.042" data-track-index="5" style="z-index:5"><div class="cap"><span id="c13-in">ഇതിൽ ഏത് airline-ൽ ആണ്</span></div></div>
+<div id="c14" class="clip " data-start="13.611" data-duration="1.494" data-track-index="5" style="z-index:5"><div class="cap"><span id="c14-in">നിങ്ങൾ യാത്ര ചെയ്തിട്ടുള്ളത്?</span></div></div>
+<div id="c15" class="clip " data-start="15.105" data-duration="0.955" data-track-index="5" style="z-index:5"><div class="cap"><span id="c15-in">Comment ചെയ്യൂ!</span></div></div>
+<div id="p0" class="clip " data-start="0.000" data-duration="1.613" data-track-index="2" style="z-index:2"><img id="p0-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p1" class="clip " data-start="1.613" data-duration="1.394" data-track-index="2" style="z-index:2"><img id="p1-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="p2" class="clip " data-start="3.007" data-duration="0.718" data-track-index="2" style="z-index:2"><img id="p2-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p3" class="clip " data-start="3.725" data-duration="0.935" data-track-index="2" style="z-index:2"><img id="p3-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p4" class="clip " data-start="4.660" data-duration="0.782" data-track-index="2" style="z-index:2"><img id="p4-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p5" class="clip " data-start="5.442" data-duration="1.207" data-track-index="2" style="z-index:2"><img id="p5-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p6" class="clip " data-start="6.649" data-duration="1.100" data-track-index="2" style="z-index:2"><img id="p6-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p7" class="clip " data-start="7.749" data-duration="0.881" data-track-index="2" style="z-index:2"><img id="p7-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p8" class="clip " data-start="8.630" data-duration="0.821" data-track-index="2" style="z-index:2"><img id="p8-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p9" class="clip " data-start="9.451" data-duration="1.029" data-track-index="2" style="z-index:2"><img id="p9-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p10" class="clip " data-start="10.480" data-duration="1.219" data-track-index="2" style="z-index:2"><img id="p10-in" class="pose" src="assets/pose_pointL.png" alt="character"></div>
+<div id="p11" class="clip " data-start="11.699" data-duration="0.790" data-track-index="2" style="z-index:2"><img id="p11-in" class="pose" src="assets/pose_pointR.png" alt="character"></div>
+<div id="p12" class="clip " data-start="12.489" data-duration="3.571" data-track-index="2" style="z-index:2"><img id="p12-in" class="pose think" src="assets/pose_think.png" alt="character"></div>
+<div id="wm" class="clip " data-start="0.000" data-duration="16.060" data-track-index="4" style="z-index:4"><div class="wm">@fyze.ai</div></div>
+<div id="endcard" class="clip " data-start="16.060" data-duration="2.500" data-track-index="7" style="z-index:7"><img id="endcard-in" class="endimg" src="assets/endcard.png" alt="Follow fyze.ai"></div>
+<audio id="voice" src="audio/mix.mp3" data-start="0" data-duration="18.56" data-track-index="9" data-volume="1"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+gsap.set("#lg0,#lg1,#lg2,#lg3,#lg4",{opacity:0});
+tl.fromTo("#lg0",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"},0.15);
+tl.fromTo("#lg1",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"},0.15);
+tl.fromTo("#lg2",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"},0.15);
+tl.fromTo("#lg3",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"},0.15);
+tl.fromTo("#lg4",{scale:0.4,opacity:0},{scale:1,opacity:1,duration:0.4,ease:"back.out(1.6)"},0.15);
+tl.to("#logos",{opacity:0,duration:0.2},2.907);
+gsap.set("#s0r,#s0l",{opacity:0});
+tl.fromTo("#s0r",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},3.745);
+tl.fromTo("#s0l",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},3.027);
+tl.to("#pair-s0",{opacity:0,duration:0.2},4.390);
+tl.to("#s0l",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},3.037);
+tl.to("#s0r",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},3.037);
+tl.to("#s0r",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},3.755);
+tl.to("#s0l",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},3.755);
+gsap.set("#s1r,#s1l",{opacity:0});
+tl.fromTo("#s1r",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},5.462);
+tl.fromTo("#s1l",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},4.680);
+tl.to("#pair-s1",{opacity:0,duration:0.2},6.379);
+tl.to("#s1l",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},4.690);
+tl.to("#s1r",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},4.690);
+tl.to("#s1r",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},5.472);
+tl.to("#s1l",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},5.472);
+gsap.set("#s2r,#s2l",{opacity:0});
+tl.fromTo("#s2r",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},7.769);
+tl.fromTo("#s2l",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},6.669);
+tl.to("#pair-s2",{opacity:0,duration:0.2},8.360);
+tl.to("#s2l",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},6.679);
+tl.to("#s2r",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},6.679);
+tl.to("#s2r",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},7.779);
+tl.to("#s2l",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},7.779);
+gsap.set("#s3r,#s3l",{opacity:0});
+tl.fromTo("#s3r",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},9.471);
+tl.fromTo("#s3l",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},8.650);
+tl.to("#pair-s3",{opacity:0,duration:0.2},10.210);
+tl.to("#s3l",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},8.660);
+tl.to("#s3r",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},8.660);
+tl.to("#s3r",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},9.481);
+tl.to("#s3l",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},9.481);
+gsap.set("#s4r,#s4l",{opacity:0});
+tl.fromTo("#s4r",{x:120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},11.719);
+tl.fromTo("#s4l",{x:-120,scale:0.4,opacity:0},{x:0,scale:1,opacity:1,duration:0.45,ease:"back.out(1.7)"},10.500);
+tl.to("#pair-s4",{opacity:0,duration:0.2},15.940);
+tl.to("#s4l",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},10.510);
+tl.to("#s4r",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},10.510);
+tl.to("#s4r",{scale:1.07,opacity:1,duration:0.35,ease:"power2.out"},11.729);
+tl.to("#s4l",{scale:0.9,opacity:0.45,duration:0.35,ease:"power2.out"},11.729);
+tl.to("#s4l,#s4r",{scale:1,opacity:1,duration:0.35},12.509);
+tl.fromTo("#c0-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},0.380);
+tl.fromTo("#c1-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},1.269);
+tl.fromTo("#c2-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},2.359);
+tl.fromTo("#c3-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.087);
+tl.fromTo("#c4-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},3.805);
+tl.fromTo("#c5-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},4.740);
+tl.fromTo("#c6-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},5.522);
+tl.fromTo("#c7-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},6.729);
+tl.fromTo("#c8-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},7.829);
+tl.fromTo("#c9-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},8.710);
+tl.fromTo("#c10-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},9.531);
+tl.fromTo("#c11-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},10.560);
+tl.fromTo("#c12-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},11.779);
+tl.fromTo("#c13-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},12.569);
+tl.fromTo("#c14-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},13.611);
+tl.fromTo("#c15-in",{y:18,opacity:0},{y:0,opacity:1,duration:0.18,ease:"power2.out"},15.105);
+tl.fromTo("#p0-in",{y:0},{y:-9,duration:0.807,ease:"sine.inOut",yoyo:true,repeat:1},0.000);
+tl.fromTo("#p1-in",{y:0},{y:-9,duration:0.697,ease:"sine.inOut",yoyo:true,repeat:1},1.613);
+tl.fromTo("#p2-in",{y:0},{y:-9,duration:0.359,ease:"sine.inOut",yoyo:true,repeat:1},3.007);
+tl.fromTo("#p3-in",{y:0},{y:-9,duration:0.468,ease:"sine.inOut",yoyo:true,repeat:1},3.725);
+tl.fromTo("#p4-in",{y:0},{y:-9,duration:0.391,ease:"sine.inOut",yoyo:true,repeat:1},4.660);
+tl.fromTo("#p5-in",{y:0},{y:-9,duration:0.603,ease:"sine.inOut",yoyo:true,repeat:1},5.442);
+tl.fromTo("#p6-in",{y:0},{y:-9,duration:0.550,ease:"sine.inOut",yoyo:true,repeat:1},6.649);
+tl.fromTo("#p7-in",{y:0},{y:-9,duration:0.440,ease:"sine.inOut",yoyo:true,repeat:1},7.749);
+tl.fromTo("#p8-in",{y:0},{y:-9,duration:0.410,ease:"sine.inOut",yoyo:true,repeat:1},8.630);
+tl.fromTo("#p9-in",{y:0},{y:-9,duration:0.514,ease:"sine.inOut",yoyo:true,repeat:1},9.451);
+tl.fromTo("#p10-in",{y:0},{y:-9,duration:0.610,ease:"sine.inOut",yoyo:true,repeat:1},10.480);
+tl.fromTo("#p11-in",{y:0},{y:-9,duration:0.395,ease:"sine.inOut",yoyo:true,repeat:1},11.699);
+tl.fromTo("#p12-in",{y:0},{y:-9,duration:1.785,ease:"sine.inOut",yoyo:true,repeat:1},12.489);
+tl.fromTo("#endcard-in",{opacity:0,scale:1.05},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.4)"},16.06);
+window.__timelines["main"] = tl;
+</script>
+</body></html>
