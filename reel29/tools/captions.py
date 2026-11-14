@@ -1,0 +1,13 @@
+CAP={1:["ഇതാണ് Fazza."],2:["ഇതാണ് Sheikh Mohammed."],3:["എന്താണ് വ്യത്യാസം?"],
+4:["Instagram-ൽ നമ്മൾ എപ്പോഴും","കാണുന്ന Fazza ഇദ്ദേഹമാണ്."],5:["ശരിക്കുള്ള പേര്","Sheikh Hamdan bin Mohammed."],
+6:["Dubai Ruler Sheikh Mohammed-ന്റെ","മകനാണ്."],7:["‘Fazza’ എന്നത് അദ്ദേഹം","കവിതകൾ എഴുതുന്ന പേരാണ്."],
+8:["മറ്റുള്ളവരെ സഹായിക്കാൻ","ഓടിയെത്തുന്ന ആൾ എന്നാണ്","അതിന്റെ അർത്ഥം!"],
+9:["Sheikh Mohammed bin Rashid ആണ്","Dubai-യുടെ Ruler."],10:["2006 മുതൽ","Dubai ഭരിക്കുന്നു."],
+11:["UAE-യുടെ Vice President-ഉം","Prime Minister-ഉം ഇദ്ദേഹമാണ്."],12:["Fazza-യെ പോലെ","അച്ഛനും ഒരു കവിയാണ്!"],
+13:["ഇതാണ് Crown Prince."],14:["ഇതാണ് Ruler."],15:["എന്താണ് വ്യത്യാസം?"],
+16:["Crown Prince എന്നാൽ","അടുത്ത Ruler ആകാൻ","തിരഞ്ഞെടുക്കപ്പെട്ട ആൾ."],
+17:["2008-ൽ Sheikh Mohammed","തന്നെയാണ് Fazza-യെ","Dubai-യുടെ Crown Prince ആക്കിയത്."],
+18:["2024 മുതൽ UAE-യുടെ","Deputy Prime Minister-ഉം","Defence Minister-ഉം","കൂടിയാണ് Fazza."],
+19:["Ruler ആണ് ഒരു emirate-ലെ","ഏറ്റവും ഉയർന്ന അധികാരി."],
+20:["ചുരുക്കി പറഞ്ഞാൽ,","അച്ഛൻ Sheikh Mohammed","Dubai-യുടെ Ruler."],21:["മകൻ Fazza","Dubai-യുടെ Crown Prince!"],
+22:["ഇന്ന് November 14,","Fazza-യുടെ birthday ആണ്!"],23:["നിങ്ങൾ Fazza-യുടെ","fan ആണോ?"],24:["Comment ചെയ്യൂ!"]}
